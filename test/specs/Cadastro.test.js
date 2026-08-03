@@ -7,7 +7,7 @@ describe('My Login application', () => {
     it('should login with valid credentials', async () => {
         await homePageCadastro.openMenuCadastro('profile')
         await cadastroPage.createAccount('John', 'Silva', '11987654321', email, '123456', '123456')
-        await homePageCadastro.openMenuCadastro('profile')
+        await (await homePageCadastro.openMenuCadastro('profile'))
         expect((await profilePageCadastro.profileNameCadastro('Silva John')).isDisplayed()).toBeTruthy()
         await driver.pause(1000)
     })

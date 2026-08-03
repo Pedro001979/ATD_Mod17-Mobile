@@ -1,8 +1,11 @@
 import { $ } from '@wdio/globals'
 
 class ProfilePageLogin {
-    async profileNameLogin(name) {
-        return $(`//android.widget.TextView[@text="${name}"]`);
+
+    profileNameLogin(name) {
+        return $(`android=new UiSelector().text("${name}")`);
     }
+
 }
+
 export default new ProfilePageLogin();
