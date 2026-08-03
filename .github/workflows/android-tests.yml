@@ -7,6 +7,7 @@ on:
     branches: [ main, master, ci ]
   workflow_dispatch:
 
+    
 jobs:
   test:
     runs-on: macos-13 # Usar macos-13 garante suporte x86_64 estável para o emulador Android
