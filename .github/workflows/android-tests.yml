@@ -2,14 +2,14 @@ name: Executar Testes Mobile (WebdriverIO + Appium)
 
 on:
   push:
-    branches: [ main, master, ci ]  # <-- Adicionei 'ci' aqui!
+    branches: [ main, master, ci ]
   pull_request:
     branches: [ main, master, ci ]
   workflow_dispatch:
 
 jobs:
   test:
-    runs-on: macos-latest # Utilizar macOS garante suporte e aceleração gráfica para o emulador Android
+    runs-on: macos-13 # Usar macos-13 garante suporte x86_64 estável para o emulador Android
 
     steps:
       - name: Checkout do código
@@ -33,10 +33,10 @@ jobs:
       - name: Executar testes no Emulador Android
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
-          api-level: 31
+          api-level: 29
           target: default
-          arch: x86_64
+          arch: x86
           force-avd-creation: false
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           script: npm test
