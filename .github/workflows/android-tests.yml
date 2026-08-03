@@ -2,10 +2,10 @@ name: Executar Testes Mobile (WebdriverIO + Appium)
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, ci ]  # <-- Adicionei 'ci' aqui!
   pull_request:
-    branches: [ main, master ]
-  workflow_dispatch: # Permite executar manualmente pela interface do GitHub
+    branches: [ main, master, ci ]
+  workflow_dispatch:
 
 jobs:
   test:
