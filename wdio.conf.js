@@ -16,29 +16,24 @@ export const config = {
 
     services: [],
 
-    capabilities: [{
-        platformName: 'Android',
+  capabilities: [{
+    platformName: 'Android',
+    'appium:automationName': 'UiAutomator2',
+    'appium:deviceName': 'Android Emulator',
 
-        'appium:automationName': 'UiAutomator2',
+    // --- ADICIONE ESTA LINHA ABAIXO ---
+    'appium:app': './apps/ebacshop.apks', 
+    // ----------------------------------
 
-        'appium:deviceName': 'Android Emulator',
-
-        'appium:appPackage': 'br.com.lojaebac',
-
-        'appium:appActivity': '.MainActivity',
-
-        'appium:autoGrantPermissions': true,
-
-        'appium:noReset': false,
-
-        'appium:fullReset': false,
-
-        'appium:forceAppLaunch': true,
-
-        'appium:disableIdLocatorAutocompletion': true,
-
-        'appium:newCommandTimeout': 240
-    }],
+    'appium:appPackage': 'br.com.lojaebac',
+    'appium:appActivity': '.MainActivity',
+    'appium:autoGrantPermissions': true,
+    'appium:noReset': false,
+    'appium:fullReset': false,
+    'appium:forceAppLaunch': true,
+    'appium:disableIdLocatorAutocompletion': true,
+    'appium:newCommandTimeout': 240
+}],
 
     logLevel: 'info',
 
