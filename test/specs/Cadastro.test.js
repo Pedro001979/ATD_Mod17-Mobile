@@ -9,7 +9,7 @@ describe('My Login application', () => {
         await cadastroPage.createAccount('John', 'Silva', '11987654321', email, '123456', '123456')
         await (await homePageCadastro.openMenuCadastro('profile'))
         expect((await profilePageCadastro.profileNameCadastro('Silva John')).isDisplayed()).toBeTruthy()
-        await driver.pause(1000)
+        await driver.pause(10000)
     })
 })
 
