@@ -39,6 +39,16 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Instalar Bundletool
+        run: |
+          wget https://github.com/google/bundletool/releases/download/1.18.1/bundletool-all-1.18.1.jar
+          sudo mv bundletool-all-1.18.1.jar /usr/local/bin/bundletool.jar
+          sudo chmod +x /usr/local/bin/bundletool.jar
+
+      - name: Adicionar Bundletool ao PATH
+        run: |
+          echo "/usr/local/bin" >> $GITHUB_PATH
+
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
