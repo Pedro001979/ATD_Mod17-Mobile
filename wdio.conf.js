@@ -14,7 +14,7 @@ export const config = {
 
     maxInstances: 1,
 
-    services: [],
+    services: [appium],
 
   capabilities: [{
     platformName: 'Android',
