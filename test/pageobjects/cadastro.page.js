@@ -42,18 +42,42 @@ class CadastroPage {
     }
 
     async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
+        // 1. Acesso à tela
         await this.signUpButton.waitForDisplayed({ timeout: 15000 });
         await this.signUpButton.click();
-        await this.btnsignUp.click();
+
+        if (this.btnsignUp) {
+            await this.btnsignUp.waitForDisplayed({ timeout: 10000 });
+            await this.btnsignUp.click();
+        }
+
+        // 2. Preenchimento do formulário com esperas
+        await this.firstName.waitForDisplayed({ timeout: 15000 });
         await this.firstName.setValue(firstName);
+
+        await this.lastName.waitForDisplayed({ timeout: 10000 });
         await this.lastName.setValue(lastName);
+
+        await this.phoneNumber.waitForDisplayed({ timeout: 10000 });
         await this.phoneNumber.setValue(phoneNumber);
+
+        await this.email.waitForDisplayed({ timeout: 10000 });
         await this.email.setValue(email);
+
+        await this.password.waitForDisplayed({ timeout: 10000 });
         await this.password.setValue(password);
+
+        await this.repassword.waitForDisplayed({ timeout: 10000 });
         await this.repassword.setValue(repassword);
+
+        // 3. Submissão e telas finais
+        await this.btnCreate.waitForDisplayed({ timeout: 10000 });
         await this.btnCreate.click();
-        await this.btnCreateWishlist.waitForDisplayed({ timeout: 10000 });
+
+        await this.btnCreateWishlist.waitForDisplayed({ timeout: 15000 });
         await this.btnCreateWishlist.click();
+
+        await this.btnCreateBack.waitForDisplayed({ timeout: 10000 });
         await this.btnCreateBack.click();
     }
 }
