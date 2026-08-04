@@ -16,28 +16,29 @@ export const config = {
 
     services: ['appium'],
 
-  capabilities: [{
-    platformName: 'Android',
-    'appium:automationName': 'UiAutomator2',
-    'appium:deviceName': 'Android Emulator',
+    capabilities: [{
+        platformName: 'Android',
+        'appium:automationName': 'UiAutomator2',
+        'appium:deviceName': 'Android Emulator',
 
-    // --- ADICIONE ESTA LINHA ABAIXO ---
-    'appium:app': './apps/ebacshop.apks', 
-    // ----------------------------------
+        // --- ADICIONE ESTA LINHA ABAIXO ---
+        'appium:app': './apps/ebacshop.apks', 
+        // ----------------------------------
 
-    'appium:appPackage': 'br.com.lojaebac',
-    'appium:appActivity': '.MainActivity',
-    'appium:autoGrantPermissions': true,
-    'appium:noReset': false,
-    'appium:fullReset': false,
-    'appium:forceAppLaunch': true,
-    'appium:disableIdLocatorAutocompletion': true,
-    'appium:newCommandTimeout': 240
-}],
+        'appium:appPackage': 'br.com.lojaebac',
+        'appium:appActivity': '.MainActivity',
+        'appium:autoGrantPermissions': true,
+        'appium:noReset': false,
+        'appium:fullReset': false,
+        'appium:forceAppLaunch': true,
+        'appium:disableIdLocatorAutocompletion': true,
+        'appium:newCommandTimeout': 240
+    }],
 
     logLevel: 'info',
 
-    waitforTimeout: 10000,
+    // --- MUDANÇA AQUI: Aumentado de 10000 para 20000 (20s) para ajudar no GitHub Actions ---
+    waitforTimeout: 20000,
 
     connectionRetryTimeout: 120000,
 
@@ -54,9 +55,10 @@ export const config = {
         }]
     ],
 
+    // --- MUDANÇA AQUI: Ajustado para garantir o timeout maior do Mocha ---
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 90000 // Aumentado para 90s para dar margem a testes mais lentos no CI
     },
 
     afterTest: async function (test, context, { error }) {
