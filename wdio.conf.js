@@ -21,7 +21,7 @@ export const config = {
         'appium:automationName': 'UiAutomator2',
         'appium:deviceName': 'Android Emulator',
 
-        'appium:app': './apps/ebacshop.apk', 
+        'appium:app': './apps/ebacshop.apks', 
 
         'appium:appPackage': 'br.com.lojaebac',
         'appium:appActivity': '.MainActivity',
