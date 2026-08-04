@@ -14,6 +14,18 @@ jobs:
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Baixar arquivos Git LFS
+        run: git lfs pull
+
+      - name: Verificar arquivo do app
+        run: |
+          ls -lh apps
+          file apps/ebacshop.apks
+          head -c 20 apps/ebacshop.apks | xxd
 
       - name: Habilitar KVM
         run: |
@@ -43,6 +55,11 @@ jobs:
           target: default
           arch: x86
           profile: pixel
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
+          emulator-options: >
+            -no-window
+            -gpu swiftshader_indirect
+            -noaudio
+            -no-boot-anim
+            -no-metrics
           disable-animations: true
           script: npm test
