@@ -1,6 +1,7 @@
 import { $ } from '@wdio/globals'
 
 class CadastroPage {
+    // 1. Mapeamento dos elementos
     get btnsignUp() {
         return $('id:signUp')
     }
@@ -41,17 +42,12 @@ class CadastroPage {
         return $('id:back')
     }
 
+    // 2. Método de Execução
     async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
-        // 1. Acesso à tela
-        await this.signUpButton.waitForDisplayed({ timeout: 15000 });
-        await this.signUpButton.click();
+        // CORRIGIDO: mudado de this.signUpButton para this.btnsignUp
+        await this.btnsignUp.waitForDisplayed({ timeout: 15000 });
+        await this.btnsignUp.click();
 
-        if (this.btnsignUp) {
-            await this.btnsignUp.waitForDisplayed({ timeout: 10000 });
-            await this.btnsignUp.click();
-        }
-
-        // 2. Preenchimento do formulário com esperas
         await this.firstName.waitForDisplayed({ timeout: 15000 });
         await this.firstName.setValue(firstName);
 
@@ -70,7 +66,7 @@ class CadastroPage {
         await this.repassword.waitForDisplayed({ timeout: 10000 });
         await this.repassword.setValue(repassword);
 
-        // 3. Submissão e telas finais
+        // Submissão e telas finais
         await this.btnCreate.waitForDisplayed({ timeout: 10000 });
         await this.btnCreate.click();
 
@@ -81,4 +77,5 @@ class CadastroPage {
         await this.btnCreateBack.click();
     }
 }
+
 export default new CadastroPage();

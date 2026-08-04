@@ -21,16 +21,19 @@ export const config = {
         'appium:automationName': 'UiAutomator2',
         'appium:deviceName': 'Android Emulator',
 
-        // --- ADICIONE ESTA LINHA ABAIXO ---
         'appium:app': './apps/ebacshop.apks', 
-        // ----------------------------------
 
         'appium:appPackage': 'br.com.lojaebac',
         'appium:appActivity': '.MainActivity',
         'appium:autoGrantPermissions': true,
-        'appium:noReset': false,
-        'appium:fullReset': false,
-        'appium:forceAppLaunch': true,
+
+        // --- AJUSTES PARA GARANTIR O RESET COMPLETO ---
+        'appium:noReset': false,            // Limpa dados/cache do app ao iniciar
+        'appium:fullReset': false,           // Não desinstala o app (economiza tempo), mas limpa os dados
+        'appium:dontStopAppOnReset': false,  // Força o encerramento completo do app antes do reset
+        'appium:shouldTerminateApp': true,   // Garante que o app é fechado ao terminar o teste
+        // ----------------------------------------------
+
         'appium:disableIdLocatorAutocompletion': true,
         'appium:newCommandTimeout': 240
     }],
