@@ -34,28 +34,66 @@ jobs:
           sudo apt-get install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
           sudo chmod 666 /dev/kvm
 
-      - name: Configurar Java JDK
+      - name: Configurar Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
+      ##################################################################
+      # Instalação do Bundletool
+      ##################################################################
+
       - name: Instalar Bundletool
         run: |
           wget https://github.com/google/bundletool/releases/download/1.18.1/bundletool-all-1.18.1.jar
-          sudo mv bundletool-all-1.18.1.jar /usr/local/bin/bundletool.jar
 
-      - name: Adicionar Bundletool ao PATH
-        run: echo "/usr/local/bin" >> $GITHUB_PATH
+          sudo mkdir -p /opt/bundletool
+
+          sudo mv bundletool-all-1.18.1.jar /opt/bundletool/bundletool.jar
+
+          sudo ln -sf /opt/bundletool/bundletool.jar /usr/local/bin/bundletool.jar
+
+          sudo tee /usr/local/bin/bundletool > /dev/null << 'EOF'
+          #!/bin/bash
+          exec java -jar /usr/local/bin/bundletool.jar "$@"
+          EOF
+
+          sudo chmod +x /usr/local/bin/bundletool
+
+      - name: Validar instalação do Bundletool
+        run: |
+          echo "PATH=$PATH"
+
+          which java
+          java -version
+
+          which bundletool || true
+          which bundletool.jar || true
+
+          ls -l /usr/local/bin/bundletool*
+          ls -l /opt/bundletool
+
+          bundletool version
+
+      ##################################################################
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
           cache: npm
 
       - name: Instalar dependências
         run: npm ci
+
+      - name: Verificar versões
+        run: |
+          node -v
+          npm -v
+          appium --version
+          npm ls appium
+          npm ls appium-uiautomator2-driver
 
       - name: Executar testes no Emulador Android
         uses: ReactiveCircus/android-emulator-runner@v2
@@ -64,26 +102,26 @@ jobs:
           target: default
           arch: x86
           profile: pixel
+          disable-animations: true
           emulator-options: >
             -no-window
             -gpu swiftshader_indirect
             -noaudio
             -no-boot-anim
             -no-metrics
-          disable-animations: true
           script: |
-            echo "Dispositivos disponíveis:"
+            echo "======= DEVICES ======="
             adb devices
 
-            echo "Desabilitando animações..."
-            adb shell settings put global window_animation_scale 0.0
-            adb shell settings put global transition_animation_scale 0.0
-            adb shell settings put global animator_duration_scale 0.0
+            echo "======= BUNDLETOOL ======="
+            which bundletool || true
+            which bundletool.jar || true
+            bundletool version || true
 
-            echo "Versão do Appium:"
-            appium --version || true
+            echo "======= APPIUM ======="
+            appium --version
 
-            echo "Executando testes..."
+            echo "======= TESTES ======="
             npm test
 
       - name: Capturar Logcat
@@ -91,7 +129,7 @@ jobs:
         run: |
           adb logcat -d > logcat.txt || true
 
-      - name: Upload do Logcat
+      - name: Upload Logcat
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -99,7 +137,7 @@ jobs:
           path: logcat.txt
           if-no-files-found: ignore
 
-      - name: Upload Allure Results
+      - name: Upload Allure
         if: always()
         uses: actions/upload-artifact@v4
         with:
