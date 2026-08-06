@@ -23,7 +23,6 @@ class CadastroPage {
     get btnBack() { return $('id:back') }
 
     async preencherCampo(elemento, valor) {
-
         await elemento.waitForDisplayed({
             timeout: 30000
         })
@@ -32,7 +31,7 @@ class CadastroPage {
 
         try {
             await elemento.clearValue()
-        } catch (e) {}
+        } catch (e) { }
 
         await elemento.setValue(valor)
 
@@ -40,9 +39,9 @@ class CadastroPage {
 
         const texto = await elemento.getAttribute('text')
 
-        expect(texto).toContain(valor)
+        // Validação corrigida para comparar strings diretamente:
+        expect(texto).toBe(valor)
     }
-
     async esconderTeclado() {
 
         try {
@@ -53,7 +52,7 @@ class CadastroPage {
 
             }
 
-        } catch (e) {}
+        } catch (e) { }
 
     }
 
