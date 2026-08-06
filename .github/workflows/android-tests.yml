@@ -22,11 +22,10 @@ jobs:
       - name: Baixar arquivos Git LFS
         run: git lfs pull
 
-      - name: Verificar arquivo do app
+      - name: Verificar arquivo do app (.apk)
         run: |
           ls -lh apps
-          file apps/ebacshop.apks
-          head -c 20 apps/ebacshop.apks | xxd
+          file apps/ebacshop.apk
 
       - name: Habilitar KVM
         run: |
@@ -39,44 +38,6 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-
-      ##################################################################
-      # Instalação do Bundletool
-      ##################################################################
-
-      - name: Instalar Bundletool
-        run: |
-          wget https://github.com/google/bundletool/releases/download/1.18.1/bundletool-all-1.18.1.jar
-
-          sudo mkdir -p /opt/bundletool
-
-          sudo mv bundletool-all-1.18.1.jar /opt/bundletool/bundletool.jar
-
-          sudo ln -sf /opt/bundletool/bundletool.jar /usr/local/bin/bundletool.jar
-
-          sudo tee /usr/local/bin/bundletool > /dev/null << 'EOF'
-          #!/bin/bash
-          exec java -jar /usr/local/bin/bundletool.jar "$@"
-          EOF
-
-          sudo chmod +x /usr/local/bin/bundletool
-
-      - name: Validar instalação do Bundletool
-        run: |
-          echo "PATH=$PATH"
-
-          which java
-          java -version
-
-          which bundletool || true
-          which bundletool.jar || true
-
-          ls -l /usr/local/bin/bundletool*
-          ls -l /opt/bundletool
-
-          bundletool version
-
-      ##################################################################
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
@@ -112,11 +73,6 @@ jobs:
           script: |
             echo "======= DEVICES ======="
             adb devices
-
-            echo "======= BUNDLETOOL ======="
-            which bundletool || true
-            which bundletool.jar || true
-            bundletool version || true
 
             echo "======= APPIUM ======="
             appium --version

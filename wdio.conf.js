@@ -37,7 +37,8 @@ export const config = {
 
         'appium:deviceName': 'Android Emulator',
 
-        'appium:app': './apps/ebacshop.apks',
+        // Apontando diretamente para o arquivo .apk
+        'appium:app': './apps/ebacshop.apk',
 
         'appium:appPackage': 'br.com.lojaebac',
 
