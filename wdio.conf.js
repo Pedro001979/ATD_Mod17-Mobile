@@ -14,60 +14,145 @@ export const config = {
 
     maxInstances: 1,
 
-    services: ['appium'],
-
-    capabilities: [{
-        platformName: 'Android',
-        'appium:automationName': 'UiAutomator2',
-        'appium:deviceName': 'Android Emulator',
-
-        'appium:app': './apps/ebacshop.apks', 
-
-        'appium:appPackage': 'br.com.lojaebac',
-        'appium:appActivity': '.MainActivity',
-        'appium:autoGrantPermissions': true,
-
-        // --- AJUSTES PARA GARANTIR O RESET COMPLETO ---
-        'appium:noReset': false,            // Limpa dados/cache do app ao iniciar
-        'appium:fullReset': false,           // Não desinstala o app (economiza tempo), mas limpa os dados
-        'appium:dontStopAppOnReset': false,  // Força o encerramento completo do app antes do reset
-        'appium:shouldTerminateApp': true,   // Garante que o app é fechado ao terminar o teste
-        // ----------------------------------------------
-
-        'appium:disableIdLocatorAutocompletion': true,
-        'appium:newCommandTimeout': 240
-    }],
-
-    logLevel: 'info',
-
-    // --- MUDANÇA AQUI: Aumentado de 10000 para 20000 (20s) para ajudar no GitHub Actions ---
-    waitforTimeout: 20000,
-
-    connectionRetryTimeout: 120000,
-
-    connectionRetryCount: 3,
-
-    framework: 'mocha',
-
-    reporters: [
-        'spec',
-        ['allure', {
-            outputDir: 'allure-results',
-            disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: true
+    //
+    // Appium
+    //
+    services: [
+        ['appium', {
+            command: 'appium',
+            args: {
+                relaxedSecurity: true
+            }
         }]
     ],
 
-    // --- MUDANÇA AQUI: Ajustado para garantir o timeout maior do Mocha ---
+    //
+    // Capabilities
+    //
+    capabilities: [{
+
+        platformName: 'Android',
+
+        'appium:automationName': 'UiAutomator2',
+
+        'appium:deviceName': 'Android Emulator',
+
+        'appium:app': './apps/ebacshop.apks',
+
+        'appium:appPackage': 'br.com.lojaebac',
+
+        'appium:appActivity': '.MainActivity',
+
+        'appium:autoGrantPermissions': true,
+
+        //
+        // Reset do aplicativo
+        //
+        'appium:noReset': false,
+        'appium:fullReset': false,
+        'appium:dontStopAppOnReset': false,
+        'appium:shouldTerminateApp': true,
+
+        //
+        // Performance
+        //
+        'appium:disableIdLocatorAutocompletion': true,
+
+        'appium:newCommandTimeout': 300,
+
+        'appium:adbExecTimeout': 120000,
+
+        'appium:androidInstallTimeout': 180000,
+
+        'appium:uiautomator2ServerInstallTimeout': 120000,
+
+        'appium:uiautomator2ServerLaunchTimeout': 120000
+
+    }],
+
+    //
+    // Logs
+    //
+    logLevel: 'info',
+
+    outputDir: './logs',
+
+    //
+    // Timeouts
+    //
+    waitforTimeout: 30000,
+
+    connectionRetryTimeout: 180000,
+
+    connectionRetryCount: 5,
+
+    //
+    // Framework
+    //
+    framework: 'mocha',
+
     mochaOpts: {
         ui: 'bdd',
         timeout: 180000
- // Aumentado para 180s para dar margem a testes mais lentos no CI
+    },
+
+    //
+    // Reporters
+    //
+    reporters: [
+
+        'spec',
+
+        ['allure', {
+
+            outputDir: 'allure-results',
+
+            disableWebdriverStepsReporting: true,
+
+            disableWebdriverScreenshotsReporting: false
+
+        }]
+
+    ],
+
+    //
+    // Hooks
+    //
+    before: async function () {
+
+        await driver.setTimeout({
+
+            implicit: 10000,
+
+            pageLoad: 120000,
+
+            script: 120000
+
+        })
+
     },
 
     afterTest: async function (test, context, { error }) {
+
         if (error) {
-            await browser.takeScreenshot();
+
+            console.error('========================================')
+            console.error('TESTE FALHOU')
+            console.error(error)
+            console.error('========================================')
+
+            try {
+
+                await browser.saveScreenshot(
+                    `./errorShots/${Date.now()}.png`
+                )
+
+            } catch (e) {
+                console.log('Não foi possível salvar screenshot.')
+            }
+
         }
+
     }
+
 }
