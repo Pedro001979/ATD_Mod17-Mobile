@@ -154,4 +154,3 @@ jobs:
             ./errorShots
             ./screenshots
           if-no-files-found: ignore
-          
