@@ -61,7 +61,8 @@ export const config = {
     // --- MUDANÇA AQUI: Ajustado para garantir o timeout maior do Mocha ---
     mochaOpts: {
         ui: 'bdd',
-        timeout: 90000 // Aumentado para 90s para dar margem a testes mais lentos no CI
+        timeout: 180000
+ // Aumentado para 180s para dar margem a testes mais lentos no CI
     },
 
     afterTest: async function (test, context, { error }) {

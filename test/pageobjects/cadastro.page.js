@@ -1,64 +1,180 @@
-import { $ } from '@wdio/globals'
+import { $, expect, driver } from '@wdio/globals'
 
 class CadastroPage {
-    // 1. Mapeamento dos elementos
-    get tabProfile() {
-        return $('// *[@resource-id="tab-profile"]'); // Mapeia a aba perfil
-    }
 
-    get btnsignUp() {
-        return $('id:signUp')
-    }
+    get btnSignUp() { return $('id:signUp') }
 
     get firstName() { return $('id:firstName') }
+
     get lastName() { return $('id:lastName') }
+
     get phoneNumber() { return $('id:phone') }
+
     get email() { return $('id:email') }
+
     get password() { return $('id:password') }
+
     get repassword() { return $('id:repassword') }
+
     get btnCreate() { return $('id:create') }
-    get btnCreateWishlist() { return $('id:wishlist') }
-    get btnCreateBack() { return $('id:back') }
 
-    // 2. Método de Execução
-    async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
-        // PASSO 1: Vai até a tela onde o botão de SignUp existe
-        await this.tabProfile.waitForDisplayed({ timeout: 15000 });
-        await this.tabProfile.click();
+    get btnWishlist() { return $('id:wishlist') }
 
-        // PASSO 2: Agora sim clica no botão Sign Up
-        await this.btnsignUp.waitForDisplayed({ timeout: 15000 });
-        await this.btnsignUp.click();
+    get btnBack() { return $('id:back') }
 
-        // PASSO 3: Preenche o formulário
-        await this.firstName.waitForDisplayed({ timeout: 15000 });
-        await this.firstName.setValue(firstName);
+    async preencherCampo(elemento, valor) {
 
-        await this.lastName.waitForDisplayed({ timeout: 10000 });
-        await this.lastName.setValue(lastName);
+        await elemento.waitForDisplayed({
+            timeout: 30000
+        })
 
-        await this.phoneNumber.waitForDisplayed({ timeout: 10000 });
-        await this.phoneNumber.setValue(phoneNumber);
+        await elemento.click()
 
-        await this.email.waitForDisplayed({ timeout: 10000 });
-        await this.email.setValue(email);
+        try {
+            await elemento.clearValue()
+        } catch (e) {}
 
-        await this.password.waitForDisplayed({ timeout: 10000 });
-        await this.password.setValue(password);
+        await elemento.setValue(valor)
 
-        await this.repassword.waitForDisplayed({ timeout: 10000 });
-        await this.repassword.setValue(repassword);
+        await driver.pause(300)
 
-        // PASSO 4: Finaliza
-        await this.btnCreate.waitForDisplayed({ timeout: 10000 });
-        await this.btnCreate.click();
+        const texto = await elemento.getAttribute('text')
 
-        await this.btnCreateWishlist.waitForDisplayed({ timeout: 15000 });
-        await this.btnCreateWishlist.click();
-
-        await this.btnCreateBack.waitForDisplayed({ timeout: 10000 });
-        await this.btnCreateBack.click();
+        expect(texto).toContain(valor)
     }
+
+    async esconderTeclado() {
+
+        try {
+
+            if (await driver.isKeyboardShown()) {
+
+                await driver.hideKeyboard()
+
+            }
+
+        } catch (e) {}
+
+    }
+
+    async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
+
+        await this.btnSignUp.waitForDisplayed({
+            timeout: 30000
+        })
+
+        await this.btnSignUp.click()
+
+        await this.preencherCampo(this.firstName, firstName)
+
+        await this.preencherCampo(this.lastName, lastName)
+
+        await this.preencherCampo(this.phoneNumber, phoneNumber)
+
+        await this.preencherCampo(this.email, email)
+
+        await this.preencherCampo(this.password, password)
+
+        await this.preencherCampo(this.repassword, repassword)
+
+        await this.esconderTeclado()
+
+        await this.btnCreate.waitForDisplayed({
+            timeout: 30000
+        })
+
+        await this.btnCreate.click()
+
+        await this.btnWishlist.waitForDisplayed({
+            timeout: 30000
+        })
+
+        await this.btnWishlist.click()
+
+        await this.btnBack.waitForDisplayed({
+            timeout: 30000
+        })
+
+        await this.btnBack.click()
+
+    }
+
 }
 
-export default new CadastroPage();
+export default new CadastroPage()
+
+
+
+// import { $ } from '@wdio/globals'
+
+// class CadastroPage {
+//     // 1. Mapeamento dos elementos
+//     get tabProfile() {
+//         return $('// *[@resource-id="tab-profile"]'); // Mapeia a aba perfil
+//     }
+
+//     get btnsignUp() {
+//         return $('id:signUp')
+//     }
+
+//     get firstName() { return $('id:firstName') }
+//     get lastName() { return $('id:lastName') }
+//     get phoneNumber() { return $('id:phone') }
+//     get email() { return $('id:email') }
+//     get password() { return $('id:password') }
+//     get repassword() { return $('id:repassword') }
+//     get btnCreate() { return $('id:create') }
+//     get btnCreateWishlist() { return $('id:wishlist') }
+//     get btnCreateBack() { return $('id:back') }
+
+//     // 2. Método de Execução
+//     async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
+
+//         await this.btnsignUp.waitForDisplayed({ timeout: 15000 });
+//         await this.btnsignUp.click();
+
+//         await this.firstName.waitForDisplayed();
+//         await this.firstName.click();
+//         await this.firstName.setValue(firstName);
+//         await expect(this.firstName).toHaveText(firstName);
+
+//         await this.lastName.waitForDisplayed();
+//         await this.lastName.click();
+//         await this.lastName.setValue(lastName);
+//         await expect(this.lastName).toHaveText(lastName);
+
+//         await this.phoneNumber.waitForDisplayed();
+//         await this.phoneNumber.click();
+//         await this.phoneNumber.setValue(phoneNumber);
+
+//         await this.email.waitForDisplayed();
+//         await this.email.click();
+//         await this.email.setValue(email);
+
+//         await this.password.waitForDisplayed();
+//         await this.password.click();
+//         await this.password.setValue(password);
+
+//         await this.repassword.waitForDisplayed();
+//         await this.repassword.click();
+//         await this.repassword.setValue(repassword);
+
+//         // Esconde teclado caso esteja aberto
+//         try {
+//             if (await driver.isKeyboardShown()) {
+//                 await driver.hideKeyboard();
+//             }
+//         } catch (e) { }
+
+//         await this.btnCreate.waitForDisplayed({ timeout: 15000 });
+//         await this.btnCreate.click();
+
+//         await this.btnCreateWishlist.waitForDisplayed({ timeout: 15000 });
+//         await this.btnCreateWishlist.click();
+
+//         await this.btnCreateBack.waitForDisplayed({ timeout: 15000 });
+//         await this.btnCreateBack.click();
+//     }
+// }
+
+// export default new CadastroPage();
