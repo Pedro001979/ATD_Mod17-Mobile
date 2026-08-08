@@ -2,36 +2,79 @@ name: Executar Testes Mobile (WebdriverIO + Appium)
 
 on:
   push:
-    branches: [ main, master, ci ]
+    branches: [main, master, ci]
+
   pull_request:
-    branches: [ main, master, ci ]
+    branches: [main, master, ci]
+
   workflow_dispatch:
 
 jobs:
   test:
+
     runs-on: ubuntu-latest
+
     timeout-minutes: 30
 
     steps:
+
+      # ==========================================
+      # CHECKOUT
+      # ==========================================
+
       - name: Checkout do código
         uses: actions/checkout@v4
         with:
           lfs: true
           fetch-depth: 0
 
-      - name: Baixar arquivos Git LFS
-        run: git lfs pull
 
-      - name: Verificar arquivo do app (.apk)
+      # ==========================================
+      # GIT LFS
+      # ==========================================
+
+      - name: Baixar arquivos Git LFS
         run: |
+          git lfs pull
+
+
+      # ==========================================
+      # VERIFICAR APK
+      # ==========================================
+
+      - name: Verificar arquivo do app
+        run: |
+          echo "======= ARQUIVOS DO APP ======="
           ls -lh apps
+
+          echo ""
+          echo "======= TIPO DO APK ======="
           file apps/ebacshop.apk
+
+          echo ""
+          echo "======= TAMANHO ======="
+          du -h apps/ebacshop.apk
+
+
+      # ==========================================
+      # KVM
+      # ==========================================
 
       - name: Habilitar KVM
         run: |
           sudo apt-get update
-          sudo apt-get install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+          sudo apt-get install -y \
+            qemu-kvm \
+            libvirt-daemon-system \
+            libvirt-clients \
+            bridge-utils
+
           sudo chmod 666 /dev/kvm
+
+
+      # ==========================================
+      # JAVA
+      # ==========================================
 
       - name: Configurar Java
         uses: actions/setup-java@v4
@@ -39,74 +82,166 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+
+      # ==========================================
+      # NODE
+      # ==========================================
+
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: npm
 
+
+      # ==========================================
+      # DEPENDÊNCIAS
+      # ==========================================
+
       - name: Instalar dependências
-        run: npm ci
+        run: |
+          npm ci
+
+
+      # ==========================================
+      # VERIFICAR NODE / APPIUM
+      # ==========================================
 
       - name: Verificar versões
         run: |
+          echo "======= NODE ======="
           node -v
+
+          echo ""
+          echo "======= NPM ======="
           npm -v
-          appium --version
+
+          echo ""
+          echo "======= APPIUM ======="
+          npx appium --version
+
+          echo ""
+          echo "======= APPIUM INSTALADO ======="
           npm ls appium
+
+          echo ""
+          echo "======= UIAUTOMATOR2 ======="
           npm ls appium-uiautomator2-driver
+
+
+      # ==========================================
+      # ANDROID EMULATOR
+      # ==========================================
 
       - name: Executar testes no Emulador Android
         uses: ReactiveCircus/android-emulator-runner@v2
+
         with:
+
           api-level: 30
+
           target: google_apis
+
           arch: x86_64
+
           profile: pixel
+
           disable-animations: true
+
           emulator-options: >
             -no-window
             -gpu swiftshader_indirect
             -noaudio
             -no-boot-anim
             -no-metrics
+
           script: |
-            echo "======= DEVICES ======="
+
+            echo "================================="
+            echo "        ANDROID DEVICES"
+            echo "================================="
+
             adb devices
 
-            echo "======= APPIUM ======="
-            appium --version
+            echo ""
+            echo "================================="
+            echo "        APPIUM"
+            echo "================================="
 
-            echo "======= TESTES ======="
+            npx appium --version
+
+            echo ""
+            echo "================================="
+            echo "        APK"
+            echo "================================="
+
+            ls -lh apps/ebacshop.apk
+
+            file apps/ebacshop.apk
+
+            echo ""
+            echo "================================="
+            echo "        TESTES"
+            echo "================================="
+
             npm test
+
+
+      # ==========================================
+      # LOGCAT
+      # ==========================================
 
       - name: Capturar Logcat
         if: always()
         run: |
           adb logcat -d > logcat.txt || true
 
+
+      # ==========================================
+      # UPLOAD LOGCAT
+      # ==========================================
+
       - name: Upload Logcat
         if: always()
         uses: actions/upload-artifact@v4
+
         with:
           name: logcat
+
           path: logcat.txt
+
           if-no-files-found: ignore
+
+
+      # ==========================================
+      # ALLURE
+      # ==========================================
 
       - name: Upload Allure
         if: always()
         uses: actions/upload-artifact@v4
+
         with:
           name: allure-results
+
           path: allure-results
+
           if-no-files-found: ignore
+
+
+      # ==========================================
+      # SCREENSHOTS
+      # ==========================================
 
       - name: Upload Screenshots
         if: always()
         uses: actions/upload-artifact@v4
+
         with:
           name: screenshots
+
           path: |
             ./errorShots
             ./screenshots
+
           if-no-files-found: ignore

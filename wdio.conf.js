@@ -14,21 +14,23 @@ export const config = {
 
     maxInstances: 1,
 
-    //
-    // Appium
-    //
+    // ==========================================
+    // APPIUM
+    // ==========================================
+
     services: [
         ['appium', {
-            command: 'appium',
+            command: 'npx',
             args: {
                 relaxedSecurity: true
             }
         }]
     ],
 
-    //
-    // Capabilities
-    //
+    // ==========================================
+    // CAPABILITIES
+    // ==========================================
+
     capabilities: [{
 
         platformName: 'Android',
@@ -37,7 +39,7 @@ export const config = {
 
         'appium:deviceName': 'Android Emulator',
 
-        // Apontando diretamente para o arquivo .apk
+        // APK
         'appium:app': './apps/ebacshop.apk',
 
         'appium:appPackage': 'br.com.lojaebac',
@@ -46,17 +48,22 @@ export const config = {
 
         'appium:autoGrantPermissions': true,
 
-        //
-        // Reset do aplicativo
-        //
+        // ======================================
+        // RESET DO APLICATIVO
+        // ======================================
+
         'appium:noReset': false,
+
         'appium:fullReset': false,
+
         'appium:dontStopAppOnReset': false,
+
         'appium:shouldTerminateApp': true,
 
-        //
-        // Performance
-        //
+        // ======================================
+        // PERFORMANCE
+        // ======================================
+
         'appium:disableIdLocatorAutocompletion': true,
 
         'appium:newCommandTimeout': 300,
@@ -71,25 +78,28 @@ export const config = {
 
     }],
 
-    //
-    // Logs
-    //
+    // ==========================================
+    // LOGS
+    // ==========================================
+
     logLevel: 'info',
 
     outputDir: './logs',
 
-    //
-    // Timeouts
-    //
+    // ==========================================
+    // TIMEOUTS
+    // ==========================================
+
     waitforTimeout: 30000,
 
     connectionRetryTimeout: 180000,
 
     connectionRetryCount: 5,
 
-    //
-    // Framework
-    //
+    // ==========================================
+    // FRAMEWORK
+    // ==========================================
+
     framework: 'mocha',
 
     mochaOpts: {
@@ -97,9 +107,10 @@ export const config = {
         timeout: 180000
     },
 
-    //
-    // Reporters
-    //
+    // ==========================================
+    // REPORTERS
+    // ==========================================
+
     reporters: [
 
         'spec',
@@ -116,9 +127,10 @@ export const config = {
 
     ],
 
-    //
-    // Hooks
-    //
+    // ==========================================
+    // HOOKS
+    // ==========================================
+
     before: async function () {
 
         await driver.setTimeout({
@@ -129,31 +141,36 @@ export const config = {
 
             script: 120000
 
-        })
+        });
 
     },
+
+    // ==========================================
+    // SCREENSHOT EM CASO DE ERRO
+    // ==========================================
 
     afterTest: async function (test, context, { error }) {
 
         if (error) {
 
-            console.error('========================================')
-            console.error('TESTE FALHOU')
-            console.error(error)
-            console.error('========================================')
+            console.error('========================================');
+            console.error('TESTE FALHOU');
+            console.error(error);
+            console.error('========================================');
 
             try {
 
                 await browser.saveScreenshot(
                     `./errorShots/${Date.now()}.png`
-                )
+                );
 
             } catch (e) {
-                console.log('Não foi possível salvar screenshot.')
+
+                console.log(
+                    'Não foi possível salvar screenshot.'
+                );
+
             }
-
         }
-
     }
-
-}
+};
