@@ -1,52 +1,52 @@
-2026-08-09T20:37:38.584Z INFO @wdio/local-runner: Run worker command: run
-2026-08-09T20:37:38.785Z INFO webdriver: Initiate new session using the WebDriver protocol
-2026-08-09T20:37:38.786Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:52955/
-2026-08-09T20:37:38.794Z INFO webdriver: [POST] http://127.0.0.1:52955/session
-2026-08-09T20:37:43.908Z INFO webdriver: COMMAND setTimeouts(3000, 60000, 60000)
-2026-08-09T20:37:43.908Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/timeouts
-2026-08-09T20:37:43.908Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
-2026-08-09T20:37:43.915Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
-2026-08-09T20:37:43.916Z INFO webdriver: Retrying 1/3
-2026-08-09T20:37:43.916Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/timeouts
-2026-08-09T20:37:43.916Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
-2026-08-09T20:37:44.428Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
-2026-08-09T20:37:44.429Z INFO webdriver: Retrying 2/3
-2026-08-09T20:37:44.429Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/timeouts
-2026-08-09T20:37:44.429Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
-2026-08-09T20:37:45.448Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
-2026-08-09T20:37:45.449Z INFO webdriver: Retrying 3/3
-2026-08-09T20:37:45.449Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/timeouts
-2026-08-09T20:37:45.449Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
-2026-08-09T20:37:45.452Z ERROR webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
-2026-08-09T20:37:45.468Z ERROR @wdio/utils:shim: unknown method: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
+2026-08-09T21:06:37.274Z INFO @wdio/local-runner: Run worker command: run
+2026-08-09T21:06:37.475Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-08-09T21:06:37.475Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:62498/
+2026-08-09T21:06:37.483Z INFO webdriver: [POST] http://127.0.0.1:62498/session
+2026-08-09T21:06:43.433Z INFO webdriver: COMMAND setTimeouts(3000, 60000, 60000)
+2026-08-09T21:06:43.434Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/timeouts
+2026-08-09T21:06:43.434Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
+2026-08-09T21:06:43.442Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
+2026-08-09T21:06:43.442Z INFO webdriver: Retrying 1/3
+2026-08-09T21:06:43.442Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/timeouts
+2026-08-09T21:06:43.442Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
+2026-08-09T21:06:43.951Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
+2026-08-09T21:06:43.951Z INFO webdriver: Retrying 2/3
+2026-08-09T21:06:43.951Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/timeouts
+2026-08-09T21:06:43.951Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
+2026-08-09T21:06:44.969Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
+2026-08-09T21:06:44.969Z INFO webdriver: Retrying 3/3
+2026-08-09T21:06:44.969Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/timeouts
+2026-08-09T21:06:44.969Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
+2026-08-09T21:06:44.974Z ERROR webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
+2026-08-09T21:06:44.987Z ERROR @wdio/utils:shim: unknown method: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
     at FetchRequest._request (file:///C:/Users/Pedro/Desktop/repositorio/ATD_Mod17-Mobile/node_modules/webdriver/build/node.js:1968:19)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async Browser.wrapCommandFn (C:\Users\Pedro\Desktop\repositorio\ATD_Mod17-Mobile\node_modules\@wdio\utils\build\index.js:982:23)
     at async Browser.wrapCommandFn (C:\Users\Pedro\Desktop\repositorio\ATD_Mod17-Mobile\node_modules\@wdio\utils\build\index.js:982:23)
-    at async Object.before (file:///C:/Users/Pedro/Desktop/repositorio/ATD_Mod17-Mobile/wdio.conf.js:86:9)
+    at async Object.before (file:///C:/Users/Pedro/Desktop/repositorio/ATD_Mod17-Mobile/wdio.conf.js:69:9)
     at async Promise.all (index 0)
     at async executeHooksWithArgs (C:\Users\Pedro\Desktop\repositorio\ATD_Mod17-Mobile\node_modules\@wdio\utils\build\index.js:965:18)
     at async Runner.run (file:///C:/Users/Pedro/Desktop/repositorio/ATD_Mod17-Mobile/node_modules/@wdio/runner/build/index.js:711:5)
-2026-08-09T20:37:45.476Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:37:45.477Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:45.477Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:37:46.113Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff00000044',
-  ELEMENT: '00000000-0000-0221-ffff-ffff00000044'
+2026-08-09T21:06:44.999Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:06:44.999Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:44.999Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:06:46.620Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff00000044',
+  ELEMENT: '00000000-0000-0269-ffff-ffff00000044'
 }
-2026-08-09T20:37:46.119Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0221-ffff-ffff00000044")
-2026-08-09T20:37:46.119Z INFO webdriver: [GET] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00000044/displayed
-2026-08-09T20:37:46.147Z INFO webdriver: RESULT true
-2026-08-09T20:37:46.148Z INFO webdriver: COMMAND elementClick("00000000-0000-0221-ffff-ffff00000044")
-2026-08-09T20:37:46.148Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00000044/click
-2026-08-09T20:37:46.240Z INFO webdriver: RESULT null
-2026-08-09T20:37:46.241Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:46.241Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:46.241Z INFO webdriver: DATA {
+2026-08-09T21:06:46.626Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0269-ffff-ffff00000044")
+2026-08-09T21:06:46.627Z INFO webdriver: [GET] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00000044/displayed
+2026-08-09T21:06:46.647Z INFO webdriver: RESULT true
+2026-08-09T21:06:46.648Z INFO webdriver: COMMAND elementClick("00000000-0000-0269-ffff-ffff00000044")
+2026-08-09T21:06:46.648Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00000044/click
+2026-08-09T21:06:46.742Z INFO webdriver: RESULT null
+2026-08-09T21:06:46.743Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:46.743Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:46.743Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:46.370Z INFO webdriver: RESULT {
+2026-08-09T21:06:46.871Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -56,13 +56,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:46.373Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:46.374Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:46.374Z INFO webdriver: DATA {
+2026-08-09T21:06:46.875Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:46.875Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:46.875Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:46.516Z INFO webdriver: RESULT {
+2026-08-09T21:06:47.033Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -72,13 +72,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:46.527Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:46.527Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:46.527Z INFO webdriver: DATA {
+2026-08-09T21:06:47.051Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:47.051Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:47.051Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:46.803Z INFO webdriver: RESULT {
+2026-08-09T21:06:47.166Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -88,13 +88,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:46.810Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:46.811Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:46.811Z INFO webdriver: DATA {
+2026-08-09T21:06:47.175Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:47.175Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:47.175Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:46.911Z INFO webdriver: RESULT {
+2026-08-09T21:06:47.268Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -104,13 +104,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:46.920Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:46.921Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:46.921Z INFO webdriver: DATA {
+2026-08-09T21:06:47.284Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:47.284Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:47.284Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:47.016Z INFO webdriver: RESULT {
+2026-08-09T21:06:47.421Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -120,13 +120,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:47.032Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:47.032Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:47.032Z INFO webdriver: DATA {
+2026-08-09T21:06:47.426Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:47.426Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:47.426Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:47.116Z INFO webdriver: RESULT {
+2026-08-09T21:06:47.533Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -136,13 +136,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:47.126Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:47.126Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:47.126Z INFO webdriver: DATA {
+2026-08-09T21:06:47.551Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:47.551Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:47.551Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:47.213Z INFO webdriver: RESULT {
+2026-08-09T21:06:47.629Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -152,13 +152,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:47.219Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:47.219Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:47.220Z INFO webdriver: DATA {
+2026-08-09T21:06:47.646Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:47.646Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:47.646Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:47.363Z INFO webdriver: RESULT {
+2026-08-09T21:06:47.729Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -168,13 +168,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:47.376Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:47.376Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:47.376Z INFO webdriver: DATA {
+2026-08-09T21:06:47.740Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:47.740Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:47.740Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:47.497Z INFO webdriver: RESULT {
+2026-08-09T21:06:47.844Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -184,13 +184,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:47.503Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:47.503Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:47.503Z INFO webdriver: DATA {
+2026-08-09T21:06:47.850Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:47.850Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:47.850Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:47.611Z INFO webdriver: RESULT {
+2026-08-09T21:06:47.953Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -200,13 +200,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:47.628Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:47.629Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:47.629Z INFO webdriver: DATA {
+2026-08-09T21:06:47.959Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:47.960Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:47.960Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:47.746Z INFO webdriver: RESULT {
+2026-08-09T21:06:48.062Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -216,13 +216,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:47.755Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:47.755Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:47.755Z INFO webdriver: DATA {
+2026-08-09T21:06:48.069Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:48.069Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:48.069Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:47.852Z INFO webdriver: RESULT {
+2026-08-09T21:06:48.178Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -232,13 +232,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:47.854Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:47.854Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:47.854Z INFO webdriver: DATA {
+2026-08-09T21:06:48.195Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:48.195Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:48.195Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:47.990Z INFO webdriver: RESULT {
+2026-08-09T21:06:48.300Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -248,13 +248,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:48.007Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:48.007Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:48.007Z INFO webdriver: DATA {
+2026-08-09T21:06:48.317Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:48.317Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:48.317Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:48.083Z INFO webdriver: RESULT {
+2026-08-09T21:06:52.186Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -264,192 +264,128 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:48.100Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:48.100Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:48.100Z INFO webdriver: DATA {
+2026-08-09T21:06:52.194Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:52.194Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:52.194Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:48.214Z INFO webdriver: RESULT {
-  error: 'no such element',
-  message: 'An element could not be located on the page using the given search parameters.',
-  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
-    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
-    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
-    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
-    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
-    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
+2026-08-09T21:06:52.673Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff00002b9b',
+  ELEMENT: '00000000-0000-0269-ffff-ffff00002b9b'
 }
-2026-08-09T20:37:48.227Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:48.227Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:48.227Z INFO webdriver: DATA {
+2026-08-09T21:06:52.674Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0269-ffff-ffff00002b9b")
+2026-08-09T21:06:52.674Z INFO webdriver: [GET] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002b9b/displayed
+2026-08-09T21:06:52.694Z INFO webdriver: RESULT true
+2026-08-09T21:06:52.694Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:52.694Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:52.694Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:48.389Z INFO webdriver: RESULT {
-  error: 'no such element',
-  message: 'An element could not be located on the page using the given search parameters.',
-  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
-    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
-    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
-    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
-    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
-    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
+2026-08-09T21:06:52.716Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff00002b9b',
+  ELEMENT: '00000000-0000-0269-ffff-ffff00002b9b'
 }
-2026-08-09T20:37:48.400Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:48.401Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:48.401Z INFO webdriver: DATA {
+2026-08-09T21:06:52.717Z INFO webdriver: COMMAND elementClick("00000000-0000-0269-ffff-ffff00002b9b")
+2026-08-09T21:06:52.717Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002b9b/click
+2026-08-09T21:06:53.304Z INFO webdriver: RESULT null
+2026-08-09T21:06:53.304Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:06:53.304Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:53.304Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:37:48.580Z INFO webdriver: RESULT {
-  error: 'no such element',
-  message: 'An element could not be located on the page using the given search parameters.',
-  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
-    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
-    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
-    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
-    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
-    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
+2026-08-09T21:06:53.421Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff00002b9b',
+  ELEMENT: '00000000-0000-0269-ffff-ffff00002b9b'
 }
-2026-08-09T20:37:48.588Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:48.588Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:48.588Z INFO webdriver: DATA {
-  using: '-android uiautomator',
-  value: 'new UiSelector().resourceId("email")'
-}
-2026-08-09T20:37:53.345Z INFO webdriver: RESULT {
-  error: 'no such element',
-  message: 'An element could not be located on the page using the given search parameters.',
-  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
-    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
-    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
-    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
-    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
-    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
-}
-2026-08-09T20:37:53.355Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:53.355Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:53.355Z INFO webdriver: DATA {
-  using: '-android uiautomator',
-  value: 'new UiSelector().resourceId("email")'
-}
-2026-08-09T20:37:54.432Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff00003417',
-  ELEMENT: '00000000-0000-0221-ffff-ffff00003417'
-}
-2026-08-09T20:37:54.433Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0221-ffff-ffff00003417")
-2026-08-09T20:37:54.433Z INFO webdriver: [GET] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00003417/displayed
-2026-08-09T20:37:54.934Z INFO webdriver: RESULT true
-2026-08-09T20:37:54.934Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:54.934Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:54.935Z INFO webdriver: DATA {
-  using: '-android uiautomator',
-  value: 'new UiSelector().resourceId("email")'
-}
-2026-08-09T20:37:54.952Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff00003417',
-  ELEMENT: '00000000-0000-0221-ffff-ffff00003417'
-}
-2026-08-09T20:37:54.953Z INFO webdriver: COMMAND elementClick("00000000-0000-0221-ffff-ffff00003417")
-2026-08-09T20:37:54.953Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00003417/click
-2026-08-09T20:37:55.595Z INFO webdriver: RESULT null
-2026-08-09T20:37:55.595Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:37:55.595Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:55.595Z INFO webdriver: DATA {
-  using: '-android uiautomator',
-  value: 'new UiSelector().resourceId("email")'
-}
-2026-08-09T20:37:55.785Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff00003417',
-  ELEMENT: '00000000-0000-0221-ffff-ffff00003417'
-}
-2026-08-09T20:37:55.787Z INFO webdriver: COMMAND elementClear("00000000-0000-0221-ffff-ffff00003417")
-2026-08-09T20:37:55.787Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00003417/clear
-2026-08-09T20:37:56.662Z INFO webdriver: RESULT null
-2026-08-09T20:37:56.662Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-0221-ffff-ffff00003417", "cliente@ebac.art.br")
-2026-08-09T20:37:56.662Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00003417/value
-2026-08-09T20:37:56.662Z INFO webdriver: DATA { text: 'cliente@ebac.art.br' }
-2026-08-09T20:37:57.986Z INFO webdriver: RESULT null
-2026-08-09T20:37:57.987Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("password")")
-2026-08-09T20:37:57.987Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:57.987Z INFO webdriver: DATA {
+2026-08-09T21:06:53.423Z INFO webdriver: COMMAND elementClear("00000000-0000-0269-ffff-ffff00002b9b")
+2026-08-09T21:06:53.423Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002b9b/clear
+2026-08-09T21:06:53.484Z INFO webdriver: RESULT null
+2026-08-09T21:06:53.485Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-0269-ffff-ffff00002b9b", "cliente@ebac.art.br")
+2026-08-09T21:06:53.485Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002b9b/value
+2026-08-09T21:06:53.485Z INFO webdriver: DATA { text: 'cliente@ebac.art.br' }
+2026-08-09T21:06:55.089Z INFO webdriver: RESULT null
+2026-08-09T21:06:55.090Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("password")")
+2026-08-09T21:06:55.090Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:55.090Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("password")'
 }
-2026-08-09T20:37:58.047Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff00003418',
-  ELEMENT: '00000000-0000-0221-ffff-ffff00003418'
+2026-08-09T21:06:55.156Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff00002b9c',
+  ELEMENT: '00000000-0000-0269-ffff-ffff00002b9c'
 }
-2026-08-09T20:37:58.048Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0221-ffff-ffff00003418")
-2026-08-09T20:37:58.049Z INFO webdriver: [GET] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00003418/displayed
-2026-08-09T20:37:58.661Z INFO webdriver: RESULT true
-2026-08-09T20:37:58.661Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("password")")
-2026-08-09T20:37:58.661Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:58.661Z INFO webdriver: DATA {
+2026-08-09T21:06:55.158Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0269-ffff-ffff00002b9c")
+2026-08-09T21:06:55.158Z INFO webdriver: [GET] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002b9c/displayed
+2026-08-09T21:06:55.911Z INFO webdriver: RESULT true
+2026-08-09T21:06:55.911Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("password")")
+2026-08-09T21:06:55.911Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:55.912Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("password")'
 }
-2026-08-09T20:37:58.685Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff00003418',
-  ELEMENT: '00000000-0000-0221-ffff-ffff00003418'
+2026-08-09T21:06:55.935Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff00002b9c',
+  ELEMENT: '00000000-0000-0269-ffff-ffff00002b9c'
 }
-2026-08-09T20:37:58.687Z INFO webdriver: COMMAND elementClick("00000000-0000-0221-ffff-ffff00003418")
-2026-08-09T20:37:58.687Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00003418/click
-2026-08-09T20:37:59.431Z INFO webdriver: RESULT null
-2026-08-09T20:37:59.432Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("password")")
-2026-08-09T20:37:59.432Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:37:59.432Z INFO webdriver: DATA {
+2026-08-09T21:06:55.937Z INFO webdriver: COMMAND elementClick("00000000-0000-0269-ffff-ffff00002b9c")
+2026-08-09T21:06:55.937Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002b9c/click
+2026-08-09T21:06:56.736Z INFO webdriver: RESULT null
+2026-08-09T21:06:56.736Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("password")")
+2026-08-09T21:06:56.736Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:06:56.736Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("password")'
 }
-2026-08-09T20:37:59.450Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff00003418',
-  ELEMENT: '00000000-0000-0221-ffff-ffff00003418'
+2026-08-09T21:06:56.765Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff00002b9c',
+  ELEMENT: '00000000-0000-0269-ffff-ffff00002b9c'
 }
-2026-08-09T20:37:59.451Z INFO webdriver: COMMAND elementClear("00000000-0000-0221-ffff-ffff00003418")
-2026-08-09T20:37:59.451Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00003418/clear
-2026-08-09T20:37:59.467Z INFO webdriver: RESULT null
-2026-08-09T20:37:59.468Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-0221-ffff-ffff00003418", "GD*peToHNJ1#c$sgk08EaYJQ")
-2026-08-09T20:37:59.468Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00003418/value
-2026-08-09T20:37:59.468Z INFO webdriver: DATA { text: 'GD*peToHNJ1#c$sgk08EaYJQ' }
-2026-08-09T20:38:01.322Z INFO webdriver: RESULT null
-2026-08-09T20:38:01.322Z INFO webdriver: COMMAND isKeyboardShown()
-2026-08-09T20:38:01.322Z INFO webdriver: [GET] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/appium/device/is_keyboard_shown
-2026-08-09T20:38:01.774Z INFO webdriver: RESULT true
-2026-08-09T20:38:01.774Z INFO webdriver: COMMAND hideKeyboard()
-2026-08-09T20:38:01.774Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/appium/device/hide_keyboard
-2026-08-09T20:38:02.989Z INFO webdriver: RESULT true
-2026-08-09T20:38:02.990Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Login")")
-2026-08-09T20:38:02.990Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:02.990Z INFO webdriver: DATA {
+2026-08-09T21:06:56.767Z INFO webdriver: COMMAND elementClear("00000000-0000-0269-ffff-ffff00002b9c")
+2026-08-09T21:06:56.767Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002b9c/clear
+2026-08-09T21:06:56.801Z INFO webdriver: RESULT null
+2026-08-09T21:06:56.801Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-0269-ffff-ffff00002b9c", "GD*peToHNJ1#c$sgk08EaYJQ")
+2026-08-09T21:06:56.801Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002b9c/value
+2026-08-09T21:06:56.801Z INFO webdriver: DATA { text: 'GD*peToHNJ1#c$sgk08EaYJQ' }
+2026-08-09T21:06:58.197Z INFO webdriver: RESULT null
+2026-08-09T21:06:58.198Z INFO webdriver: COMMAND isKeyboardShown()
+2026-08-09T21:06:58.198Z INFO webdriver: [GET] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/appium/device/is_keyboard_shown
+2026-08-09T21:06:58.782Z INFO webdriver: RESULT true
+2026-08-09T21:06:58.782Z INFO webdriver: COMMAND hideKeyboard()
+2026-08-09T21:06:58.782Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/appium/device/hide_keyboard
+2026-08-09T21:07:00.034Z INFO webdriver: RESULT true
+2026-08-09T21:07:00.035Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Login")")
+2026-08-09T21:07:00.035Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:00.035Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Login")'
 }
-2026-08-09T20:38:03.013Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff00003432',
-  ELEMENT: '00000000-0000-0221-ffff-ffff00003432'
+2026-08-09T21:07:00.061Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff00002bb6',
+  ELEMENT: '00000000-0000-0269-ffff-ffff00002bb6'
 }
-2026-08-09T20:38:03.014Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0221-ffff-ffff00003432")
-2026-08-09T20:38:03.014Z INFO webdriver: [GET] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00003432/displayed
-2026-08-09T20:38:03.030Z INFO webdriver: RESULT true
-2026-08-09T20:38:03.030Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Login")")
-2026-08-09T20:38:03.031Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:03.031Z INFO webdriver: DATA {
+2026-08-09T21:07:00.063Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0269-ffff-ffff00002bb6")
+2026-08-09T21:07:00.063Z INFO webdriver: [GET] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002bb6/displayed
+2026-08-09T21:07:00.679Z INFO webdriver: RESULT true
+2026-08-09T21:07:00.679Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Login")")
+2026-08-09T21:07:00.679Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:00.679Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Login")'
 }
-2026-08-09T20:38:03.055Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff00003432',
-  ELEMENT: '00000000-0000-0221-ffff-ffff00003432'
+2026-08-09T21:07:00.703Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff00002bb6',
+  ELEMENT: '00000000-0000-0269-ffff-ffff00002bb6'
 }
-2026-08-09T20:38:03.057Z INFO webdriver: COMMAND elementClick("00000000-0000-0221-ffff-ffff00003432")
-2026-08-09T20:38:03.057Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00003432/click
-2026-08-09T20:38:03.146Z INFO webdriver: RESULT null
-2026-08-09T20:38:03.146Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:03.146Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:03.147Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:03.226Z INFO webdriver: RESULT {
+2026-08-09T21:07:00.705Z INFO webdriver: COMMAND elementClick("00000000-0000-0269-ffff-ffff00002bb6")
+2026-08-09T21:07:00.705Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002bb6/click
+2026-08-09T21:07:00.789Z INFO webdriver: RESULT null
+2026-08-09T21:07:00.789Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:00.789Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:00.789Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:00.876Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -459,10 +395,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:03.227Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:03.227Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:03.227Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:03.844Z INFO webdriver: RESULT {
+2026-08-09T21:07:00.877Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:00.878Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:00.878Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:01.463Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -472,10 +408,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:03.853Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:03.853Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:03.853Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:03.908Z INFO webdriver: RESULT {
+2026-08-09T21:07:01.465Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:01.466Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:01.466Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:01.533Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -485,10 +421,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:03.915Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:03.915Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:03.915Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:03.967Z INFO webdriver: RESULT {
+2026-08-09T21:07:01.549Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:01.549Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:01.549Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:01.612Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -498,10 +434,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:03.976Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:03.976Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:03.976Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.030Z INFO webdriver: RESULT {
+2026-08-09T21:07:01.627Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:01.627Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:01.628Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:01.679Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -511,10 +447,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.038Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.038Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.038Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.087Z INFO webdriver: RESULT {
+2026-08-09T21:07:01.688Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:01.688Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:01.688Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:01.725Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -524,10 +460,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.100Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.100Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.100Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.144Z INFO webdriver: RESULT {
+2026-08-09T21:07:01.735Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:01.735Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:01.735Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:01.790Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -537,10 +473,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.148Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.148Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.148Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.194Z INFO webdriver: RESULT {
+2026-08-09T21:07:01.797Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:01.797Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:01.797Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:01.841Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -550,10 +486,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.210Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.210Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.210Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.253Z INFO webdriver: RESULT {
+2026-08-09T21:07:01.859Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:01.859Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:01.859Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:01.900Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -563,10 +499,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.257Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.257Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.257Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.294Z INFO webdriver: RESULT {
+2026-08-09T21:07:01.902Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:01.902Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:01.902Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:01.973Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -576,10 +512,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.304Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.304Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.304Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.354Z INFO webdriver: RESULT {
+2026-08-09T21:07:01.986Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:01.987Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:01.987Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.082Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -589,10 +525,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.356Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.356Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.356Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.410Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.096Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.097Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.097Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.148Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -602,10 +538,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.414Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.414Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.414Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.474Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.159Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.159Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.159Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.217Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -615,10 +551,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.492Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.492Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.492Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.529Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.219Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.219Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.219Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.269Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -628,10 +564,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.538Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.538Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.538Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.587Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.285Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.286Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.286Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.339Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -641,10 +577,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.632Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.632Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.632Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.671Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.348Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.348Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.348Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.389Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -654,10 +590,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.742Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.743Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.743Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.771Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.395Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.396Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.396Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.448Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -667,10 +603,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.836Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.836Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.836Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.882Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.491Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.492Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.492Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.534Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -680,10 +616,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:04.929Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:04.930Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:04.930Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:04.969Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.584Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.585Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.585Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.648Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -693,10 +629,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:05.038Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:05.039Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:05.039Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:05.085Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.678Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.678Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.678Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.727Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -706,10 +642,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:05.131Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:05.131Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:05.131Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:05.172Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.786Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.787Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.787Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.841Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -719,10 +655,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:05.240Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:05.240Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:05.240Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:05.288Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.881Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.881Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.881Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:02.925Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -732,10 +668,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:05.333Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:05.334Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:05.334Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:05.381Z INFO webdriver: RESULT {
+2026-08-09T21:07:02.991Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:02.991Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:02.991Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:03.043Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -745,10 +681,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:05.428Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:05.428Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:05.428Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:05.465Z INFO webdriver: RESULT {
+2026-08-09T21:07:03.085Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:03.085Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:03.085Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:03.130Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -758,10 +694,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:05.537Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:05.537Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:05.537Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:05.583Z INFO webdriver: RESULT {
+2026-08-09T21:07:03.179Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:03.180Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:03.180Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:03.221Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -771,10 +707,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:05.631Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:05.632Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:05.632Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:05.682Z INFO webdriver: RESULT {
+2026-08-09T21:07:03.290Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:03.290Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:03.290Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:03.330Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -784,10 +720,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:05.740Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:05.740Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:05.740Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:05.797Z INFO webdriver: RESULT {
+2026-08-09T21:07:03.383Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:03.384Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:03.384Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:03.440Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -797,10 +733,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:05.833Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:05.833Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:05.833Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:05.906Z INFO webdriver: RESULT {
+2026-08-09T21:07:03.479Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:03.479Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:03.479Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:03.528Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -810,10 +746,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:05.941Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:05.941Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:05.941Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:05.986Z INFO webdriver: RESULT {
+2026-08-09T21:07:03.589Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:03.589Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:03.589Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:03.652Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -823,10 +759,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:06.034Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:06.035Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:06.035Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:06.083Z INFO webdriver: RESULT {
+2026-08-09T21:07:03.682Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:03.682Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:03.682Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:03.752Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -836,10 +772,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:06.129Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:06.129Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:06.129Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:06.173Z INFO webdriver: RESULT {
+2026-08-09T21:07:03.791Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:03.791Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:03.791Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:03.843Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -849,10 +785,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:06.239Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:06.239Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:06.239Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:06.291Z INFO webdriver: RESULT {
+2026-08-09T21:07:03.885Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:03.885Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:03.885Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:03.942Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -862,10 +798,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:06.332Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:06.332Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:06.332Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:06.371Z INFO webdriver: RESULT {
+2026-08-09T21:07:03.981Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:03.981Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:03.981Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:04.028Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -875,10 +811,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:06.442Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:06.442Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:06.442Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:06.489Z INFO webdriver: RESULT {
+2026-08-09T21:07:04.091Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:04.091Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:04.091Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:04.138Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -888,10 +824,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:06.535Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:06.535Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:06.535Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:06.582Z INFO webdriver: RESULT {
+2026-08-09T21:07:04.187Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:04.187Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:04.187Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:04.234Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -901,10 +837,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:06.628Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:06.628Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:06.628Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:06.673Z INFO webdriver: RESULT {
+2026-08-09T21:07:04.283Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:04.283Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:04.283Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:04.322Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -914,10 +850,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:06.737Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:06.737Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:06.737Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:06.771Z INFO webdriver: RESULT {
+2026-08-09T21:07:04.378Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:04.378Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:04.378Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:04.437Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -927,10 +863,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:06.830Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:06.831Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:06.831Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:06.871Z INFO webdriver: RESULT {
+2026-08-09T21:07:04.488Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:04.488Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:04.488Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:04.525Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -940,10 +876,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:06.940Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:06.940Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:06.940Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:06.983Z INFO webdriver: RESULT {
+2026-08-09T21:07:04.581Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:04.582Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:04.582Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:04.622Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -953,10 +889,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:07.033Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:07.033Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:07.033Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:07.084Z INFO webdriver: RESULT {
+2026-08-09T21:07:04.692Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:04.693Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:04.693Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:04.739Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -966,10 +902,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:07.128Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:07.128Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:07.128Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:07.161Z INFO webdriver: RESULT {
+2026-08-09T21:07:04.786Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:04.786Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:04.786Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:04.836Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -979,10 +915,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:07.238Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:07.238Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:07.238Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:07.295Z INFO webdriver: RESULT {
+2026-08-09T21:07:04.879Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:04.879Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:04.879Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:04.921Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -992,10 +928,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:07.330Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:07.330Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:07.330Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:07.367Z INFO webdriver: RESULT {
+2026-08-09T21:07:04.988Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:04.988Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:04.988Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:05.035Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1005,10 +941,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:07.442Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:07.442Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:07.442Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:07.490Z INFO webdriver: RESULT {
+2026-08-09T21:07:05.082Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:05.082Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:05.082Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:05.133Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1018,10 +954,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:07.535Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:07.535Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:07.535Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:07.570Z INFO webdriver: RESULT {
+2026-08-09T21:07:05.193Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:05.193Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:05.193Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:05.252Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1031,10 +967,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:07.629Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:07.629Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:07.629Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:07.684Z INFO webdriver: RESULT {
+2026-08-09T21:07:05.285Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:05.286Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:05.286Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:05.358Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1044,10 +980,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:07.736Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:07.736Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:07.736Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:07.774Z INFO webdriver: RESULT {
+2026-08-09T21:07:05.380Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:05.380Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:05.380Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:05.419Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1057,10 +993,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:07.829Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:07.829Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:07.829Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:07.872Z INFO webdriver: RESULT {
+2026-08-09T21:07:05.490Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:05.490Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:05.490Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:05.575Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1070,10 +1006,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:07.937Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:07.937Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:07.937Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:07.980Z INFO webdriver: RESULT {
+2026-08-09T21:07:05.577Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:05.577Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:05.577Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:05.637Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1083,10 +1019,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:08.031Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:08.031Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:08.031Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:08.073Z INFO webdriver: RESULT {
+2026-08-09T21:07:05.680Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:05.680Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:05.680Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:05.721Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1096,10 +1032,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:08.138Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:08.138Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:08.138Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:08.174Z INFO webdriver: RESULT {
+2026-08-09T21:07:05.788Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:05.788Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:05.788Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:05.832Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1109,10 +1045,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:08.231Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:08.231Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:08.232Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:08.265Z INFO webdriver: RESULT {
+2026-08-09T21:07:05.883Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:05.883Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:05.883Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:05.934Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1122,10 +1058,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:08.339Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:08.339Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:08.339Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:08.377Z INFO webdriver: RESULT {
+2026-08-09T21:07:05.993Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:05.993Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:05.993Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:06.029Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1135,10 +1071,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:08.433Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:08.434Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:08.434Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:08.474Z INFO webdriver: RESULT {
+2026-08-09T21:07:06.087Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:06.087Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:06.087Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:06.126Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1148,10 +1084,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:08.542Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:08.542Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:08.542Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:08.588Z INFO webdriver: RESULT {
+2026-08-09T21:07:06.181Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:06.181Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:06.181Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:06.221Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1161,10 +1097,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:08.633Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:08.634Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:08.634Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:08.664Z INFO webdriver: RESULT {
+2026-08-09T21:07:06.289Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:06.289Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:06.289Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:06.346Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1174,10 +1110,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:08.742Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:08.742Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:08.742Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:08.778Z INFO webdriver: RESULT {
+2026-08-09T21:07:06.381Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:06.382Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:06.382Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:06.416Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1187,10 +1123,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:08.836Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:08.836Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:08.836Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:08.873Z INFO webdriver: RESULT {
+2026-08-09T21:07:06.478Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:06.478Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:06.478Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:06.524Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1200,10 +1136,10 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:08.930Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:08.930Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:08.930Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:08.958Z INFO webdriver: RESULT {
+2026-08-09T21:07:06.586Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:06.586Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:06.586Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:06.628Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1213,35 +1149,87 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:09.039Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
-2026-08-09T20:38:09.039Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:09.039Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
-2026-08-09T20:38:36.197Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff000033fa',
-  ELEMENT: '00000000-0000-0221-ffff-ffff000033fa'
+2026-08-09T21:07:06.681Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:06.681Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:06.681Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:06.721Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
+    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
+    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:38:36.199Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0221-ffff-ffff000033fa")
-2026-08-09T20:38:36.199Z INFO webdriver: [GET] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff000033fa/displayed
-2026-08-09T20:38:36.217Z INFO webdriver: RESULT true
-2026-08-09T20:38:36.218Z INFO webdriver: COMMAND elementClick("00000000-0000-0221-ffff-ffff000033fa")
-2026-08-09T20:38:36.218Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff000033fa/click
-2026-08-09T20:38:36.323Z INFO webdriver: RESULT null
-2026-08-09T20:38:36.323Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("EBAC Cliente")")
-2026-08-09T20:38:36.323Z INFO webdriver: [POST] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element
-2026-08-09T20:38:36.323Z INFO webdriver: DATA {
+2026-08-09T21:07:06.790Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:06.790Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:06.790Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:06.832Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
+    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
+    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
+}
+2026-08-09T21:07:06.883Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:06.883Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:06.883Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:06.946Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
+    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
+    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
+}
+2026-08-09T21:07:06.978Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:06.979Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:06.979Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:07.020Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
+    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
+    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
+}
+2026-08-09T21:07:07.089Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]/..")
+2026-08-09T21:07:07.090Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:07.090Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]/..' }
+2026-08-09T21:07:35.659Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff00002b7e',
+  ELEMENT: '00000000-0000-0269-ffff-ffff00002b7e'
+}
+2026-08-09T21:07:35.660Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0269-ffff-ffff00002b7e")
+2026-08-09T21:07:35.660Z INFO webdriver: [GET] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002b7e/displayed
+2026-08-09T21:07:35.676Z INFO webdriver: RESULT true
+2026-08-09T21:07:35.676Z INFO webdriver: COMMAND elementClick("00000000-0000-0269-ffff-ffff00002b7e")
+2026-08-09T21:07:35.676Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff00002b7e/click
+2026-08-09T21:07:35.790Z INFO webdriver: RESULT null
+2026-08-09T21:07:35.791Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("EBAC Cliente")")
+2026-08-09T21:07:35.791Z INFO webdriver: [POST] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element
+2026-08-09T21:07:35.791Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("EBAC Cliente")'
 }
-2026-08-09T20:38:36.491Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0221-ffff-ffff00004e2d',
-  ELEMENT: '00000000-0000-0221-ffff-ffff00004e2d'
+2026-08-09T21:07:36.591Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0269-ffff-ffff000045b1',
+  ELEMENT: '00000000-0000-0269-ffff-ffff000045b1'
 }
-2026-08-09T20:38:36.492Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0221-ffff-ffff00004e2d")
-2026-08-09T20:38:36.492Z INFO webdriver: [GET] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00004e2d/displayed
-2026-08-09T20:38:37.124Z INFO webdriver: RESULT true
-2026-08-09T20:38:37.125Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0221-ffff-ffff00004e2d")
-2026-08-09T20:38:37.125Z INFO webdriver: [GET] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26/element/00000000-0000-0221-ffff-ffff00004e2d/displayed
-2026-08-09T20:38:37.139Z INFO webdriver: RESULT true
-2026-08-09T20:38:37.142Z INFO webdriver: COMMAND deleteSession()
-2026-08-09T20:38:37.142Z INFO webdriver: [DELETE] http://127.0.0.1:52955/session/ac480bb5-bd4e-43a8-961a-66daa22cac26
-2026-08-09T20:38:38.020Z INFO webdriver: RESULT null
+2026-08-09T21:07:36.592Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0269-ffff-ffff000045b1")
+2026-08-09T21:07:36.592Z INFO webdriver: [GET] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff000045b1/displayed
+2026-08-09T21:07:36.608Z INFO webdriver: RESULT true
+2026-08-09T21:07:36.610Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0269-ffff-ffff000045b1")
+2026-08-09T21:07:36.610Z INFO webdriver: [GET] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3/element/00000000-0000-0269-ffff-ffff000045b1/displayed
+2026-08-09T21:07:36.628Z INFO webdriver: RESULT true
+2026-08-09T21:07:36.631Z INFO webdriver: COMMAND deleteSession()
+2026-08-09T21:07:36.631Z INFO webdriver: [DELETE] http://127.0.0.1:62498/session/2f86e85f-809c-4ff1-ba65-abad4d12ecf3
+2026-08-09T21:07:37.573Z INFO webdriver: RESULT null

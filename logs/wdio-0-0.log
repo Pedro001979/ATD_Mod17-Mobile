@@ -1,52 +1,52 @@
-2026-08-09T20:36:25.409Z INFO @wdio/local-runner: Run worker command: run
-2026-08-09T20:36:25.630Z INFO webdriver: Initiate new session using the WebDriver protocol
-2026-08-09T20:36:25.630Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:52955/
-2026-08-09T20:36:25.639Z INFO webdriver: [POST] http://127.0.0.1:52955/session
-2026-08-09T20:36:31.697Z INFO webdriver: COMMAND setTimeouts(3000, 60000, 60000)
-2026-08-09T20:36:31.697Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/timeouts
-2026-08-09T20:36:31.698Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
-2026-08-09T20:36:31.708Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
-2026-08-09T20:36:31.709Z INFO webdriver: Retrying 1/3
-2026-08-09T20:36:31.709Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/timeouts
-2026-08-09T20:36:31.709Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
-2026-08-09T20:36:32.217Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
-2026-08-09T20:36:32.218Z INFO webdriver: Retrying 2/3
-2026-08-09T20:36:32.218Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/timeouts
-2026-08-09T20:36:32.218Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
-2026-08-09T20:36:33.228Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
-2026-08-09T20:36:33.228Z INFO webdriver: Retrying 3/3
-2026-08-09T20:36:33.228Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/timeouts
-2026-08-09T20:36:33.228Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
-2026-08-09T20:36:33.234Z ERROR webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
-2026-08-09T20:36:33.246Z ERROR @wdio/utils:shim: unknown method: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
+2026-08-09T21:05:18.655Z INFO @wdio/local-runner: Run worker command: run
+2026-08-09T21:05:18.904Z INFO webdriver: Initiate new session using the WebDriver protocol
+2026-08-09T21:05:18.904Z INFO @wdio/utils: Connecting to existing driver at http://127.0.0.1:62498/
+2026-08-09T21:05:18.916Z INFO webdriver: [POST] http://127.0.0.1:62498/session
+2026-08-09T21:05:26.946Z INFO webdriver: COMMAND setTimeouts(3000, 60000, 60000)
+2026-08-09T21:05:26.947Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/timeouts
+2026-08-09T21:05:26.947Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
+2026-08-09T21:05:26.957Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
+2026-08-09T21:05:26.957Z INFO webdriver: Retrying 1/3
+2026-08-09T21:05:26.957Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/timeouts
+2026-08-09T21:05:26.957Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
+2026-08-09T21:05:27.474Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
+2026-08-09T21:05:27.475Z INFO webdriver: Retrying 2/3
+2026-08-09T21:05:27.475Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/timeouts
+2026-08-09T21:05:27.475Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
+2026-08-09T21:05:28.486Z WARN webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
+2026-08-09T21:05:28.486Z INFO webdriver: Retrying 3/3
+2026-08-09T21:05:28.486Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/timeouts
+2026-08-09T21:05:28.486Z INFO webdriver: DATA { implicit: 3000, pageLoad: 60000, script: 60000 }
+2026-08-09T21:05:28.490Z ERROR webdriver: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
+2026-08-09T21:05:28.503Z ERROR @wdio/utils:shim: unknown method: WebDriverError: Not implemented yet for script. when running "timeouts" with method "POST" and args "{"implicit":3000,"pageLoad":60000,"script":60000}"
     at FetchRequest._request (file:///C:/Users/Pedro/Desktop/repositorio/ATD_Mod17-Mobile/node_modules/webdriver/build/node.js:1968:19)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async Browser.wrapCommandFn (C:\Users\Pedro\Desktop\repositorio\ATD_Mod17-Mobile\node_modules\@wdio\utils\build\index.js:982:23)
     at async Browser.wrapCommandFn (C:\Users\Pedro\Desktop\repositorio\ATD_Mod17-Mobile\node_modules\@wdio\utils\build\index.js:982:23)
-    at async Object.before (file:///C:/Users/Pedro/Desktop/repositorio/ATD_Mod17-Mobile/wdio.conf.js:86:9)
+    at async Object.before (file:///C:/Users/Pedro/Desktop/repositorio/ATD_Mod17-Mobile/wdio.conf.js:69:9)
     at async Promise.all (index 0)
     at async executeHooksWithArgs (C:\Users\Pedro\Desktop\repositorio\ATD_Mod17-Mobile\node_modules\@wdio\utils\build\index.js:965:18)
     at async Runner.run (file:///C:/Users/Pedro/Desktop/repositorio/ATD_Mod17-Mobile/node_modules/@wdio/runner/build/index.js:711:5)
-2026-08-09T20:36:33.256Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]")
-2026-08-09T20:36:33.257Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:33.257Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]' }
-2026-08-09T20:36:33.941Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00000047',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00000047'
+2026-08-09T21:05:28.511Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]")
+2026-08-09T21:05:28.512Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:28.512Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]' }
+2026-08-09T21:05:29.496Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00000047',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00000047'
 }
-2026-08-09T20:36:33.946Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00000047")
-2026-08-09T20:36:33.947Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00000047/displayed
-2026-08-09T20:36:33.967Z INFO webdriver: RESULT true
-2026-08-09T20:36:33.968Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00000047")
-2026-08-09T20:36:33.968Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00000047/click
-2026-08-09T20:36:34.072Z INFO webdriver: RESULT null
-2026-08-09T20:36:34.072Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:34.073Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:34.073Z INFO webdriver: DATA {
+2026-08-09T21:05:29.501Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00000047")
+2026-08-09T21:05:29.501Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00000047/displayed
+2026-08-09T21:05:29.517Z INFO webdriver: RESULT true
+2026-08-09T21:05:29.517Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00000047")
+2026-08-09T21:05:29.518Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00000047/click
+2026-08-09T21:05:29.638Z INFO webdriver: RESULT null
+2026-08-09T21:05:29.639Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:29.639Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:29.639Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:34.168Z INFO webdriver: RESULT {
+2026-08-09T21:05:29.954Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -56,13 +56,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:34.172Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:34.172Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:34.172Z INFO webdriver: DATA {
+2026-08-09T21:05:29.958Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:29.958Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:29.958Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:34.297Z INFO webdriver: RESULT {
+2026-08-09T21:05:30.116Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -72,13 +72,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:34.306Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:34.307Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:34.307Z INFO webdriver: DATA {
+2026-08-09T21:05:30.131Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:30.131Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:30.131Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:34.666Z INFO webdriver: RESULT {
+2026-08-09T21:05:30.248Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -88,13 +88,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:34.681Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:34.681Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:34.681Z INFO webdriver: DATA {
+2026-08-09T21:05:30.257Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:30.257Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:30.257Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:34.827Z INFO webdriver: RESULT {
+2026-08-09T21:05:30.396Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -104,13 +104,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:34.839Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:34.839Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:34.839Z INFO webdriver: DATA {
+2026-08-09T21:05:30.412Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:30.413Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:30.413Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:34.980Z INFO webdriver: RESULT {
+2026-08-09T21:05:30.568Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -120,13 +120,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:34.997Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:34.997Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:34.997Z INFO webdriver: DATA {
+2026-08-09T21:05:30.573Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:30.573Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:30.573Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:35.098Z INFO webdriver: RESULT {
+2026-08-09T21:05:30.679Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -136,13 +136,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:35.106Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:35.107Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:35.107Z INFO webdriver: DATA {
+2026-08-09T21:05:30.696Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:30.696Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:30.696Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:35.217Z INFO webdriver: RESULT {
+2026-08-09T21:05:30.812Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -152,13 +152,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:35.231Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:35.232Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:35.232Z INFO webdriver: DATA {
+2026-08-09T21:05:30.820Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:30.821Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:30.821Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:35.346Z INFO webdriver: RESULT {
+2026-08-09T21:05:30.982Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -168,13 +168,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:35.358Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:35.358Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:35.358Z INFO webdriver: DATA {
+2026-08-09T21:05:30.993Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:30.993Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:30.993Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:35.470Z INFO webdriver: RESULT {
+2026-08-09T21:05:31.119Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -184,13 +184,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:35.483Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:35.483Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:35.483Z INFO webdriver: DATA {
+2026-08-09T21:05:31.133Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:31.133Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:31.133Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:35.585Z INFO webdriver: RESULT {
+2026-08-09T21:05:31.216Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -200,13 +200,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:35.592Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:35.592Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:35.592Z INFO webdriver: DATA {
+2026-08-09T21:05:31.229Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:31.229Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:31.229Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:35.713Z INFO webdriver: RESULT {
+2026-08-09T21:05:31.315Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -216,13 +216,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:35.716Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:35.716Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:35.716Z INFO webdriver: DATA {
+2026-08-09T21:05:31.323Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:31.323Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:31.323Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:35.830Z INFO webdriver: RESULT {
+2026-08-09T21:05:31.431Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -232,13 +232,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:35.832Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:35.832Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:35.832Z INFO webdriver: DATA {
+2026-08-09T21:05:31.449Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:31.449Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:31.449Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:35.968Z INFO webdriver: RESULT {
+2026-08-09T21:05:31.583Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -248,13 +248,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:35.985Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:35.985Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:35.985Z INFO webdriver: DATA {
+2026-08-09T21:05:31.592Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:31.593Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:31.593Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:36.102Z INFO webdriver: RESULT {
+2026-08-09T21:05:31.701Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -264,13 +264,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:36.111Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:36.111Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:36.111Z INFO webdriver: DATA {
+2026-08-09T21:05:31.717Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:31.717Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:31.717Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:39.391Z INFO webdriver: RESULT {
+2026-08-09T21:05:35.760Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -280,39 +280,39 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:39.405Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:39.405Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:39.405Z INFO webdriver: DATA {
+2026-08-09T21:05:35.766Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:35.766Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:35.766Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:39.888Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002b89',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002b89'
+2026-08-09T21:05:36.327Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002ba1',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002ba1'
 }
-2026-08-09T20:36:39.889Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00002b89")
-2026-08-09T20:36:39.889Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002b89/displayed
-2026-08-09T20:36:39.908Z INFO webdriver: RESULT true
-2026-08-09T20:36:39.908Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
-2026-08-09T20:36:39.908Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:39.908Z INFO webdriver: DATA {
+2026-08-09T21:05:36.329Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00002ba1")
+2026-08-09T21:05:36.329Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002ba1/displayed
+2026-08-09T21:05:36.387Z INFO webdriver: RESULT true
+2026-08-09T21:05:36.387Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().text("Sign up")")
+2026-08-09T21:05:36.387Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:36.387Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().text("Sign up")'
 }
-2026-08-09T20:36:39.935Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002b89',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002b89'
+2026-08-09T21:05:36.502Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002ba1',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002ba1'
 }
-2026-08-09T20:36:39.936Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00002b89")
-2026-08-09T20:36:39.936Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002b89/click
-2026-08-09T20:36:40.023Z INFO webdriver: RESULT null
-2026-08-09T20:36:40.024Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("firstName")")
-2026-08-09T20:36:40.024Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:40.024Z INFO webdriver: DATA {
+2026-08-09T21:05:36.506Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00002ba1")
+2026-08-09T21:05:36.506Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002ba1/click
+2026-08-09T21:05:36.608Z INFO webdriver: RESULT null
+2026-08-09T21:05:36.608Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("firstName")")
+2026-08-09T21:05:36.608Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:36.608Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("firstName")'
 }
-2026-08-09T20:36:40.181Z INFO webdriver: RESULT {
+2026-08-09T21:05:36.681Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -322,183 +322,183 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:36:40.183Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("firstName")")
-2026-08-09T20:36:40.183Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:40.183Z INFO webdriver: DATA {
+2026-08-09T21:05:36.683Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("firstName")")
+2026-08-09T21:05:36.683Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:36.683Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("firstName")'
 }
-2026-08-09T20:36:40.726Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002ba3',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002ba3'
+2026-08-09T21:05:36.834Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002bbb',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002bbb'
 }
-2026-08-09T20:36:40.727Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00002ba3")
-2026-08-09T20:36:40.727Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba3/displayed
-2026-08-09T20:36:40.743Z INFO webdriver: RESULT true
-2026-08-09T20:36:40.743Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00002ba3")
-2026-08-09T20:36:40.743Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba3/click
-2026-08-09T20:36:41.325Z INFO webdriver: RESULT null
-2026-08-09T20:36:41.325Z INFO webdriver: COMMAND elementClear("00000000-0000-0215-ffff-ffff00002ba3")
-2026-08-09T20:36:41.326Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba3/clear
-2026-08-09T20:36:41.408Z INFO webdriver: RESULT null
-2026-08-09T20:36:41.408Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-0215-ffff-ffff00002ba3", "<Screenshot[base64]>")
-2026-08-09T20:36:41.408Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba3/value
-2026-08-09T20:36:41.408Z INFO webdriver: DATA { text: 'John' }
-2026-08-09T20:36:42.887Z INFO webdriver: RESULT null
-2026-08-09T20:36:42.887Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("lastName")")
-2026-08-09T20:36:42.887Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:42.887Z INFO webdriver: DATA {
+2026-08-09T21:05:36.835Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00002bbb")
+2026-08-09T21:05:36.835Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbb/displayed
+2026-08-09T21:05:37.421Z INFO webdriver: RESULT true
+2026-08-09T21:05:37.421Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00002bbb")
+2026-08-09T21:05:37.421Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbb/click
+2026-08-09T21:05:38.010Z INFO webdriver: RESULT null
+2026-08-09T21:05:38.010Z INFO webdriver: COMMAND elementClear("00000000-0000-025d-ffff-ffff00002bbb")
+2026-08-09T21:05:38.010Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbb/clear
+2026-08-09T21:05:38.081Z INFO webdriver: RESULT null
+2026-08-09T21:05:38.081Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-025d-ffff-ffff00002bbb", "<Screenshot[base64]>")
+2026-08-09T21:05:38.081Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbb/value
+2026-08-09T21:05:38.081Z INFO webdriver: DATA { text: 'John' }
+2026-08-09T21:05:39.873Z INFO webdriver: RESULT null
+2026-08-09T21:05:39.873Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("lastName")")
+2026-08-09T21:05:39.873Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:39.873Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("lastName")'
 }
-2026-08-09T20:36:42.920Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002ba4',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002ba4'
+2026-08-09T21:05:39.919Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002bbc',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002bbc'
 }
-2026-08-09T20:36:42.921Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00002ba4")
-2026-08-09T20:36:42.921Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba4/displayed
-2026-08-09T20:36:43.575Z INFO webdriver: RESULT true
-2026-08-09T20:36:43.575Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00002ba4")
-2026-08-09T20:36:43.575Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba4/click
-2026-08-09T20:36:45.535Z INFO webdriver: RESULT null
-2026-08-09T20:36:45.535Z INFO webdriver: COMMAND elementClear("00000000-0000-0215-ffff-ffff00002ba4")
-2026-08-09T20:36:45.535Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba4/clear
-2026-08-09T20:36:45.558Z INFO webdriver: RESULT null
-2026-08-09T20:36:45.558Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-0215-ffff-ffff00002ba4", "Silva")
-2026-08-09T20:36:45.558Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba4/value
-2026-08-09T20:36:45.558Z INFO webdriver: DATA { text: 'Silva' }
-2026-08-09T20:36:46.905Z INFO webdriver: RESULT null
-2026-08-09T20:36:46.905Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("phone")")
-2026-08-09T20:36:46.905Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:46.905Z INFO webdriver: DATA {
+2026-08-09T21:05:39.920Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00002bbc")
+2026-08-09T21:05:39.921Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbc/displayed
+2026-08-09T21:05:40.650Z INFO webdriver: RESULT true
+2026-08-09T21:05:40.650Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00002bbc")
+2026-08-09T21:05:40.650Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbc/click
+2026-08-09T21:05:42.317Z INFO webdriver: RESULT null
+2026-08-09T21:05:42.317Z INFO webdriver: COMMAND elementClear("00000000-0000-025d-ffff-ffff00002bbc")
+2026-08-09T21:05:42.317Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbc/clear
+2026-08-09T21:05:42.350Z INFO webdriver: RESULT null
+2026-08-09T21:05:42.350Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-025d-ffff-ffff00002bbc", "Silva")
+2026-08-09T21:05:42.350Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbc/value
+2026-08-09T21:05:42.350Z INFO webdriver: DATA { text: 'Silva' }
+2026-08-09T21:05:43.722Z INFO webdriver: RESULT null
+2026-08-09T21:05:43.722Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("phone")")
+2026-08-09T21:05:43.722Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:43.722Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("phone")'
 }
-2026-08-09T20:36:47.556Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002ba5',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002ba5'
+2026-08-09T21:05:44.427Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002bbd',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002bbd'
 }
-2026-08-09T20:36:47.558Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00002ba5")
-2026-08-09T20:36:47.558Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba5/displayed
-2026-08-09T20:36:47.573Z INFO webdriver: RESULT true
-2026-08-09T20:36:47.573Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00002ba5")
-2026-08-09T20:36:47.573Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba5/click
-2026-08-09T20:36:49.151Z INFO webdriver: RESULT null
-2026-08-09T20:36:49.151Z INFO webdriver: COMMAND elementClear("00000000-0000-0215-ffff-ffff00002ba5")
-2026-08-09T20:36:49.151Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba5/clear
-2026-08-09T20:36:49.183Z INFO webdriver: RESULT null
-2026-08-09T20:36:49.183Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-0215-ffff-ffff00002ba5", "11987654321")
-2026-08-09T20:36:49.183Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba5/value
-2026-08-09T20:36:49.183Z INFO webdriver: DATA { text: '11987654321' }
-2026-08-09T20:36:50.504Z INFO webdriver: RESULT null
-2026-08-09T20:36:50.504Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
-2026-08-09T20:36:50.504Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:50.505Z INFO webdriver: DATA {
+2026-08-09T21:05:44.429Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00002bbd")
+2026-08-09T21:05:44.429Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbd/displayed
+2026-08-09T21:05:44.456Z INFO webdriver: RESULT true
+2026-08-09T21:05:44.456Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00002bbd")
+2026-08-09T21:05:44.456Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbd/click
+2026-08-09T21:05:46.116Z INFO webdriver: RESULT null
+2026-08-09T21:05:46.116Z INFO webdriver: COMMAND elementClear("00000000-0000-025d-ffff-ffff00002bbd")
+2026-08-09T21:05:46.116Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbd/clear
+2026-08-09T21:05:46.148Z INFO webdriver: RESULT null
+2026-08-09T21:05:46.148Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-025d-ffff-ffff00002bbd", "11987654321")
+2026-08-09T21:05:46.148Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbd/value
+2026-08-09T21:05:46.148Z INFO webdriver: DATA { text: '11987654321' }
+2026-08-09T21:05:47.488Z INFO webdriver: RESULT null
+2026-08-09T21:05:47.488Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("email")")
+2026-08-09T21:05:47.489Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:47.489Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("email")'
 }
-2026-08-09T20:36:51.193Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002ba6',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002ba6'
+2026-08-09T21:05:47.570Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002bbe',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002bbe'
 }
-2026-08-09T20:36:51.194Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00002ba6")
-2026-08-09T20:36:51.194Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba6/displayed
-2026-08-09T20:36:51.217Z INFO webdriver: RESULT true
-2026-08-09T20:36:51.217Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00002ba6")
-2026-08-09T20:36:51.217Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba6/click
-2026-08-09T20:36:52.885Z INFO webdriver: RESULT null
-2026-08-09T20:36:52.885Z INFO webdriver: COMMAND elementClear("00000000-0000-0215-ffff-ffff00002ba6")
-2026-08-09T20:36:52.885Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba6/clear
-2026-08-09T20:36:52.917Z INFO webdriver: RESULT null
-2026-08-09T20:36:52.917Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-0215-ffff-ffff00002ba6", "user1786307793255@example.com")
-2026-08-09T20:36:52.917Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba6/value
-2026-08-09T20:36:52.917Z INFO webdriver: DATA { text: 'user1786307793255@example.com' }
-2026-08-09T20:36:54.228Z INFO webdriver: RESULT null
-2026-08-09T20:36:54.228Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("password")")
-2026-08-09T20:36:54.228Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:54.228Z INFO webdriver: DATA {
+2026-08-09T21:05:47.572Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00002bbe")
+2026-08-09T21:05:47.572Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbe/displayed
+2026-08-09T21:05:48.244Z INFO webdriver: RESULT true
+2026-08-09T21:05:48.244Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00002bbe")
+2026-08-09T21:05:48.244Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbe/click
+2026-08-09T21:05:49.848Z INFO webdriver: RESULT null
+2026-08-09T21:05:49.848Z INFO webdriver: COMMAND elementClear("00000000-0000-025d-ffff-ffff00002bbe")
+2026-08-09T21:05:49.848Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbe/clear
+2026-08-09T21:05:49.883Z INFO webdriver: RESULT null
+2026-08-09T21:05:49.883Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-025d-ffff-ffff00002bbe", "user1786309528510@example.com")
+2026-08-09T21:05:49.883Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbe/value
+2026-08-09T21:05:49.883Z INFO webdriver: DATA { text: 'user1786309528510@example.com' }
+2026-08-09T21:05:51.239Z INFO webdriver: RESULT null
+2026-08-09T21:05:51.239Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("password")")
+2026-08-09T21:05:51.239Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:51.239Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("password")'
 }
-2026-08-09T20:36:54.906Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002ba7',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002ba7'
+2026-08-09T21:05:51.269Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002bbf',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002bbf'
 }
-2026-08-09T20:36:54.907Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00002ba7")
-2026-08-09T20:36:54.907Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba7/displayed
-2026-08-09T20:36:54.926Z INFO webdriver: RESULT true
-2026-08-09T20:36:54.927Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00002ba7")
-2026-08-09T20:36:54.927Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba7/click
-2026-08-09T20:36:55.651Z INFO webdriver: RESULT null
-2026-08-09T20:36:55.652Z INFO webdriver: COMMAND elementClear("00000000-0000-0215-ffff-ffff00002ba7")
-2026-08-09T20:36:55.652Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba7/clear
-2026-08-09T20:36:55.677Z INFO webdriver: RESULT null
-2026-08-09T20:36:55.678Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-0215-ffff-ffff00002ba7", "123456")
-2026-08-09T20:36:55.678Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba7/value
-2026-08-09T20:36:55.678Z INFO webdriver: DATA { text: '123456' }
-2026-08-09T20:36:57.000Z INFO webdriver: RESULT null
-2026-08-09T20:36:57.000Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("repassword"))")
-2026-08-09T20:36:57.000Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:36:57.000Z INFO webdriver: DATA {
+2026-08-09T21:05:51.271Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00002bbf")
+2026-08-09T21:05:51.272Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbf/displayed
+2026-08-09T21:05:51.957Z INFO webdriver: RESULT true
+2026-08-09T21:05:51.957Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00002bbf")
+2026-08-09T21:05:51.957Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbf/click
+2026-08-09T21:05:52.722Z INFO webdriver: RESULT null
+2026-08-09T21:05:52.722Z INFO webdriver: COMMAND elementClear("00000000-0000-025d-ffff-ffff00002bbf")
+2026-08-09T21:05:52.722Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbf/clear
+2026-08-09T21:05:52.747Z INFO webdriver: RESULT null
+2026-08-09T21:05:52.747Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-025d-ffff-ffff00002bbf", "123456")
+2026-08-09T21:05:52.747Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bbf/value
+2026-08-09T21:05:52.747Z INFO webdriver: DATA { text: '123456' }
+2026-08-09T21:05:54.049Z INFO webdriver: RESULT null
+2026-08-09T21:05:54.049Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("repassword"))")
+2026-08-09T21:05:54.049Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:54.049Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("repassword"))'
 }
-2026-08-09T20:36:57.658Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002ba8',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002ba8'
+2026-08-09T21:05:54.731Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002bc0',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002bc0'
 }
-2026-08-09T20:36:57.659Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00002ba8")
-2026-08-09T20:36:57.659Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba8/displayed
-2026-08-09T20:36:57.679Z INFO webdriver: RESULT true
-2026-08-09T20:36:57.679Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00002ba8")
-2026-08-09T20:36:57.679Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba8/click
-2026-08-09T20:36:58.361Z INFO webdriver: RESULT null
-2026-08-09T20:36:58.361Z INFO webdriver: COMMAND elementClear("00000000-0000-0215-ffff-ffff00002ba8")
-2026-08-09T20:36:58.361Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba8/clear
-2026-08-09T20:36:58.385Z INFO webdriver: RESULT null
-2026-08-09T20:36:58.385Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-0215-ffff-ffff00002ba8", "123456")
-2026-08-09T20:36:58.385Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba8/value
-2026-08-09T20:36:58.385Z INFO webdriver: DATA { text: '123456' }
-2026-08-09T20:36:59.665Z INFO webdriver: RESULT null
-2026-08-09T20:36:59.666Z INFO webdriver: COMMAND isKeyboardShown()
-2026-08-09T20:36:59.666Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/appium/device/is_keyboard_shown
-2026-08-09T20:37:00.157Z INFO webdriver: RESULT true
-2026-08-09T20:37:00.157Z INFO webdriver: COMMAND hideKeyboard()
-2026-08-09T20:37:00.157Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/appium/device/hide_keyboard
-2026-08-09T20:37:01.465Z INFO webdriver: RESULT true
-2026-08-09T20:37:01.465Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("create"))")
-2026-08-09T20:37:01.466Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:01.466Z INFO webdriver: DATA {
+2026-08-09T21:05:54.733Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00002bc0")
+2026-08-09T21:05:54.733Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bc0/displayed
+2026-08-09T21:05:54.754Z INFO webdriver: RESULT true
+2026-08-09T21:05:54.754Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00002bc0")
+2026-08-09T21:05:54.754Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bc0/click
+2026-08-09T21:05:55.573Z INFO webdriver: RESULT null
+2026-08-09T21:05:55.573Z INFO webdriver: COMMAND elementClear("00000000-0000-025d-ffff-ffff00002bc0")
+2026-08-09T21:05:55.573Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bc0/clear
+2026-08-09T21:05:55.593Z INFO webdriver: RESULT null
+2026-08-09T21:05:55.593Z INFO webdriver: COMMAND elementSendKeys("00000000-0000-025d-ffff-ffff00002bc0", "123456")
+2026-08-09T21:05:55.593Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bc0/value
+2026-08-09T21:05:55.593Z INFO webdriver: DATA { text: '123456' }
+2026-08-09T21:05:56.882Z INFO webdriver: RESULT null
+2026-08-09T21:05:56.882Z INFO webdriver: COMMAND isKeyboardShown()
+2026-08-09T21:05:56.882Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/appium/device/is_keyboard_shown
+2026-08-09T21:05:57.402Z INFO webdriver: RESULT true
+2026-08-09T21:05:57.402Z INFO webdriver: COMMAND hideKeyboard()
+2026-08-09T21:05:57.402Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/appium/device/hide_keyboard
+2026-08-09T21:05:58.804Z INFO webdriver: RESULT true
+2026-08-09T21:05:58.804Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("create"))")
+2026-08-09T21:05:58.804Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:58.804Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("create"))'
 }
-2026-08-09T20:37:01.494Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002ba9',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002ba9'
+2026-08-09T21:05:58.828Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002bc1',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002bc1'
 }
-2026-08-09T20:37:01.496Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00002ba9")
-2026-08-09T20:37:01.496Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba9/displayed
-2026-08-09T20:37:01.513Z INFO webdriver: RESULT true
-2026-08-09T20:37:01.513Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("create"))")
-2026-08-09T20:37:01.513Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:01.513Z INFO webdriver: DATA {
+2026-08-09T21:05:58.830Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00002bc1")
+2026-08-09T21:05:58.830Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bc1/displayed
+2026-08-09T21:05:58.854Z INFO webdriver: RESULT true
+2026-08-09T21:05:58.854Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("create"))")
+2026-08-09T21:05:58.854Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:58.854Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("create"))'
 }
-2026-08-09T20:37:01.539Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002ba9',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002ba9'
+2026-08-09T21:05:58.883Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002bc1',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002bc1'
 }
-2026-08-09T20:37:01.541Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00002ba9")
-2026-08-09T20:37:01.541Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002ba9/click
-2026-08-09T20:37:01.626Z INFO webdriver: RESULT null
-2026-08-09T20:37:01.626Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:01.626Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:01.626Z INFO webdriver: DATA {
+2026-08-09T21:05:58.884Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00002bc1")
+2026-08-09T21:05:58.885Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002bc1/click
+2026-08-09T21:05:58.981Z INFO webdriver: RESULT null
+2026-08-09T21:05:58.981Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:05:58.981Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:58.981Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:01.681Z INFO webdriver: RESULT {
+2026-08-09T21:05:59.031Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -508,13 +508,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:01.683Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:01.683Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:01.683Z INFO webdriver: DATA {
+2026-08-09T21:05:59.033Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:05:59.033Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:05:59.033Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:02.670Z INFO webdriver: RESULT {
+2026-08-09T21:06:00.001Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -524,13 +524,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:02.678Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:02.678Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:02.678Z INFO webdriver: DATA {
+2026-08-09T21:06:00.003Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:00.003Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:00.003Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:02.728Z INFO webdriver: RESULT {
+2026-08-09T21:06:00.035Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -540,13 +540,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:02.741Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:02.741Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:02.741Z INFO webdriver: DATA {
+2026-08-09T21:06:00.052Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:00.052Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:00.052Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:02.785Z INFO webdriver: RESULT {
+2026-08-09T21:06:00.695Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -556,13 +556,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:02.802Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:02.803Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:02.803Z INFO webdriver: DATA {
+2026-08-09T21:06:00.700Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:00.700Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:00.700Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:02.844Z INFO webdriver: RESULT {
+2026-08-09T21:06:00.732Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -572,13 +572,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:02.849Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:02.849Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:02.849Z INFO webdriver: DATA {
+2026-08-09T21:06:00.747Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:00.748Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:00.748Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:02.882Z INFO webdriver: RESULT {
+2026-08-09T21:06:00.780Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -588,13 +588,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:02.896Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:02.896Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:02.896Z INFO webdriver: DATA {
+2026-08-09T21:06:00.794Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:00.794Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:00.794Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:02.942Z INFO webdriver: RESULT {
+2026-08-09T21:06:00.844Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -604,13 +604,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:02.959Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:02.959Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:02.959Z INFO webdriver: DATA {
+2026-08-09T21:06:00.846Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:00.846Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:00.846Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:02.994Z INFO webdriver: RESULT {
+2026-08-09T21:06:00.880Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -620,13 +620,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.006Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.006Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.006Z INFO webdriver: DATA {
+2026-08-09T21:06:00.891Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:00.891Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:00.891Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.032Z INFO webdriver: RESULT {
+2026-08-09T21:06:00.930Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -636,13 +636,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.037Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.037Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.037Z INFO webdriver: DATA {
+2026-08-09T21:06:00.932Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:00.932Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:00.932Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.067Z INFO webdriver: RESULT {
+2026-08-09T21:06:00.982Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -652,13 +652,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.069Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.069Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.069Z INFO webdriver: DATA {
+2026-08-09T21:06:01.000Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.000Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.000Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.107Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.033Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -668,13 +668,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.109Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.109Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.109Z INFO webdriver: DATA {
+2026-08-09T21:06:01.035Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.035Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.035Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.143Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.095Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -684,13 +684,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.148Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.148Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.148Z INFO webdriver: DATA {
+2026-08-09T21:06:01.097Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.097Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.097Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.168Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.162Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -700,13 +700,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.180Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.180Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.180Z INFO webdriver: DATA {
+2026-08-09T21:06:01.172Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.172Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.172Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.224Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.230Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -716,13 +716,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.241Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.241Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.241Z INFO webdriver: DATA {
+2026-08-09T21:06:01.236Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.236Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.236Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.297Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.285Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -732,13 +732,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.305Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.305Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.305Z INFO webdriver: DATA {
+2026-08-09T21:06:01.298Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.299Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.299Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.338Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.334Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -748,13 +748,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.352Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.353Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.353Z INFO webdriver: DATA {
+2026-08-09T21:06:01.346Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.346Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.346Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.390Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.384Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -764,13 +764,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.393Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.393Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.393Z INFO webdriver: DATA {
+2026-08-09T21:06:01.392Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.392Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.392Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.459Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.417Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -780,13 +780,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.476Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.476Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.476Z INFO webdriver: DATA {
+2026-08-09T21:06:01.423Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.423Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.423Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.514Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.453Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -796,13 +796,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.522Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.522Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.522Z INFO webdriver: DATA {
+2026-08-09T21:06:01.455Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.455Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.455Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.558Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.482Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -812,13 +812,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.585Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.585Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.585Z INFO webdriver: DATA {
+2026-08-09T21:06:01.486Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.486Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.486Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.646Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.516Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -828,13 +828,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.696Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.696Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.697Z INFO webdriver: DATA {
+2026-08-09T21:06:01.518Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.518Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.518Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.742Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.562Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -844,13 +844,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.789Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.790Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.790Z INFO webdriver: DATA {
+2026-08-09T21:06:01.565Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.565Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.566Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.827Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.594Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -860,13 +860,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.899Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.899Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.899Z INFO webdriver: DATA {
+2026-08-09T21:06:01.612Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.612Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.612Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:03.928Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.637Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -876,13 +876,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:03.992Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:03.993Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:03.993Z INFO webdriver: DATA {
+2026-08-09T21:06:01.644Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.644Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.644Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:04.024Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.689Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -892,13 +892,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:04.085Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:04.086Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:04.086Z INFO webdriver: DATA {
+2026-08-09T21:06:01.707Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.707Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.707Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:04.109Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.737Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -908,13 +908,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:04.196Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:04.196Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:04.196Z INFO webdriver: DATA {
+2026-08-09T21:06:01.753Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.753Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.753Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:04.245Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.783Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -924,13 +924,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:04.287Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:04.287Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:04.287Z INFO webdriver: DATA {
+2026-08-09T21:06:01.800Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.801Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.801Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:04.361Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.834Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -940,13 +940,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:04.396Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:04.396Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:04.396Z INFO webdriver: DATA {
+2026-08-09T21:06:01.847Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.847Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.847Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:04.440Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.869Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -956,13 +956,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:04.489Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:04.489Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:04.489Z INFO webdriver: DATA {
+2026-08-09T21:06:01.878Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.879Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.879Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:04.518Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.923Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -972,13 +972,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:04.597Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:04.597Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:04.597Z INFO webdriver: DATA {
+2026-08-09T21:06:01.932Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:01.932Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:01.932Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:04.627Z INFO webdriver: RESULT {
+2026-08-09T21:06:01.966Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -988,13 +988,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:04.691Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:04.691Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:04.691Z INFO webdriver: DATA {
+2026-08-09T21:06:02.040Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:02.040Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:02.040Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:04.723Z INFO webdriver: RESULT {
+2026-08-09T21:06:02.074Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1004,13 +1004,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:04.784Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:04.785Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:04.785Z INFO webdriver: DATA {
+2026-08-09T21:06:02.134Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:02.134Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:02.134Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:04.829Z INFO webdriver: RESULT {
+2026-08-09T21:06:02.193Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1020,13 +1020,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:04.895Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:04.895Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:04.895Z INFO webdriver: DATA {
+2026-08-09T21:06:02.244Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:02.244Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:02.244Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:04.916Z INFO webdriver: RESULT {
+2026-08-09T21:06:02.280Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1036,13 +1036,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:04.991Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:04.991Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:04.991Z INFO webdriver: DATA {
+2026-08-09T21:06:02.340Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:02.340Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:02.340Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:05.031Z INFO webdriver: RESULT {
+2026-08-09T21:06:02.379Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1052,13 +1052,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:05.084Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:05.084Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:05.084Z INFO webdriver: DATA {
+2026-08-09T21:06:02.434Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:02.434Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:02.434Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:05.132Z INFO webdriver: RESULT {
+2026-08-09T21:06:02.475Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1068,13 +1068,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:05.194Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:05.195Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:05.195Z INFO webdriver: DATA {
+2026-08-09T21:06:02.544Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:02.544Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:02.544Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:05.248Z INFO webdriver: RESULT {
+2026-08-09T21:06:02.592Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1084,13 +1084,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:05.288Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:05.289Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:05.289Z INFO webdriver: DATA {
+2026-08-09T21:06:02.637Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:02.638Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:02.638Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:05.331Z INFO webdriver: RESULT {
+2026-08-09T21:06:02.683Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1100,13 +1100,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:05.384Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:05.384Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:05.384Z INFO webdriver: DATA {
+2026-08-09T21:06:02.732Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:02.732Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:02.732Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:05.425Z INFO webdriver: RESULT {
+2026-08-09T21:06:02.776Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1116,13 +1116,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:05.494Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:05.494Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:05.494Z INFO webdriver: DATA {
+2026-08-09T21:06:02.843Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:02.843Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:02.843Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:05.516Z INFO webdriver: RESULT {
+2026-08-09T21:06:02.896Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1132,13 +1132,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:05.589Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:05.589Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:05.589Z INFO webdriver: DATA {
+2026-08-09T21:06:02.938Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:02.938Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:02.939Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:05.623Z INFO webdriver: RESULT {
+2026-08-09T21:06:03.008Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1148,13 +1148,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:05.682Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:05.683Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:05.683Z INFO webdriver: DATA {
+2026-08-09T21:06:03.033Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:03.034Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:03.034Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:05.732Z INFO webdriver: RESULT {
+2026-08-09T21:06:03.064Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1164,13 +1164,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:05.793Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:05.793Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:05.793Z INFO webdriver: DATA {
+2026-08-09T21:06:03.142Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:03.142Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:03.142Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:05.825Z INFO webdriver: RESULT {
+2026-08-09T21:06:03.169Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1180,13 +1180,13 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:05.887Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:05.887Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:05.887Z INFO webdriver: DATA {
+2026-08-09T21:06:03.235Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:03.235Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:03.235Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:05.916Z INFO webdriver: RESULT {
+2026-08-09T21:06:03.260Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1196,62 +1196,126 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:05.998Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:05.999Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:05.999Z INFO webdriver: DATA {
+2026-08-09T21:06:03.347Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:03.347Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:03.347Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:07.796Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002bf2',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002bf2'
+2026-08-09T21:06:03.386Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
+    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
+    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:07.798Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00002bf2")
-2026-08-09T20:37:07.798Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002bf2/displayed
-2026-08-09T20:37:08.164Z INFO webdriver: RESULT true
-2026-08-09T20:37:08.164Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
-2026-08-09T20:37:08.164Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:08.164Z INFO webdriver: DATA {
+2026-08-09T21:06:03.441Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:03.441Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:03.441Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("wishlist")'
 }
-2026-08-09T20:37:09.098Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00002bf2',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00002bf2'
+2026-08-09T21:06:03.465Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
+    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
+    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:09.100Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00002bf2")
-2026-08-09T20:37:09.100Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00002bf2/click
-2026-08-09T20:37:09.415Z INFO webdriver: RESULT null
-2026-08-09T20:37:09.415Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("back")")
-2026-08-09T20:37:09.415Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:09.415Z INFO webdriver: DATA {
+2026-08-09T21:06:03.536Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:03.536Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:03.536Z INFO webdriver: DATA {
+  using: '-android uiautomator',
+  value: 'new UiSelector().resourceId("wishlist")'
+}
+2026-08-09T21:06:03.565Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
+    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
+    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
+}
+2026-08-09T21:06:03.646Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:03.646Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:03.646Z INFO webdriver: DATA {
+  using: '-android uiautomator',
+  value: 'new UiSelector().resourceId("wishlist")'
+}
+2026-08-09T21:06:03.678Z INFO webdriver: RESULT {
+  error: 'no such element',
+  message: 'An element could not be located on the page using the given search parameters.',
+  stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
+    '    at AndroidUiautomator2Driver.findElOrEls (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\appium-uiautomator2-driver\\node_modules\\appium-android-driver\\lib\\commands\\find.ts:86:11)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:60:12)\n' +
+    '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
+    '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
+}
+2026-08-09T21:06:03.742Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:03.742Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:03.742Z INFO webdriver: DATA {
+  using: '-android uiautomator',
+  value: 'new UiSelector().resourceId("wishlist")'
+}
+2026-08-09T21:06:05.734Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002c0a',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002c0a'
+}
+2026-08-09T21:06:05.736Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00002c0a")
+2026-08-09T21:06:05.736Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002c0a/displayed
+2026-08-09T21:06:06.774Z INFO webdriver: RESULT true
+2026-08-09T21:06:06.774Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("wishlist")")
+2026-08-09T21:06:06.774Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:06.774Z INFO webdriver: DATA {
+  using: '-android uiautomator',
+  value: 'new UiSelector().resourceId("wishlist")'
+}
+2026-08-09T21:06:09.497Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00002c0a',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00002c0a'
+}
+2026-08-09T21:06:09.498Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00002c0a")
+2026-08-09T21:06:09.498Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00002c0a/click
+2026-08-09T21:06:09.900Z INFO webdriver: RESULT null
+2026-08-09T21:06:09.901Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("back")")
+2026-08-09T21:06:09.901Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:09.901Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("back")'
 }
-2026-08-09T20:37:09.858Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff000034a5',
-  ELEMENT: '00000000-0000-0215-ffff-ffff000034a5'
+2026-08-09T21:06:10.628Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff000034bd',
+  ELEMENT: '00000000-0000-025d-ffff-ffff000034bd'
 }
-2026-08-09T20:37:09.860Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff000034a5")
-2026-08-09T20:37:09.860Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff000034a5/displayed
-2026-08-09T20:37:10.614Z INFO webdriver: RESULT true
-2026-08-09T20:37:10.615Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("back")")
-2026-08-09T20:37:10.615Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:10.615Z INFO webdriver: DATA {
+2026-08-09T21:06:10.630Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff000034bd")
+2026-08-09T21:06:10.630Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff000034bd/displayed
+2026-08-09T21:06:11.101Z INFO webdriver: RESULT true
+2026-08-09T21:06:11.101Z INFO webdriver: COMMAND findElement("-android uiautomator", "new UiSelector().resourceId("back")")
+2026-08-09T21:06:11.101Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:11.101Z INFO webdriver: DATA {
   using: '-android uiautomator',
   value: 'new UiSelector().resourceId("back")'
 }
-2026-08-09T20:37:10.638Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff000034a5',
-  ELEMENT: '00000000-0000-0215-ffff-ffff000034a5'
+2026-08-09T21:06:11.121Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff000034bd',
+  ELEMENT: '00000000-0000-025d-ffff-ffff000034bd'
 }
-2026-08-09T20:37:10.639Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff000034a5")
-2026-08-09T20:37:10.639Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff000034a5/click
-2026-08-09T20:37:10.722Z INFO webdriver: RESULT null
-2026-08-09T20:37:10.723Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]")
-2026-08-09T20:37:10.723Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:10.723Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]' }
-2026-08-09T20:37:10.792Z INFO webdriver: RESULT {
+2026-08-09T21:06:11.122Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff000034bd")
+2026-08-09T21:06:11.122Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff000034bd/click
+2026-08-09T21:06:11.207Z INFO webdriver: RESULT null
+2026-08-09T21:06:11.207Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]")
+2026-08-09T21:06:11.207Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:11.207Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]' }
+2026-08-09T21:06:11.279Z INFO webdriver: RESULT {
   error: 'no such element',
   message: 'An element could not be located on the page using the given search parameters.',
   stacktrace: 'NoSuchElementError: An element could not be located on the page using the given search parameters.\n' +
@@ -1261,35 +1325,35 @@
     '    at AndroidUiautomator2Driver.findElement (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\commands\\find.ts:76:12)\n' +
     '    at runCommandPromise (C:\\Users\\Pedro\\Desktop\\repositorio\\ATD_Mod17-Mobile\\node_modules\\@appium\\base-driver\\lib\\basedriver\\driver.ts:123:16)'
 }
-2026-08-09T20:37:10.794Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]")
-2026-08-09T20:37:10.794Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:10.794Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]' }
-2026-08-09T20:37:35.628Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff00000047',
-  ELEMENT: '00000000-0000-0215-ffff-ffff00000047'
+2026-08-09T21:06:11.281Z INFO webdriver: COMMAND findElement("xpath", "//*[@resource-id="tab-profile"]")
+2026-08-09T21:06:11.281Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:11.282Z INFO webdriver: DATA { using: 'xpath', value: '//*[@resource-id="tab-profile"]' }
+2026-08-09T21:06:34.236Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff00000047',
+  ELEMENT: '00000000-0000-025d-ffff-ffff00000047'
 }
-2026-08-09T20:37:35.630Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff00000047")
-2026-08-09T20:37:35.630Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00000047/displayed
-2026-08-09T20:37:35.641Z INFO webdriver: RESULT true
-2026-08-09T20:37:35.641Z INFO webdriver: COMMAND elementClick("00000000-0000-0215-ffff-ffff00000047")
-2026-08-09T20:37:35.641Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff00000047/click
-2026-08-09T20:37:35.719Z INFO webdriver: RESULT null
-2026-08-09T20:37:35.719Z INFO webdriver: COMMAND findElement("xpath", "//android.widget.TextView[@text="Silva John"]")
-2026-08-09T20:37:35.719Z INFO webdriver: [POST] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element
-2026-08-09T20:37:35.719Z INFO webdriver: DATA {
+2026-08-09T21:06:34.237Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff00000047")
+2026-08-09T21:06:34.237Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00000047/displayed
+2026-08-09T21:06:34.252Z INFO webdriver: RESULT true
+2026-08-09T21:06:34.253Z INFO webdriver: COMMAND elementClick("00000000-0000-025d-ffff-ffff00000047")
+2026-08-09T21:06:34.253Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff00000047/click
+2026-08-09T21:06:34.344Z INFO webdriver: RESULT null
+2026-08-09T21:06:34.345Z INFO webdriver: COMMAND findElement("xpath", "//android.widget.TextView[@text="Silva John"]")
+2026-08-09T21:06:34.345Z INFO webdriver: [POST] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element
+2026-08-09T21:06:34.345Z INFO webdriver: DATA {
   using: 'xpath',
   value: '//android.widget.TextView[@text="Silva John"]'
 }
-2026-08-09T20:37:36.426Z INFO webdriver: RESULT {
-  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-0215-ffff-ffff000034d0',
-  ELEMENT: '00000000-0000-0215-ffff-ffff000034d0'
+2026-08-09T21:06:34.600Z INFO webdriver: RESULT {
+  'element-6066-11e4-a52e-4f735466cecf': '00000000-0000-025d-ffff-ffff000034e8',
+  ELEMENT: '00000000-0000-025d-ffff-ffff000034e8'
 }
-2026-08-09T20:37:36.427Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff000034d0")
-2026-08-09T20:37:36.427Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff000034d0/displayed
-2026-08-09T20:37:36.438Z INFO webdriver: RESULT true
-2026-08-09T20:37:36.439Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-0215-ffff-ffff000034d0")
-2026-08-09T20:37:36.440Z INFO webdriver: [GET] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f/element/00000000-0000-0215-ffff-ffff000034d0/displayed
-2026-08-09T20:37:36.449Z INFO webdriver: RESULT true
-2026-08-09T20:37:36.451Z INFO webdriver: COMMAND deleteSession()
-2026-08-09T20:37:36.452Z INFO webdriver: [DELETE] http://127.0.0.1:52955/session/e8779fab-a5d2-4a49-9995-b05a1bf4f31f
-2026-08-09T20:37:37.464Z INFO webdriver: RESULT null
+2026-08-09T21:06:34.601Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff000034e8")
+2026-08-09T21:06:34.602Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff000034e8/displayed
+2026-08-09T21:06:35.132Z INFO webdriver: RESULT true
+2026-08-09T21:06:35.133Z INFO webdriver: COMMAND isElementDisplayed("00000000-0000-025d-ffff-ffff000034e8")
+2026-08-09T21:06:35.133Z INFO webdriver: [GET] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10/element/00000000-0000-025d-ffff-ffff000034e8/displayed
+2026-08-09T21:06:35.145Z INFO webdriver: RESULT true
+2026-08-09T21:06:35.147Z INFO webdriver: COMMAND deleteSession()
+2026-08-09T21:06:35.148Z INFO webdriver: [DELETE] http://127.0.0.1:62498/session/4d0bb92d-3f8a-4ee7-98c7-8c877a97ce10
+2026-08-09T21:06:36.149Z INFO webdriver: RESULT null

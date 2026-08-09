@@ -23,7 +23,7 @@ describe('Cadastro de usuário', () => {
         // 3. chamada repetida do openMenuCadastro aqui!
          await homePageCadastro.openMenuCadastro('profile')
         // 4. Mapeia e valida a exibição do nome do perfil
-        const profile = profilePageCadastro.profileNameCadastro('Silva')
+        const profile = profilePageCadastro.profileNameCadastro('Silva John')
 
         await profile.waitForDisplayed({
             timeout: 30000

@@ -1,5 +1,7 @@
 export const config = {
 
+    maxInstances: 1,
+
     runner: 'local',
 
     hostname: '127.0.0.1',
@@ -14,44 +16,25 @@ export const config = {
 
     // IMPORTANTE:
     // apenas um teste por vez
-    maxInstances: 1,
 
     services: ['appium'],
 
     capabilities: [{
-
         platformName: 'Android',
-
         'appium:automationName': 'UiAutomator2',
-
         'appium:deviceName': 'Android Emulator',
-
         'appium:app': './apps/ebacshop.apk',
-
         'appium:appPackage': 'br.com.lojaebac',
-
         'appium:appActivity': '.MainActivity',
-
         'appium:autoGrantPermissions': true,
 
-        'appium:noReset': false,
-
-        'appium:fullReset': false,
-
-        'appium:dontStopAppOnReset': false,
-
-        'appium:shouldTerminateApp': true,
-
-        'appium:newCommandTimeout': 300,
-
-        'appium:adbExecTimeout': 120000,
-
+        // Timeouts maiores para runners do GitHub
+        'appium:avdLaunchTimeout': 180000,
+        'appium:avdReadyTimeout': 180000,
         'appium:androidInstallTimeout': 180000,
-
-        'appium:uiautomator2ServerInstallTimeout': 120000,
-
-        'appium:uiautomator2ServerLaunchTimeout': 120000
-
+        'appium:uiautomator2ServerInstallTimeout': 180000,
+        'appium:uiautomator2ServerLaunchTimeout': 180000,
+        'appium:newCommandTimeout': 300
     }],
 
     logLevel: 'info',
