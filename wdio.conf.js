@@ -12,17 +12,11 @@ export const config = {
 
     exclude: [],
 
+    // IMPORTANTE:
+    // apenas um teste por vez
     maxInstances: 1,
 
-    // ==========================================
-    // APPIUM
-    // ==========================================
-
     services: ['appium'],
-
-    // ==========================================
-    // CAPABILITIES
-    // ==========================================
 
     capabilities: [{
 
@@ -32,7 +26,6 @@ export const config = {
 
         'appium:deviceName': 'Android Emulator',
 
-        // APK
         'appium:app': './apps/ebacshop.apk',
 
         'appium:appPackage': 'br.com.lojaebac',
@@ -41,10 +34,6 @@ export const config = {
 
         'appium:autoGrantPermissions': true,
 
-        // ======================================
-        // RESET DO APLICATIVO
-        // ======================================
-
         'appium:noReset': false,
 
         'appium:fullReset': false,
@@ -52,12 +41,6 @@ export const config = {
         'appium:dontStopAppOnReset': false,
 
         'appium:shouldTerminateApp': true,
-
-        // ======================================
-        // PERFORMANCE
-        // ======================================
-
-        'appium:disableIdLocatorAutocompletion': true,
 
         'appium:newCommandTimeout': 300,
 
@@ -71,76 +54,42 @@ export const config = {
 
     }],
 
-    // ==========================================
-    // LOGS
-    // ==========================================
-
     logLevel: 'info',
 
     outputDir: './logs',
 
-    // ==========================================
-    // TIMEOUTS
-    // ==========================================
+    waitforTimeout: 10000,
 
-    waitforTimeout: 30000,
+    connectionRetryTimeout: 120000,
 
-    connectionRetryTimeout: 180000,
-
-    connectionRetryCount: 5,
-
-    // ==========================================
-    // FRAMEWORK
-    // ==========================================
+    connectionRetryCount: 3,
 
     framework: 'mocha',
 
     mochaOpts: {
         ui: 'bdd',
-        timeout: 180000
+        timeout: 120000
     },
 
-    // ==========================================
-    // REPORTERS
-    // ==========================================
-
     reporters: [
-
         'spec',
 
         ['allure', {
-
             outputDir: 'allure-results',
-
             disableWebdriverStepsReporting: true,
-
             disableWebdriverScreenshotsReporting: false
-
         }]
-
     ],
-
-    // ==========================================
-    // HOOKS
-    // ==========================================
 
     before: async function () {
 
         await driver.setTimeout({
-
-            implicit: 10000,
-
-            pageLoad: 120000,
-
-            script: 120000
-
+            implicit: 3000,
+            pageLoad: 60000,
+            script: 60000
         });
 
     },
-
-    // ==========================================
-    // SCREENSHOT EM CASO DE ERRO
-    // ==========================================
 
     afterTest: async function (test, context, { error }) {
 
@@ -164,6 +113,8 @@ export const config = {
                 );
 
             }
+
         }
+
     }
 };
