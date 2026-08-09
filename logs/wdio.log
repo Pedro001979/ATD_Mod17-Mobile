@@ -1,0 +1,32 @@
+2026-08-09T20:36:23.195Z INFO @wdio/cli:launcher: Run onPrepare hook
+2026-08-09T20:36:23.211Z INFO @wdio/appium-service: Will spawn Appium process: cmd /c node C:\Users\Pedro\Desktop\repositorio\ATD_Mod17-Mobile\node_modules\appium\build\lib\main.js --base-path / --port 52955
+2026-08-09T20:36:24.362Z ERROR @wdio/appium-service: dbug
+2026-08-09T20:36:24.362Z ERROR @wdio/cli:utils: A service failed in the 'onPrepare' hook
+Error: dbug
+    at Socket.onErrorMessage (file:///C:/Users/Pedro/Desktop/repositorio/ATD_Mod17-Mobile/node_modules/@wdio/appium-service/build/index.js:213:20)
+    at Object.onceWrapper (node:events:634:26)
+    at Socket.emit (node:events:519:28)
+    at Socket.emit (node:domain:489:12)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+
+Continue...
+2026-08-09T20:36:24.365Z INFO @wdio/cli:launcher: Run onWorkerStart hook
+2026-08-09T20:36:24.365Z INFO @wdio/xvfb: XvfbManager.init() called
+2026-08-09T20:36:24.365Z INFO @wdio/xvfb: Xvfb not needed on current platform
+2026-08-09T20:36:24.366Z INFO @wdio/local-runner: Start worker 0-0 with arg: run ./wdio.conf.js
+2026-08-09T20:36:24.408Z INFO @wdio/xvfb:ProcessFactory: xvfb-run not found, falling back to regular fork
+2026-08-09T20:36:24.408Z INFO @wdio/xvfb:ProcessFactory: ProcessFactory: shouldRun=false, isAvailable=false
+2026-08-09T20:36:24.408Z INFO @wdio/xvfb:ProcessFactory: Creating worker process with regular fork
+2026-08-09T20:36:25.565Z INFO @wdio/appium-service: Appium started with ID: 23268
+2026-08-09T20:37:37.586Z INFO @wdio/cli:launcher: Run onWorkerEnd hook
+2026-08-09T20:37:37.587Z INFO @wdio/cli:launcher: Run onWorkerStart hook
+2026-08-09T20:37:37.588Z INFO @wdio/local-runner: Start worker 0-1 with arg: run ./wdio.conf.js
+2026-08-09T20:37:37.624Z INFO @wdio/xvfb:ProcessFactory: xvfb-run not found, falling back to regular fork
+2026-08-09T20:37:37.625Z INFO @wdio/xvfb:ProcessFactory: ProcessFactory: shouldRun=false, isAvailable=false
+2026-08-09T20:37:37.625Z INFO @wdio/xvfb:ProcessFactory: Creating worker process with regular fork
+2026-08-09T20:38:38.146Z INFO @wdio/cli:launcher: Run onWorkerEnd hook
+2026-08-09T20:38:38.147Z INFO @wdio/local-runner: Shutting down spawned worker
+2026-08-09T20:38:38.398Z INFO @wdio/local-runner: Waiting for 0 to shut down gracefully

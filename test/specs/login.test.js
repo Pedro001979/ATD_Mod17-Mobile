@@ -13,6 +13,15 @@ describe('My Login application', () => {
             'cliente@ebac.art.br',
             'GD*peToHNJ1#c$sgk08EaYJQ'
         );
-        
+
+        await homePage.openMenu('profile')
+        const profile = profilePageLogin.profileNameLogin('EBAC Cliente')
+         await profile.waitForDisplayed({
+            timeout: 30000
+        })
+
+        // Corrige a asserção usando o expect nativo do WebdriverIO
+        await expect(profile).toBeDisplayed()
+
     })
 })

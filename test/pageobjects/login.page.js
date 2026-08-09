@@ -1,37 +1,48 @@
+import { $, driver } from '@wdio/globals'
+
 class LoginPage {
 
+    // 1. Mapeamento dos elementos usando UiSelector pelo resourceId
     get email() {
-        return $('id=email');
+        return $('android=new UiSelector().resourceId("email")')
     }
 
     get password() {
-        return $('id=password');
+        return $('android=new UiSelector().resourceId("password")')
     }
 
     get loginButton() {
-        return $('id=login');
+        return $('android=new UiSelector().text("Login")')
     }
 
+    // 2. Método auxiliar para fechar teclado de forma segura
+    async esconderTeclado() {
+        try {
+            if (await driver.isKeyboardShown()) {
+                await driver.hideKeyboard()
+            }
+        } catch (e) { }
+    }
+
+    // 3. Método de Login limpo e robusto
     async login(email, password) {
+        // Preenche o E-mail
+        await this.email.waitForDisplayed({ timeout: 15000 })
+        await this.email.click()
+        await this.email.setValue(email)
 
-        await this.email.waitForDisplayed({
-            timeout: 30000
-        });
+        // Preenche a Senha
+        await this.password.waitForDisplayed({ timeout: 15000 })
+        await this.password.click()
+        await this.password.setValue(password)
 
-        await this.email.setValue(email);
+        // Oculta o teclado antes de clicar no botão
+        await this.esconderTeclado()
 
-        await this.password.waitForDisplayed({
-            timeout: 30000
-        });
-
-        await this.password.setValue(password);
-
-        await this.loginButton.waitForDisplayed({
-            timeout: 30000
-        });
-
-        await this.loginButton.click();
+        // Clica no botão de Login
+        await this.loginButton.waitForDisplayed({ timeout: 15000 })
+        await this.loginButton.click()
     }
 }
 
-export default new LoginPage();
+export default new LoginPage()
