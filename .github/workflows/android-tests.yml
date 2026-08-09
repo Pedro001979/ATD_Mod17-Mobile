@@ -146,12 +146,9 @@ jobs:
             echo "        BOOT COMPLETED"
             echo "================================="
 
-            while [ "$(adb shell getprop sys.boot_completed 2>&1)" != "1" ]; do
-              echo "Aguardando o sistema Android inicializar..."
-              sleep 2
-            done
+            while [ "$(adb shell getprop sys.boot_completed 2>&1)" != "1" ]; do sleep 2; done
 
-            echo "Android boot concluído!"
+            echo "Android boot concluído com sucesso!"
 
             echo ""
             echo "================================="
@@ -188,7 +185,7 @@ jobs:
 
           echo "Tentando capturar Logcat..."
 
-          if adb get-state 2>/devnull | grep -q "device"; then
+          if adb get-state 2>/dev/null | grep -q "device"; then
 
             timeout 15s adb logcat -d > logcat.txt || true
 
