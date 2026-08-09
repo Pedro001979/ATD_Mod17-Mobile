@@ -57,8 +57,6 @@ export const config = {
         // PERFORMANCE
         // ======================================
 
-        'appium:disableIdLocatorAutocompletion': true,
-
         'appium:newCommandTimeout': 300,
 
         'appium:adbExecTimeout': 120000,

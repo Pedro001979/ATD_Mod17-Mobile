@@ -1,22 +1,37 @@
-import { $ } from '@wdio/globals'
-
 class LoginPage {
+
     get email() {
-        return $('id:email')
+        return $('id=email');
     }
 
     get password() {
-        return $('id:password')
+        return $('id=password');
     }
 
-    get btnLogin() {
-        return $('~Login')
+    get loginButton() {
+        return $('id=login');
     }
 
     async login(email, password) {
+
+        await this.email.waitForDisplayed({
+            timeout: 30000
+        });
+
         await this.email.setValue(email);
+
+        await this.password.waitForDisplayed({
+            timeout: 30000
+        });
+
         await this.password.setValue(password);
-        await this.btnLogin.click();
+
+        await this.loginButton.waitForDisplayed({
+            timeout: 30000
+        });
+
+        await this.loginButton.click();
     }
 }
+
 export default new LoginPage();
