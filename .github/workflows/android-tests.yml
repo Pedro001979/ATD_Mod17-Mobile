@@ -74,7 +74,7 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '20'
           cache: npm
 
 
@@ -115,24 +115,11 @@ jobs:
 
       - name: Executar testes no Emulador Android
         uses: ReactiveCircus/android-emulator-runner@v2
-
         with:
-
-          # Voltando para a configuração que
-          # já conseguiu iniciar corretamente
           api-level: 29
-
           target: default
-
-          arch: x86
-
+          arch: x86_64
           profile: pixel
-
-          # IMPORTANTE:
-          # não usar disable-animations
-          # porque foi justamente nesse ponto
-          # que o ADB caiu.
-
           emulator-options: >
             -no-window
             -gpu swiftshader_indirect
@@ -141,7 +128,6 @@ jobs:
             -no-metrics
 
           script: |
-
             echo "================================="
             echo "        AGUARDANDO DEVICE"
             echo "================================="
@@ -160,7 +146,12 @@ jobs:
             echo "        BOOT COMPLETED"
             echo "================================="
 
-            adb shell getprop sys.boot_completed
+            while [ "$(adb shell getprop sys.boot_completed 2>&1)" != "1" ]; do
+              echo "Aguardando o sistema Android inicializar..."
+              sleep 2
+            done
+
+            echo "Android boot concluído!"
 
             echo ""
             echo "================================="
@@ -197,7 +188,7 @@ jobs:
 
           echo "Tentando capturar Logcat..."
 
-          if adb get-state 2>/dev/null | grep -q "device"; then
+          if adb get-state 2>/devnull | grep -q "device"; then
 
             timeout 15s adb logcat -d > logcat.txt || true
 
@@ -217,7 +208,6 @@ jobs:
       - name: Upload Logcat
         if: always()
         uses: actions/upload-artifact@v4
-
         with:
           name: logcat
           path: logcat.txt
@@ -231,7 +221,6 @@ jobs:
       - name: Upload Allure
         if: always()
         uses: actions/upload-artifact@v4
-
         with:
           name: allure-results
           path: allure-results
@@ -245,12 +234,9 @@ jobs:
       - name: Upload Screenshots
         if: always()
         uses: actions/upload-artifact@v4
-
         with:
           name: screenshots
-
           path: |
             ./errorShots
             ./screenshots
-
           if-no-files-found: ignore
