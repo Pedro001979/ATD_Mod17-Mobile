@@ -14,7 +14,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    timeout-minutes: 30
+    timeout-minutes: 15
 
     steps:
 
@@ -35,6 +35,7 @@ jobs:
 
       - name: Baixar arquivos Git LFS
         run: |
+          echo "Baixando arquivos Git LFS..."
           git lfs pull
 
 
@@ -44,32 +45,23 @@ jobs:
 
       - name: Verificar arquivo do app
         run: |
-          echo "======= ARQUIVOS DO APP ======="
+          echo "================================="
+          echo "        ARQUIVO DO APP"
+          echo "================================="
+
           ls -lh apps
 
           echo ""
-          echo "======= TIPO DO APK ======="
+          echo "Tipo do arquivo:"
           file apps/ebacshop.apk
 
           echo ""
-          echo "======= TAMANHO ======="
+          echo "Tamanho:"
           du -h apps/ebacshop.apk
 
-
-      # ==========================================
-      # KVM
-      # ==========================================
-
-      - name: Habilitar KVM
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            qemu-kvm \
-            libvirt-daemon-system \
-            libvirt-clients \
-            bridge-utils
-
-          sudo chmod 666 /dev/kvm
+          echo ""
+          echo "Primeiros bytes:"
+          head -c 4 apps/ebacshop.apk | xxd
 
 
       # ==========================================
@@ -104,33 +96,43 @@ jobs:
 
 
       # ==========================================
-      # VERIFICAR NODE / APPIUM
+      # VERIFICAR VERSÕES
       # ==========================================
 
       - name: Verificar versões
         run: |
-          echo "======= NODE ======="
+          echo "================================="
+          echo "            NODE"
+          echo "================================="
           node -v
 
           echo ""
-          echo "======= NPM ======="
+          echo "================================="
+          echo "            NPM"
+          echo "================================="
           npm -v
 
           echo ""
-          echo "======= APPIUM ======="
+          echo "================================="
+          echo "           APPIUM"
+          echo "================================="
           npx appium --version
 
           echo ""
-          echo "======= APPIUM INSTALADO ======="
+          echo "================================="
+          echo "       APPIUM PACKAGE"
+          echo "================================="
           npm ls appium
 
           echo ""
-          echo "======= UIAUTOMATOR2 ======="
+          echo "================================="
+          echo "       UIAUTOMATOR2"
+          echo "================================="
           npm ls appium-uiautomator2-driver
 
 
       # ==========================================
-      # ANDROID EMULATOR
+      # ANDROID EMULATOR + TESTES
       # ==========================================
 
       - name: Executar testes no Emulador Android
@@ -138,6 +140,7 @@ jobs:
 
         with:
 
+          # Android mais compatível com o projeto
           api-level: 30
 
           target: google_apis
@@ -158,21 +161,21 @@ jobs:
           script: |
 
             echo "================================="
-            echo "        ANDROID DEVICES"
+            echo "       AGUARDANDO ANDROID"
+            echo "================================="
+
+            adb wait-for-device
+
+            echo ""
+            echo "================================="
+            echo "       ANDROID DEVICES"
             echo "================================="
 
             adb devices
 
             echo ""
             echo "================================="
-            echo "        APPIUM"
-            echo "================================="
-
-            npx appium --version
-
-            echo ""
-            echo "================================="
-            echo "        APK"
+            echo "             APK"
             echo "================================="
 
             ls -lh apps/ebacshop.apk
@@ -181,7 +184,14 @@ jobs:
 
             echo ""
             echo "================================="
-            echo "        TESTES"
+            echo "            APPIUM"
+            echo "================================="
+
+            npx appium --version
+
+            echo ""
+            echo "================================="
+            echo "       INICIANDO TESTES"
             echo "================================="
 
             npm test
@@ -193,8 +203,18 @@ jobs:
 
       - name: Capturar Logcat
         if: always()
+        continue-on-error: true
         run: |
-          adb logcat -d > logcat.txt || true
+          echo "Tentando capturar Logcat..."
+
+          if adb get-state 2>/dev/null | grep -q "device"; then
+            timeout 15s adb logcat -d > logcat.txt || true
+          else
+            echo "Emulador não está disponível."
+            echo "Nenhum logcat foi capturado." > logcat.txt
+          fi
+
+          echo "Logcat finalizado."
 
 
       # ==========================================

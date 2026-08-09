@@ -18,14 +18,7 @@ export const config = {
     // APPIUM
     // ==========================================
 
-    services: [
-        ['appium', {
-            command: 'npx',
-            args: {
-                relaxedSecurity: true
-            }
-        }]
-    ],
+    services: ['appium'],
 
     // ==========================================
     // CAPABILITIES
