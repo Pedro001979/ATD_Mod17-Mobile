@@ -35,7 +35,6 @@ jobs:
 
       - name: Baixar arquivos Git LFS
         run: |
-          echo "Baixando arquivos Git LFS..."
           git lfs pull
 
 
@@ -43,23 +42,16 @@ jobs:
       # VERIFICAR APK
       # ==========================================
 
-      - name: Verificar arquivo do app
+      - name: Verificar APK
         run: |
-          echo "================================="
-          echo "        ARQUIVO DO APP"
-          echo "================================="
+          echo "======= APK ======="
 
           ls -lh apps
 
-          echo ""
-          echo "Tipo do arquivo:"
           file apps/ebacshop.apk
 
-          echo ""
-          echo "Tamanho:"
           du -h apps/ebacshop.apk
 
-          echo ""
           echo "Primeiros bytes:"
           head -c 4 apps/ebacshop.apk | xxd
 
@@ -96,43 +88,29 @@ jobs:
 
 
       # ==========================================
-      # VERIFICAR VERSÕES
+      # VERIFICAR INSTALAÇÃO
       # ==========================================
 
       - name: Verificar versões
         run: |
-          echo "================================="
-          echo "            NODE"
-          echo "================================="
+          echo "======= NODE ======="
           node -v
 
-          echo ""
-          echo "================================="
-          echo "            NPM"
-          echo "================================="
+          echo "======= NPM ======="
           npm -v
 
-          echo ""
-          echo "================================="
-          echo "           APPIUM"
-          echo "================================="
+          echo "======= APPIUM ======="
           npx appium --version
 
-          echo ""
-          echo "================================="
-          echo "       APPIUM PACKAGE"
-          echo "================================="
+          echo "======= APPIUM PACKAGE ======="
           npm ls appium
 
-          echo ""
-          echo "================================="
-          echo "       UIAUTOMATOR2"
-          echo "================================="
+          echo "======= UIAUTOMATOR2 ======="
           npm ls appium-uiautomator2-driver
 
 
       # ==========================================
-      # ANDROID EMULATOR + TESTES
+      # ANDROID EMULATOR
       # ==========================================
 
       - name: Executar testes no Emulador Android
@@ -140,16 +118,20 @@ jobs:
 
         with:
 
-          # Android mais compatível com o projeto
-          api-level: 30
+          # Voltando para a configuração que
+          # já conseguiu iniciar corretamente
+          api-level: 29
 
-          target: google_apis
+          target: default
 
-          arch: x86_64
+          arch: x86
 
           profile: pixel
 
-          disable-animations: true
+          # IMPORTANTE:
+          # não usar disable-animations
+          # porque foi justamente nesse ponto
+          # que o ADB caiu.
 
           emulator-options: >
             -no-window
@@ -161,17 +143,24 @@ jobs:
           script: |
 
             echo "================================="
-            echo "       AGUARDANDO ANDROID"
+            echo "        AGUARDANDO DEVICE"
             echo "================================="
 
             adb wait-for-device
 
             echo ""
             echo "================================="
-            echo "       ANDROID DEVICES"
+            echo "        ANDROID DEVICES"
             echo "================================="
 
             adb devices
+
+            echo ""
+            echo "================================="
+            echo "        BOOT COMPLETED"
+            echo "================================="
+
+            adb shell getprop sys.boot_completed
 
             echo ""
             echo "================================="
@@ -191,7 +180,7 @@ jobs:
 
             echo ""
             echo "================================="
-            echo "       INICIANDO TESTES"
+            echo "        INICIANDO TESTES"
             echo "================================="
 
             npm test
@@ -205,13 +194,17 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
+
           echo "Tentando capturar Logcat..."
 
           if adb get-state 2>/dev/null | grep -q "device"; then
+
             timeout 15s adb logcat -d > logcat.txt || true
+
           else
-            echo "Emulador não está disponível."
-            echo "Nenhum logcat foi capturado." > logcat.txt
+
+            echo "Emulador não está disponível." > logcat.txt
+
           fi
 
           echo "Logcat finalizado."
@@ -227,9 +220,7 @@ jobs:
 
         with:
           name: logcat
-
           path: logcat.txt
-
           if-no-files-found: ignore
 
 
@@ -243,9 +234,7 @@ jobs:
 
         with:
           name: allure-results
-
           path: allure-results
-
           if-no-files-found: ignore
 
 
