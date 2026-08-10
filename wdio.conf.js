@@ -24,22 +24,20 @@ export const config = {
         'appium:automationName': 'UiAutomator2',
         'appium:deviceName': 'Android Emulator',
         
-        // Caminho do aplicativo
         'appium:app': './apps/ebacshop.apk',
         'appium:appPackage': 'br.com.lojaebac',
         'appium:appActivity': '.MainActivity',
 
-        // Reinicia os dados do app a cada suite (evita testes interferindo entre si)
         'appium:noReset': false,
         'appium:fullReset': false,
         'appium:autoGrantPermissions': true,
 
-        // Timeouts maiores para garantir estabilidade no CI/CD
-        'appium:adbExecTimeout': 12000,
+        // Timeouts com os zeros corrigidos (180000ms = 3 minutos):
+        'appium:adbExecTimeout': 120000,
         'appium:newCommandTimeout': 300,
-        'appium:androidInstallTimeout': 18000,
-        'appium:uiautomator2ServerInstallTimeout': 18000,
-        'appium:uiautomator2ServerLaunchTimeout': 18000
+        'appium:androidInstallTimeout': 180000,
+        'appium:uiautomator2ServerInstallTimeout': 180000,
+        'appium:uiautomator2ServerLaunchTimeout': 180000
     }],
 
     framework: 'mocha',
