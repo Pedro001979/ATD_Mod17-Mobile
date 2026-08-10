@@ -1,51 +1,48 @@
 export const config = {
-
     runner: 'local',
 
+    // 1. Garante 1 teste por vez para não dar conflito no emulador
     maxInstances: 1,
 
-    hostname: '127.0.0.1',
-    port: 4723,
-    path: '/',
-
+    // 2. Procura e roda todos os arquivos de teste na pasta specs
     specs: [
-        './test/specs/login.test.js'
+        './test/specs/**/*.js'
     ],
 
     exclude: [],
 
+    logLevel: 'info',
+    waitforTimeout: 15000,
+    connectionRetryTimeout: 12000,
+    connectionRetryCount: 3,
+
+    // 3. O Appium Service gerencia o servidor automaticamente
     services: ['appium'],
 
     capabilities: [{
         platformName: 'Android',
-
         'appium:automationName': 'UiAutomator2',
-
         'appium:deviceName': 'Android Emulator',
-        'appium:udid': 'emulator-5554',
-
+        
+        // Caminho do aplicativo
+        'appium:app': './apps/ebacshop.apk',
         'appium:appPackage': 'br.com.lojaebac',
         'appium:appActivity': '.MainActivity',
 
-        'appium:noReset': true,
+        // Reinicia os dados do app a cada suite (evita testes interferindo entre si)
+        'appium:noReset': false,
+        'appium:fullReset': false,
         'appium:autoGrantPermissions': true,
 
-        'appium:adbExecTimeout': 120000,
-        'appium:newCommandTimeout': 300
+        // Timeouts maiores para garantir estabilidade no CI/CD
+        'appium:adbExecTimeout': 12000,
+        'appium:newCommandTimeout': 300,
+        'appium:androidInstallTimeout': 18000,
+        'appium:uiautomator2ServerInstallTimeout': 18000,
+        'appium:uiautomator2ServerLaunchTimeout': 18000
     }],
 
-    logLevel: 'info',
-
-    outputDir: './logs',
-
-    waitforTimeout: 10000,
-
-    connectionRetryTimeout: 120000,
-
-    connectionRetryCount: 3,
-
     framework: 'mocha',
-
     mochaOpts: {
         ui: 'bdd',
         timeout: 120000
@@ -53,7 +50,6 @@ export const config = {
 
     reporters: [
         'spec',
-
         ['allure', {
             outputDir: 'allure-results',
             disableWebdriverStepsReporting: true,
@@ -61,41 +57,14 @@ export const config = {
         }]
     ],
 
-    before: async function () {
-
-        await driver.setTimeout({
-            implicit: 3000,
-            pageLoad: 60000,
-            script: 60000
-        });
-
-    },
-
+    // Screenshot automático caso ocorra alguma falha no teste
     afterTest: async function (test, context, { error }) {
-
         if (error) {
-
-            console.error('========================================');
-            console.error('TESTE FALHOU');
-            console.error(error);
-            console.error('========================================');
-
             try {
-
-                await browser.saveScreenshot(
-                    `./errorShots/${Date.now()}.png`
-                );
-
+                await driver.saveScreenshot(`./errorShots/${Date.now()}.png`);
             } catch (e) {
-
-                console.log(
-                    'Não foi possível salvar screenshot.'
-                );
-
+                console.log('Não foi possível salvar screenshot de erro.');
             }
-
         }
-
     }
-
 };

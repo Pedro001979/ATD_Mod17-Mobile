@@ -3,227 +3,61 @@ name: Executar Testes Mobile (WebdriverIO + Appium)
 on:
   push:
     branches: [main, master, ci]
-
   pull_request:
     branches: [main, master, ci]
-
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
 
     steps:
-
-      # ==========================================
-      # CHECKOUT
-      # ==========================================
-
-      - name: Checkout
+      # 1. Baixa o código do repositório
+      - name: Checkout do código
         uses: actions/checkout@v4
         with:
           lfs: true
-          fetch-depth: 0
 
-
-      # ==========================================
-      # GIT LFS
-      # ==========================================
-
-      - name: Baixar arquivos LFS
+      # 2. Baixa arquivos grandes do Git LFS (APK)
+      - name: Baixar arquivos Git LFS
         run: git lfs pull
 
-
-      # ==========================================
-      # JAVA
-      # ==========================================
-
+      # 3. Configura o Java 17
       - name: Configurar Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-
-      # ==========================================
-      # NODE
-      # ==========================================
-
-      - name: Configurar Node
+      # 4. Configura o Node.js 20
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: npm
 
-
-      # ==========================================
-      # DEPENDÊNCIAS
-      # ==========================================
-
+      # 5. Instala as dependências do projeto
       - name: Instalar dependências
         run: npm ci
 
-
-      # ==========================================
-      # VERIFICAR AMBIENTE
-      # ==========================================
-
-      - name: Verificar ambiente
-        run: |
-          echo "Node:"
-          node -v
-
-          echo "NPM:"
-          npm -v
-
-          echo "Appium:"
-          npx appium --version
-
-          echo "Drivers Appium:"
-          npx appium driver list --installed
-
-          echo "APK:"
-          ls -lh apps/ebacshop.apk
-          file apps/ebacshop.apk
-
-
-      # ==========================================
-      # ANDROID + TESTES
-      # ==========================================
-
-      - name: Executar testes no Android
+      # 6. Inicia o emulador e roda os testes
+      - name: Executar testes no Emulador Android
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
           api-level: 29
           target: default
           arch: x86_64
           profile: pixel
+          script: npm test
 
-          emulator-options: >
-            -no-window
-            -gpu swiftshader_indirect
-            -noaudio
-            -no-boot-anim
-            -no-metrics
-
-          disable-animations: true
-
-          script: |
-
-            echo "========================================"
-            echo "        AGUARDANDO EMULADOR"
-            echo "========================================"
-
-            adb wait-for-device
-
-            while [ "$(adb shell getprop sys.boot_completed 2>/dev/null)" != "1" ]; do
-              sleep 2
-            done
-
-            echo "Android iniciado!"
-
-
-            echo ""
-            echo "========================================"
-            echo "        INFORMAÇÕES DO ANDROID"
-            echo "========================================"
-
-            adb devices
-
-            echo "Android:"
-            adb shell getprop ro.build.version.release
-
-            echo "API:"
-            adb shell getprop ro.build.version.sdk
-
-            echo "Modelo:"
-            adb shell getprop ro.product.model
-
-
-            echo ""
-            echo "========================================"
-            echo "             APK"
-            echo "========================================"
-
-            ls -lh apps/ebacshop.apk
-            file apps/ebacshop.apk
-
-
-            echo ""
-            echo "========================================"
-            echo "        INSTALANDO APK VIA ADB"
-            echo "========================================"
-
-            adb install -r -g apps/ebacshop.apk
-
-            echo "APK instalado!"
-
-
-            echo ""
-            echo "========================================"
-            echo "        VERIFICANDO APLICATIVO"
-            echo "========================================"
-
-            adb shell pm list packages | grep br.com.lojaebac
-
-            echo "Aplicativo encontrado!"
-
-
-            echo ""
-            echo "========================================"
-            echo "        VERIFICANDO APPIUM"
-            echo "========================================"
-
-            npx appium --version
-
-            npx appium driver list --installed
-
-
-            echo ""
-            echo "========================================"
-            echo "          INICIANDO TESTES"
-            echo "========================================"
-
-            npm test
-
-
-      # ==========================================
-      # LOGCAT
-      # ==========================================
-
-      - name: Upload Logcat
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: logcat
-          path: logcat.txt
-          if-no-files-found: ignore
-
-
-      # ==========================================
-      # ALLURE
-      # ==========================================
-
-      - name: Upload Allure
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: allure-results
-          if-no-files-found: ignore
-
-
-      # ==========================================
-      # SCREENSHOTS
-      # ==========================================
-
+      # 7. Salva evidências de erro (se houver)
       - name: Upload Screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: screenshots
           path: |
-            errorShots
-            screenshots
+            ./errorShots
+            ./screenshots
           if-no-files-found: ignore
