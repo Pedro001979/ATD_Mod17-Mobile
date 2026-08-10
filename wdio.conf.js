@@ -11,7 +11,7 @@ export const config = {
     // services: ['appium'], 
 
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/Cadastro.test.js'
     ],
 
     capabilities: [{

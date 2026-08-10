@@ -1,91 +1,51 @@
 import { $, driver } from '@wdio/globals'
 
 class CadastroPage {
+    // 1. Locators
+    get btnSignUp() { return $('android=new UiSelector().text("Sign up")') }
+    get firstName() { return $('android=new UiSelector().text("firstName")') }
+    get lastName() { return $('android=new UiSelector().text("lastName")') }
+    get phoneNumber() { return $('android=new UiSelector().text("phoneNumber")') }
+    get email() { return $('android=new UiSelector().text("email")') }
+    get password() { return $('android=new UiSelector().text("password")') }
+    get repassword() { return $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("repassword"))') }
+    get btnCreate() { return $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("create"))') }
+    get wishlist() { return $('android=new UiSelector().resourceId("wishlist")') }
+    get back() { return $('android=new UiSelector().resourceId("back")') }
 
-    // 1. Mapeamento por UiSelector direcionado ao resourceId
-    get btnSignUp() {
-        return $('android=new UiSelector().text("Sign up")')
-    }
-
-    get firstName() {
-        return $('android=new UiSelector().text("firstName")')
-    }
-
-    get lastName() {
-        return $('android=new UiSelector().text("lastName")')
-    }
-
-    get phoneNumber() {
-        return $('android=new UiSelector().text("phoneNumber")')
-    }
-
-    get email() {
-        return $('android=new UiSelector().text("email")')
-    }
-
-    get password() {
-        return $('android=new UiSelector().text("password")')
-    }
-
-    // Rola a tela até encontrar o campo repassword caso esteja oculto
-    get repassword() {
-        return $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("repassword"))')
-    }
-
-    // Rola a tela até encontrar o botão de criar conta
-    get btnCreate() {
-        return $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("create"))')
-    }
-
-    get wishlist() {
-        return $('android=new UiSelector().resourceId("wishlist")')
-    }
-
-    get back() {
-        return $('android=new UiSelector().resourceId("back")')
-    }
-
-
-    // 2. Método auxiliar de preenchimento
-    async preencherCampo(elemento, valor) {
+    // 2. Helpers
+    async preencher(elemento, valor) {
         await elemento.waitForDisplayed({ timeout: 15000 })
-        await elemento.click()
         await elemento.setValue(valor)
     }
 
     async esconderTeclado() {
-        try {
-            if (await driver.isKeyboardShown()) {
-                await driver.hideKeyboard()
-            }
-        } catch (e) { }
+        if (await driver.isKeyboardShown()) {
+            await driver.hideKeyboard().catch(() => {})
+        }
     }
 
-    // 3. Fluxo de execução
-    async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
-        // Clica no botão inicial para ir à tela de cadastro
-        await this.btnSignUp.waitForDisplayed({ timeout: 15000 })
-        await this.btnSignUp.click()
+    async clicar(elemento) {
+        await elemento.waitForDisplayed({ timeout: 15000 })
+        await elemento.click()
+    }
 
-        // Preenche os campos
-        await this.preencherCampo(this.firstName, firstName)
-        await this.preencherCampo(this.lastName, lastName)
-        await this.preencherCampo(this.phoneNumber, phoneNumber)
-        await this.preencherCampo(this.email, email)
-        await this.preencherCampo(this.password, password)
-        await this.preencherCampo(this.repassword, repassword)
+    // 3. Fluxo Principal
+    async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
+        await this.clicar(this.btnSignUp)
+
+        await this.preencher(this.firstName, firstName)
+        await this.preencher(this.lastName, lastName)
+        await this.preencher(this.phoneNumber, phoneNumber)
+        await this.preencher(this.email, email)
+        await this.preencher(this.password, password)
+        await this.preencher(this.repassword, repassword)
 
         await this.esconderTeclado()
 
-        await this.btnCreate.waitForDisplayed({ timeout: 15000 })
-        await this.btnCreate.click()
-
-        await this.wishlist.waitForDisplayed({ timeout: 15000 })
-        await this.wishlist.click()
-
-        await this.back.waitForDisplayed({ timeout: 15000 })
-        await this.back.click()
-
+        await this.clicar(this.btnCreate)
+        await this.clicar(this.wishlist)
+        await this.clicar(this.back)
     }
 }
 
