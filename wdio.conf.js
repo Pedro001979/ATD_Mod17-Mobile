@@ -1,8 +1,8 @@
 export const config = {
 
-    maxInstances: 1,
-
     runner: 'local',
+
+    maxInstances: 1,
 
     hostname: '127.0.0.1',
     port: 4723,
@@ -14,24 +14,23 @@ export const config = {
 
     exclude: [],
 
-    // IMPORTANTE:
-    // apenas um teste por vez
-
     services: ['appium'],
 
     capabilities: [{
         platformName: 'Android',
+
         'appium:automationName': 'UiAutomator2',
 
         'appium:deviceName': 'Android Emulator',
         'appium:udid': 'emulator-5554',
-        'appium:platformVersion': '16',
 
         'appium:app': './apps/ebacshop.apk',
+
         'appium:appPackage': 'br.com.lojaebac',
         'appium:appActivity': '.MainActivity',
 
         'appium:autoGrantPermissions': true,
+
         'appium:newCommandTimeout': 300
     }],
 
@@ -41,7 +40,7 @@ export const config = {
 
     waitforTimeout: 10000,
 
-    connectionRetryTimeout: 12000,
+    connectionRetryTimeout: 120000,
 
     connectionRetryCount: 3,
 
@@ -49,7 +48,7 @@ export const config = {
 
     mochaOpts: {
         ui: 'bdd',
-        timeout: 12000
+        timeout: 120000
     },
 
     reporters: [
@@ -98,4 +97,5 @@ export const config = {
         }
 
     }
+
 };
