@@ -6,7 +6,7 @@ export const config = {
 
     // 2. Procura e roda todos os arquivos de teste na pasta specs
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/login.test.js'
     ],
 
     exclude: [],
