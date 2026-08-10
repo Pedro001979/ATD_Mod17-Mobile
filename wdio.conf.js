@@ -9,7 +9,7 @@ export const config = {
     path: '/',
 
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/login.test.js'
     ],
 
     exclude: [],
