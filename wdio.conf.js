@@ -41,7 +41,7 @@ export const config = {
 
     waitforTimeout: 10000,
 
-    connectionRetryTimeout: 120000,
+    connectionRetryTimeout: 12000,
 
     connectionRetryCount: 3,
 
@@ -49,7 +49,7 @@ export const config = {
 
     mochaOpts: {
         ui: 'bdd',
-        timeout: 120000
+        timeout: 12000
     },
 
     reporters: [
