@@ -24,13 +24,13 @@ export const config = {
         'appium:deviceName': 'Android Emulator',
         'appium:udid': 'emulator-5554',
 
-        'appium:app': './apps/ebacshop.apk',
-
         'appium:appPackage': 'br.com.lojaebac',
         'appium:appActivity': '.MainActivity',
 
+        'appium:noReset': true,
         'appium:autoGrantPermissions': true,
 
+        'appium:adbExecTimeout': 120000,
         'appium:newCommandTimeout': 300
     }],
 

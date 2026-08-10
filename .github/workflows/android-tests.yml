@@ -11,10 +11,8 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
-
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
 
@@ -22,7 +20,7 @@ jobs:
       # CHECKOUT
       # ==========================================
 
-      - name: Checkout do código
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           lfs: true
@@ -33,27 +31,8 @@ jobs:
       # GIT LFS
       # ==========================================
 
-      - name: Baixar arquivos Git LFS
-        run: |
-          git lfs pull
-
-
-      # ==========================================
-      # VERIFICAR APK
-      # ==========================================
-
-      - name: Verificar APK
-        run: |
-          echo "======= APK ======="
-
-          ls -lh apps
-
-          file apps/ebacshop.apk
-
-          du -h apps/ebacshop.apk
-
-          echo "Primeiros bytes:"
-          head -c 4 apps/ebacshop.apk | xxd
+      - name: Baixar arquivos LFS
+        run: git lfs pull
 
 
       # ==========================================
@@ -71,7 +50,7 @@ jobs:
       # NODE
       # ==========================================
 
-      - name: Configurar Node.js
+      - name: Configurar Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -83,43 +62,44 @@ jobs:
       # ==========================================
 
       - name: Instalar dependências
-        run: |
-          npm ci
+        run: npm ci
 
 
       # ==========================================
-      # VERIFICAR INSTALAÇÃO
+      # VERIFICAR AMBIENTE
       # ==========================================
 
-      - name: Verificar versões
+      - name: Verificar ambiente
         run: |
-          echo "======= NODE ======="
+          echo "Node:"
           node -v
 
-          echo "======= NPM ======="
+          echo "NPM:"
           npm -v
 
-          echo "======= APPIUM ======="
+          echo "Appium:"
           npx appium --version
 
-          echo "======= APPIUM PACKAGE ======="
-          npm ls appium
+          echo "Drivers Appium:"
+          npx appium driver list --installed
 
-          echo "======= UIAUTOMATOR2 ======="
-          npm ls appium-uiautomator2-driver
+          echo "APK:"
+          ls -lh apps/ebacshop.apk
+          file apps/ebacshop.apk
 
 
       # ==========================================
-      # ANDROID EMULATOR
+      # ANDROID + TESTES
       # ==========================================
 
-      - name: Executar testes no Emulador Android
+      - name: Executar testes no Android
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
           api-level: 29
           target: default
           arch: x86_64
           profile: pixel
+
           emulator-options: >
             -no-window
             -gpu swiftshader_indirect
@@ -127,79 +107,89 @@ jobs:
             -no-boot-anim
             -no-metrics
 
+          disable-animations: true
+
           script: |
-            echo "================================="
-            echo "        AGUARDANDO DEVICE"
-            echo "================================="
+
+            echo "========================================"
+            echo "        AGUARDANDO EMULADOR"
+            echo "========================================"
 
             adb wait-for-device
 
+            while [ "$(adb shell getprop sys.boot_completed 2>/dev/null)" != "1" ]; do
+              sleep 2
+            done
+
+            echo "Android iniciado!"
+
+
             echo ""
-            echo "================================="
-            echo "        ANDROID DEVICES"
-            echo "================================="
+            echo "========================================"
+            echo "        INFORMAÇÕES DO ANDROID"
+            echo "========================================"
 
             adb devices
 
+            echo "Android:"
+            adb shell getprop ro.build.version.release
+
+            echo "API:"
+            adb shell getprop ro.build.version.sdk
+
+            echo "Modelo:"
+            adb shell getprop ro.product.model
+
+
             echo ""
-            echo "================================="
-            echo "        BOOT COMPLETED"
-            echo "================================="
-
-            while [ "$(adb shell getprop sys.boot_completed 2>&1)" != "1" ]; do sleep 2; done
-
-            echo "Android boot concluído com sucesso!"
-
-            echo ""
-            echo "================================="
+            echo "========================================"
             echo "             APK"
-            echo "================================="
+            echo "========================================"
 
             ls -lh apps/ebacshop.apk
-
             file apps/ebacshop.apk
 
+
             echo ""
-            echo "================================="
-            echo "            APPIUM"
-            echo "================================="
+            echo "========================================"
+            echo "        INSTALANDO APK VIA ADB"
+            echo "========================================"
+
+            adb install -r -g apps/ebacshop.apk
+
+            echo "APK instalado!"
+
+
+            echo ""
+            echo "========================================"
+            echo "        VERIFICANDO APLICATIVO"
+            echo "========================================"
+
+            adb shell pm list packages | grep br.com.lojaebac
+
+            echo "Aplicativo encontrado!"
+
+
+            echo ""
+            echo "========================================"
+            echo "        VERIFICANDO APPIUM"
+            echo "========================================"
 
             npx appium --version
 
+            npx appium driver list --installed
+
+
             echo ""
-            echo "================================="
-            echo "        INICIANDO TESTES"
-            echo "================================="
+            echo "========================================"
+            echo "          INICIANDO TESTES"
+            echo "========================================"
 
             npm test
 
 
       # ==========================================
       # LOGCAT
-      # ==========================================
-
-      - name: Capturar Logcat
-        if: always()
-        continue-on-error: true
-        run: |
-
-          echo "Tentando capturar Logcat..."
-
-          if adb get-state 2>/dev/null | grep -q "device"; then
-
-            timeout 15s adb logcat -d > logcat.txt || true
-
-          else
-
-            echo "Emulador não está disponível." > logcat.txt
-
-          fi
-
-          echo "Logcat finalizado."
-
-
-      # ==========================================
-      # UPLOAD LOGCAT
       # ==========================================
 
       - name: Upload Logcat
@@ -234,6 +224,6 @@ jobs:
         with:
           name: screenshots
           path: |
-            ./errorShots
-            ./screenshots
+            errorShots
+            screenshots
           if-no-files-found: ignore
