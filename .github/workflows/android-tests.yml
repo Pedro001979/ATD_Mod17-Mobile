@@ -13,35 +13,37 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      # 1. Baixa o código do repositório
       - name: Checkout do código
         uses: actions/checkout@v4
         with:
           lfs: true
 
-      # 2. Baixa arquivos grandes do Git LFS (APK)
       - name: Baixar arquivos Git LFS
         run: git lfs pull
 
-      # 3. Configura o Java 17
       - name: Configurar Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      # 4. Configura o Node.js 20
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: npm
 
-      # 5. Instala as dependências do projeto
       - name: Instalar dependências
         run: npm ci
 
-      # 6. Inicia o emulador e roda os testes
+      - name: Instalar Driver UiAutomator2 Globalmente
+        run: npx appium driver install uiautomator2 || true
+
+      - name: Iniciar Servidor Appium em Background
+        run: |
+          npx appium --port 4723 --log-level info > appium.log 2>&1 &
+          sleep 5
+
       - name: Executar testes no Emulador Android
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
@@ -51,7 +53,14 @@ jobs:
           profile: pixel
           script: npm test
 
-      # 7. Salva evidências de erro (se houver)
+      - name: Upload Logs do Appium (se falhar)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-log
+          path: appium.log
+          if-no-files-found: ignore
+
       - name: Upload Screenshots
         if: always()
         uses: actions/upload-artifact@v4
