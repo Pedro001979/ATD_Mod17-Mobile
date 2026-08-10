@@ -22,18 +22,16 @@ export const config = {
     capabilities: [{
         platformName: 'Android',
         'appium:automationName': 'UiAutomator2',
+
         'appium:deviceName': 'Android Emulator',
+        'appium:udid': 'emulator-5554',
+        'appium:platformVersion': '16',
+
         'appium:app': './apps/ebacshop.apk',
         'appium:appPackage': 'br.com.lojaebac',
         'appium:appActivity': '.MainActivity',
-        'appium:autoGrantPermissions': true,
 
-        // Timeouts maiores para runners do GitHub
-        'appium:avdLaunchTimeout': 180000,
-        'appium:avdReadyTimeout': 180000,
-        'appium:androidInstallTimeout': 180000,
-        'appium:uiautomator2ServerInstallTimeout': 180000,
-        'appium:uiautomator2ServerLaunchTimeout': 180000,
+        'appium:autoGrantPermissions': true,
         'appium:newCommandTimeout': 300
     }],
 
