@@ -8,33 +8,33 @@ class CadastroPage {
     }
 
     get firstName() {
-        return $('android=new UiSelector().resourceId("firstName")')
+        return $('android=new UiSelector().text("firstName")')
     }
 
     get lastName() {
-        return $('android=new UiSelector().resourceId("lastName")')
+        return $('android=new UiSelector().text("lastName")')
     }
 
     get phoneNumber() {
-        return $('android=new UiSelector().resourceId("phone")')
+        return $('android=new UiSelector().text("phoneNumber")')
     }
 
     get email() {
-        return $('android=new UiSelector().resourceId("email")')
+        return $('android=new UiSelector().text("email")')
     }
 
     get password() {
-        return $('android=new UiSelector().resourceId("password")')
+        return $('android=new UiSelector().text("password")')
     }
 
     // Rola a tela até encontrar o campo repassword caso esteja oculto
     get repassword() {
-        return $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("repassword"))')
+        return $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("repassword"))')
     }
 
     // Rola a tela até encontrar o botão de criar conta
     get btnCreate() {
-        return $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId("create"))')
+        return $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("create"))')
     }
 
     get wishlist() {
