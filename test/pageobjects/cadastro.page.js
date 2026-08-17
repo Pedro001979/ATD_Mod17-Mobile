@@ -10,8 +10,9 @@ class CadastroPage {
         return $('android=new UiSelector().text("Sign up")')
     }
 
+    // Use case-insensitive match for Create (Inspector shows "Create")
     get btnCreate() {
-        return $('android=new UiSelector().text("create")')
+        return $('android=new UiSelector().textMatches("(?i)create")')
     }
 
     get wishlist() {
@@ -22,8 +23,33 @@ class CadastroPage {
         return $('android=new UiSelector().resourceIdMatches(".*:id/back")')
     }
 
+    // Explicit, stable selectors for form fields using full resource-id
+    get inputFirstName() {
+        return $('id=br.com.lojaebac:id/firstName')
+    }
+
+    get inputLastName() {
+        return $('id=br.com.lojaebac:id/lastName')
+    }
+
+    get inputPhoneNumber() {
+        return $('id=br.com.lojaebac:id/phoneNumber')
+    }
+
+    get inputEmail() {
+        return $('id=br.com.lojaebac:id/email')
+    }
+
+    get inputPassword() {
+        return $('id=br.com.lojaebac:id/password')
+    }
+
+    get inputRepassword() {
+        return $('id=br.com.lojaebac:id/repassword')
+    }
+
     // ==========================================
-    // CAMPO DO FORMULÁRIO
+    // CAMPO DO FORMULÁRIO (legacy scroll-by-index kept for fallback)
     // ==========================================
 
     campoEditText(indice) {
@@ -46,6 +72,20 @@ class CadastroPage {
         return elemento
     }
 
+    // preencher por elemento (mais estável que usar índice)
+    async preencherCampoElemento(elemento, valor, nome) {
+        await this.esperar(elemento, nome)
+
+        await elemento.click()
+        await elemento.clearValue()
+        await elemento.setValue(valor)
+
+        // O teclado reduz a área visível e pode impedir que o próximo
+        // campo seja encontrado. Escondemos antes de continuar.
+        await this.esconderTeclado()
+    }
+
+    // Mantido para compatibilidade com código antigo
     async preencherCampo(indice, valor, nome) {
         const campo = this.campoEditText(indice)
 
@@ -92,20 +132,19 @@ class CadastroPage {
         // Abre tela de cadastro
         await this.clicar(this.btnSignUp, 'Sign up')
 
-        // Aguarda o formulário aparecer
+        // Aguarda o primeiro campo aparecer usando selector por resource-id
         await this.esperar(
-            this.campoEditText(0),
+            this.inputFirstName,
             'firstName'
         )
 
-        // Os índices são baseados somente nos EditText do formulário.
-        // O UiScrollable garante que o campo seja trazido para a tela.
-        await this.preencherCampo(0, firstName, 'firstName')
-        await this.preencherCampo(1, lastName, 'lastName')
-        await this.preencherCampo(2, phoneNumber, 'phoneNumber')
-        await this.preencherCampo(3, email, 'email')
-        await this.preencherCampo(4, password, 'password')
-        await this.preencherCampo(5, repassword, 'repassword')
+        // Preenche campos usando selectors estáveis
+        await this.preencherCampoElemento(this.inputFirstName, firstName, 'firstName')
+        await this.preencherCampoElemento(this.inputLastName, lastName, 'lastName')
+        await this.preencherCampoElemento(this.inputPhoneNumber, phoneNumber, 'phoneNumber')
+        await this.preencherCampoElemento(this.inputEmail, email, 'email')
+        await this.preencherCampoElemento(this.inputPassword, password, 'password')
+        await this.preencherCampoElemento(this.inputRepassword, repassword, 'repassword')
 
         await this.esconderTeclado()
 
