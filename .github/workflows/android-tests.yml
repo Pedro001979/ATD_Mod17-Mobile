@@ -15,6 +15,14 @@ jobs:
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
+<<<<<<< HEAD
+=======
+        with:
+          lfs: true
+
+      - name: Baixar arquivos Git LFS
+        run: git lfs pull
+>>>>>>> abc407296ed363a0cd8b9dd9186e617f6c726d13
 
       - name: Configurar Java
         uses: actions/setup-java@v4
@@ -31,6 +39,28 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+<<<<<<< HEAD
+=======
+      - name: Habilitar KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+          sudo chmod 666 /dev/kvm
+          ls -l /dev/kvm
+
+      - name: Verificar Appium e UiAutomator2
+        run: |
+          npx appium --version
+          npx appium driver list --installed
+
+      - name: Verificar APK
+        run: |
+          test -f ./apps/ebacshop.apk
+          ls -lh ./apps/ebacshop.apk
+          file ./apps/ebacshop.apk
+
+>>>>>>> abc407296ed363a0cd8b9dd9186e617f6c726d13
       - name: Executar testes no Emulador Android
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
@@ -38,6 +68,7 @@ jobs:
           target: default
           arch: x86_64
           profile: pixel
+<<<<<<< HEAD
           emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
           disable-animations: true
           script: bash ./run-tests.sh
@@ -52,3 +83,103 @@ jobs:
             screenshots
             allure-results
           if-no-files-found: ignore
+=======
+          emulator-options: >-
+            -no-window
+            -no-audio
+            -no-boot-anim
+            -gpu swiftshader_indirect
+          disable-animations: true
+          script: |
+            set +e
+
+            echo '=========================================='
+            echo 'DISPOSITIVO ANDROID'
+            echo '=========================================='
+            adb devices
+            adb shell getprop ro.build.version.release
+            adb shell getprop ro.build.version.sdk
+
+            echo '=========================================='
+            echo 'INICIANDO APPIUM'
+            echo '=========================================='
+            npx appium --port 4723 --log-level info > appium.log 2>&1 &
+            APPIUM_PID=$!
+
+            i=1
+            APPIUM_OK=0
+            while [ "$i" -le 30 ]; do
+              if curl -sf http://127.0.0.1:4723/status > /dev/null; then
+                APPIUM_OK=1
+                break
+              fi
+              sleep 2
+              i=$((i + 1))
+            done
+
+            if [ "$APPIUM_OK" -ne 1 ]; then
+              echo 'Appium não iniciou.'
+              cat appium.log || true
+              exit 1
+            fi
+
+            echo 'Appium iniciado.'
+
+            echo '=========================================='
+            echo 'EXECUTANDO TESTES'
+            echo '=========================================='
+            npm test
+            TEST_EXIT=$?
+
+            if [ "$TEST_EXIT" -ne 0 ]; then
+              mkdir -p ./errorShots
+
+              echo '=========================================='
+              echo 'DIAGNÓSTICO DE FALHA'
+              echo '=========================================='
+
+              echo '--- ACTIVITY ---'
+              adb shell dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' || true
+
+              echo '--- UI HIERARCHY ---'
+              adb shell uiautomator dump /sdcard/window.xml || true
+              adb exec-out cat /sdcard/window.xml > ./errorShots/window.xml || true
+              cat ./errorShots/window.xml || true
+
+              echo '--- SCREENSHOT ---'
+              adb exec-out screencap -p > ./errorShots/failure.png || true
+
+              echo '--- APP PROCESS ---'
+              adb shell dumpsys activity activities | grep -E 'mResumedActivity|mFocusedActivity|br.com.lojaebac' || true
+
+              echo '--- LOGCAT APP ---'
+              adb logcat -d | grep -iE 'FATAL EXCEPTION|AndroidRuntime|br.com.lojaebac|Exception|ANR' | tail -300 || true
+
+              echo '--- APPIUM LOG ---'
+              cat appium.log || true
+            fi
+
+            if [ -n "$APPIUM_PID" ]; then
+              kill "$APPIUM_PID" 2>/dev/null || true
+            fi
+
+            exit "$TEST_EXIT"
+
+      - name: Upload Logs do Appium
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-log
+          path: appium.log
+          if-no-files-found: ignore
+
+      - name: Upload Evidências
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-failure-evidence
+          path: |
+            ./errorShots
+            ./screenshots
+          if-no-files-found: ignore
+>>>>>>> abc407296ed363a0cd8b9dd9186e617f6c726d13
