@@ -2,13 +2,9 @@ export const config = {
     runner: 'local',
     maxInstances: 1,
 
-    // Conecta no Appium já iniciado na porta 4723
     hostname: '127.0.0.1',
     port: 4723,
     path: '/',
-
-    // REMOVA OU COMENTE O SERVICE:
-    // services: ['appium'], 
 
     specs: [
         './test/specs/Cadastro.test.js'
@@ -18,29 +14,27 @@ export const config = {
         platformName: 'Android',
         'appium:automationName': 'UiAutomator2',
         'appium:deviceName': 'Android Emulator',
+        'appium:platformVersion': '29',
 
         'appium:app': './apps/ebacshop.apk',
         'appium:appPackage': 'br.com.lojaebac',
         'appium:appActivity': '.MainActivity',
 
-        'appium:noReset': false,
-        'appium:fullReset': false,
         'appium:autoGrantPermissions': true,
+        'appium:noReset': false,
 
         'appium:adbExecTimeout': 120000,
         'appium:androidInstallTimeout': 180000,
-        'appium:uiautomator2ServerInstallTimeout': 180000,
         'appium:uiautomator2ServerLaunchTimeout': 180000,
-
-        'appium:newCommandTimeout': 300
     }],
 
     logLevel: 'info',
-    waitforTimeout: 15000,
-    connectionRetryTimeout: 180000,
-    connectionRetryCount: 3,
+    waitforTimeout: 30000,
+    connectionRetryTimeout: 120000,
+    connectionRetryCount: 2,
 
     framework: 'mocha',
+
     mochaOpts: {
         ui: 'bdd',
         timeout: 120000
