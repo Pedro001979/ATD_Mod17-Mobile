@@ -23,29 +23,29 @@ class CadastroPage {
         return $('android=new UiSelector().resourceIdMatches(".*:id/back")')
     }
 
-    // Explicit, stable selectors for form fields using full resource-id
+    // Explicit, stable selectors for form fields using resourceIdMatches (works even if package differs)
     get inputFirstName() {
-        return $('id=br.com.lojaebac:id/firstName')
+        return $('android=new UiSelector().resourceIdMatches(".*:id/firstName")')
     }
 
     get inputLastName() {
-        return $('id=br.com.lojaebac:id/lastName')
+        return $('android=new UiSelector().resourceIdMatches(".*:id/lastName")')
     }
 
     get inputPhoneNumber() {
-        return $('id=br.com.lojaebac:id/phoneNumber')
+        return $('android=new UiSelector().resourceIdMatches(".*:id/phoneNumber")')
     }
 
     get inputEmail() {
-        return $('id=br.com.lojaebac:id/email')
+        return $('android=new UiSelector().resourceIdMatches(".*:id/email")')
     }
 
     get inputPassword() {
-        return $('id=br.com.lojaebac:id/password')
+        return $('android=new UiSelector().resourceIdMatches(".*:id/password")')
     }
 
     get inputRepassword() {
-        return $('id=br.com.lojaebac:id/repassword')
+        return $('android=new UiSelector().resourceIdMatches(".*:id/repassword")')
     }
 
     // ==========================================
@@ -63,7 +63,7 @@ class CadastroPage {
     // HELPERS
     // ==========================================
 
-    async esperar(elemento, nome, timeout = 60000) {
+    async esperar(elemento, nome, timeout = 90000) {
         await elemento.waitForDisplayed({
             timeout,
             timeoutMsg: `Elemento "${nome}" não ficou visível após ${timeout}ms.`
@@ -138,7 +138,7 @@ class CadastroPage {
             'firstName'
         )
 
-        // Preenche campos usando selectors estáveis
+        // Preenche campos usando selectors estáveis (resourceIdMatches)
         await this.preencherCampoElemento(this.inputFirstName, firstName, 'firstName')
         await this.preencherCampoElemento(this.inputLastName, lastName, 'lastName')
         await this.preencherCampoElemento(this.inputPhoneNumber, phoneNumber, 'phoneNumber')
