@@ -83,13 +83,13 @@ jobs:
 
 
       # ==========================================
-      # APPIUM
+      # APPIUM / UIAUTOMATOR2
       # ==========================================
 
       - name: Verificar Driver UiAutomator2
         run: |
           echo "=========================================="
-          echo "DRIVERS APPIUM INSTALADOS"
+          echo "DRIVER APPIUM"
           echo "=========================================="
 
           npx appium driver list --installed
@@ -110,9 +110,11 @@ jobs:
             --log-level info \
             > appium.log 2>&1 &
 
-          echo "Aguardando Appium iniciar..."
+          echo "Aguardando Appium..."
 
-          for i in {1..30}; do
+          i=1
+
+          while [ "$i" -le 30 ]; do
 
             if curl -s http://127.0.0.1:4723/status > /dev/null; then
               echo "Appium iniciado com sucesso!"
@@ -124,13 +126,15 @@ jobs:
 
             sleep 2
 
+            i=$((i + 1))
+
           done
 
           echo "=========================================="
           echo "STATUS DO APPIUM"
           echo "=========================================="
 
-          curl -s http://127.0.0.1:4723/status || true
+          curl -s http://127.0.0.1:4723/status
 
 
       # ==========================================
@@ -143,18 +147,12 @@ jobs:
           echo "VERIFICANDO APK"
           echo "=========================================="
 
-          ls -lh ./apps/
-
           if [ ! -f "./apps/ebacshop.apk" ]; then
             echo "ERRO: APK não encontrado!"
             exit 1
           fi
 
-          echo "APK encontrado com sucesso!"
-
           ls -lh ./apps/ebacshop.apk
-
-          echo "Tipo do arquivo:"
 
           file ./apps/ebacshop.apk
 
@@ -180,56 +178,24 @@ jobs:
           disable-animations: true
 
           script: |
-
             echo "=========================================="
-            echo "DISPOSITIVOS ANDROID"
-            echo "=========================================="
-
-            adb devices
-
-
-            echo "=========================================="
-            echo "AGUARDANDO ANDROID"
-            echo "=========================================="
-
-            adb wait-for-device
-
-
-            echo "=========================================="
-            echo "AGUARDANDO BOOT COMPLETO"
-            echo "=========================================="
-
-            for i in {1..60}; do
-
-              BOOT_COMPLETED=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
-
-              if [ "$BOOT_COMPLETED" = "1" ]; then
-                echo "Android terminou o boot!"
-                break
-              fi
-
-              echo "Android ainda inicializando..."
-              echo "Tentativa $i/60"
-
-              sleep 2
-
-            done
-
-
-            echo "=========================================="
-            echo "DISPOSITIVO FINAL"
+            echo "DISPOSITIVO ANDROID"
             echo "=========================================="
 
             adb devices
 
-
             echo "=========================================="
-            echo "ANDROID"
+            echo "VERIFICANDO ANDROID"
             echo "=========================================="
 
             adb shell getprop ro.build.version.release
             adb shell getprop ro.build.version.sdk
 
+            echo "=========================================="
+            echo "VERIFICANDO ADB"
+            echo "=========================================="
+
+            adb shell echo "ADB OK"
 
             echo "=========================================="
             echo "VERIFICANDO APLICATIVO"
@@ -237,9 +203,8 @@ jobs:
 
             adb shell pm list packages | grep br.com.lojaebac || true
 
-
             echo "=========================================="
-            echo "EXECUTANDO TESTES"
+            echo "EXECUTANDO TESTE"
             echo "=========================================="
 
             npm test
