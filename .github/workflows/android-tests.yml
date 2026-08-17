@@ -44,27 +44,14 @@ jobs:
           sudo chmod 666 /dev/kvm
           ls -l /dev/kvm
 
-      - name: Verificar Driver UiAutomator2
-        run: npx appium driver list --installed
-
-      - name: Iniciar Servidor Appium
+      - name: Verificar Appium e UiAutomator2
         run: |
-          npx appium --port 4723 --log-level info > appium.log 2>&1 &
-          i=1
-          while [ "$i" -le 30 ]; do
-            if curl -sf http://127.0.0.1:4723/status > /dev/null; then
-              echo "Appium iniciado com sucesso!"
-              break
-            fi
-            echo "Aguardando Appium... tentativa $i/30"
-            sleep 2
-            i=$((i + 1))
-          done
-          curl -sf http://127.0.0.1:4723/status
+          npx appium --version
+          npx appium driver list --installed
 
       - name: Verificar APK
         run: |
-          test -f ./apps/ebacshop.apk || { echo 'ERRO: APK não encontrado'; exit 1; }
+          test -f ./apps/ebacshop.apk
           ls -lh ./apps/ebacshop.apk
           file ./apps/ebacshop.apk
 
@@ -90,7 +77,31 @@ jobs:
             adb devices
             adb shell getprop ro.build.version.release
             adb shell getprop ro.build.version.sdk
-            adb shell pm list packages | grep br.com.lojaebac || true
+
+            echo '=========================================='
+            echo 'INICIANDO APPIUM'
+            echo '=========================================='
+            npx appium --port 4723 --log-level info > appium.log 2>&1 &
+            APPIUM_PID=$!
+
+            i=1
+            APPIUM_OK=0
+            while [ "$i" -le 30 ]; do
+              if curl -sf http://127.0.0.1:4723/status > /dev/null; then
+                APPIUM_OK=1
+                break
+              fi
+              sleep 2
+              i=$((i + 1))
+            done
+
+            if [ "$APPIUM_OK" -ne 1 ]; then
+              echo 'Appium não iniciou.'
+              cat appium.log || true
+              exit 1
+            fi
+
+            echo 'Appium iniciado.'
 
             echo '=========================================='
             echo 'EXECUTANDO TESTES'
@@ -99,13 +110,13 @@ jobs:
             TEST_EXIT=$?
 
             if [ "$TEST_EXIT" -ne 0 ]; then
-              echo '=========================================='
-              echo 'TESTE FALHOU - DIAGNÓSTICO'
-              echo '=========================================='
-
               mkdir -p ./errorShots
 
-              echo '--- ACTIVITY ATUAL ---'
+              echo '=========================================='
+              echo 'DIAGNÓSTICO DE FALHA'
+              echo '=========================================='
+
+              echo '--- ACTIVITY ---'
               adb shell dumpsys window | grep -E 'mCurrentFocus|mFocusedApp' || true
 
               echo '--- UI HIERARCHY ---'
@@ -116,18 +127,21 @@ jobs:
               echo '--- SCREENSHOT ---'
               adb exec-out screencap -p > ./errorShots/failure.png || true
 
-              echo '--- APP PROCESS / ACTIVITY ---'
+              echo '--- APP PROCESS ---'
               adb shell dumpsys activity activities | grep -E 'mResumedActivity|mFocusedActivity|br.com.lojaebac' || true
 
-              echo '--- LOGCAT DE ERROS ---'
-              adb logcat -d | grep -iE 'error|exception|fatal|crash|androidruntime' | tail -200 || true
+              echo '--- LOGCAT APP ---'
+              adb logcat -d | grep -iE 'FATAL EXCEPTION|AndroidRuntime|br.com.lojaebac|Exception|ANR' | tail -300 || true
 
-              exit "$TEST_EXIT"
+              echo '--- APPIUM LOG ---'
+              cat appium.log || true
             fi
 
-            echo '=========================================='
-            echo 'TESTES FINALIZADOS COM SUCESSO'
-            echo '=========================================='
+            if [ -n "$APPIUM_PID" ]; then
+              kill "$APPIUM_PID" 2>/dev/null || true
+            fi
+
+            exit "$TEST_EXIT"
 
       - name: Upload Logs do Appium
         if: always()
@@ -137,7 +151,7 @@ jobs:
           path: appium.log
           if-no-files-found: ignore
 
-      - name: Upload Evidências de Falha
+      - name: Upload Evidências
         if: always()
         uses: actions/upload-artifact@v4
         with:
