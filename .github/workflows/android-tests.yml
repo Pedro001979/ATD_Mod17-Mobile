@@ -10,7 +10,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 40
 
     steps:
       - name: Checkout do código
@@ -40,7 +40,38 @@ jobs:
           profile: pixel
           emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
           disable-animations: true
-          script: bash ./run-tests.sh
+          script: |
+            set -e
+            echo "========================================"
+            echo "Aguardando emulador ficar pronto..."
+            echo "========================================"
+            sleep 20
+            adb devices
+            
+            echo "========================================"
+            echo "Iniciando Appium na porta 4723..."
+            echo "========================================"
+            nohup npx appium --port 4723 --log-level info > appium.log 2>&1 &
+            APPIUM_PID=$!
+            echo "Appium PID: $APPIUM_PID"
+            
+            echo "========================================"
+            echo "Aguardando Appium ficar pronto..."
+            echo "========================================"
+            sleep 15
+            
+            echo "========================================"
+            echo "Executando testes WebdriverIO..."
+            echo "========================================"
+            npm test || TEST_EXIT=$?
+            
+            echo "========================================"
+            echo "Limpando processos..."
+            echo "========================================"
+            kill $APPIUM_PID 2>/dev/null || true
+            sleep 2
+            
+            exit ${TEST_EXIT:-0}
 
       - name: Upload evidências
         if: always()
@@ -51,4 +82,5 @@ jobs:
             errorShots
             screenshots
             allure-results
+            appium.log
           if-no-files-found: ignore
