@@ -15,7 +15,7 @@ class CadastroPage {
 
     // 2. Helpers
     async preencher(elemento, valor) {
-        await elemento.waitForDisplayed({ timeout: 15000 })
+      await elemento.waitForDisplayed({ timeout: 60000 })
         await elemento.setValue(valor)
     }
 
@@ -26,7 +26,7 @@ class CadastroPage {
     }
 
     async clicar(elemento) {
-        await elemento.waitForDisplayed({ timeout: 15000 })
+        await elemento.waitForDisplayed({ timeout: 60000 })
         await elemento.click()
     }
 

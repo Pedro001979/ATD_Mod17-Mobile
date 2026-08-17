@@ -3,23 +3,42 @@ name: Executar Testes Mobile (WebdriverIO + Appium)
 on:
   push:
     branches: [main, master, ci]
+
   pull_request:
     branches: [main, master, ci]
+
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+
+    # Dá mais margem para inicialização do Android Emulator
+    timeout-minutes: 25
 
     steps:
+
+      # ==========================================
+      # CHECKOUT
+      # ==========================================
+
       - name: Checkout do código
         uses: actions/checkout@v4
         with:
           lfs: true
 
+
+      # ==========================================
+      # GIT LFS
+      # ==========================================
+
       - name: Baixar arquivos Git LFS
         run: git lfs pull
+
+
+      # ==========================================
+      # JAVA
+      # ==========================================
 
       - name: Configurar Java
         uses: actions/setup-java@v4
@@ -27,22 +46,101 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+
+      # ==========================================
+      # NODE.JS
+      # ==========================================
+
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: npm
 
+
+      # ==========================================
+      # DEPENDÊNCIAS
+      # ==========================================
+
       - name: Instalar dependências
         run: npm ci
 
-      - name: Instalar Driver UiAutomator2 Globalmente
-        run: npx appium driver install uiautomator2 || true
 
-      - name: Iniciar Servidor Appium em Background
+      # ==========================================
+      # KVM
+      # ==========================================
+
+      - name: Habilitar KVM
         run: |
-          npx appium --port 4723 --log-level info > appium.log 2>&1 &
-          sleep 5
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+          sudo chmod 666 /dev/kvm
+
+          echo "Verificando KVM..."
+          ls -l /dev/kvm
+
+
+      # ==========================================
+      # APPIUM / UIAUTOMATOR2
+      # ==========================================
+
+      - name: Instalar Driver UiAutomator2
+        run: |
+          npx appium driver install uiautomator2
+          npx appium driver list --installed
+
+
+      # ==========================================
+      # INICIAR APPIUM
+      # ==========================================
+
+      - name: Iniciar Servidor Appium
+        run: |
+          npx appium \
+            --port 4723 \
+            --log-level info \
+            > appium.log 2>&1 &
+
+          echo "Aguardando Appium iniciar..."
+
+          for i in {1..30}; do
+            if curl -s http://127.0.0.1:4723/status > /dev/null; then
+              echo "Appium iniciado com sucesso!"
+              break
+            fi
+
+            echo "Appium ainda não está pronto... tentativa $i/30"
+            sleep 2
+          done
+
+          echo "Status do Appium:"
+          curl -s http://127.0.0.1:4723/status || true
+
+
+      # ==========================================
+      # VERIFICAR APK
+      # ==========================================
+
+      - name: Verificar APK
+        run: |
+          echo "Verificando APK..."
+
+          ls -lh ./apps/
+
+          if [ ! -f "./apps/ebacshop.apk" ]; then
+            echo "ERRO: APK não encontrado!"
+            exit 1
+          fi
+
+          file ./apps/ebacshop.apk
+
+          echo "APK encontrado com sucesso."
+
+
+      # ==========================================
+      # ANDROID EMULATOR + TESTES
+      # ==========================================
 
       - name: Executar testes no Emulador Android
         uses: ReactiveCircus/android-emulator-runner@v2
@@ -51,15 +149,81 @@ jobs:
           target: default
           arch: x86_64
           profile: pixel
-          script: npm test
 
-      - name: Upload Logs do Appium (se falhar)
+          # Aguarda o Android terminar o boot
+          emulator-options: >-
+            -no-window
+            -no-audio
+            -no-boot-anim
+            -gpu swiftshader_indirect
+
+          disable-animations: true
+
+          script: |
+            echo "=========================================="
+            echo "VERIFICANDO DISPOSITIVO ANDROID"
+            echo "=========================================="
+
+            adb devices
+
+            echo "Aguardando Android ficar online..."
+
+            adb wait-for-device
+
+            for i in {1..60}; do
+              BOOT_COMPLETED=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
+
+              if [ "$BOOT_COMPLETED" = "1" ]; then
+                echo "Android terminou o boot!"
+                break
+              fi
+
+              echo "Android ainda inicializando... $i/60"
+              sleep 2
+            done
+
+            echo "=========================================="
+            echo "DISPOSITIVO"
+            echo "=========================================="
+
+            adb devices
+
+            echo "=========================================="
+            echo "VERSÃO ANDROID"
+            echo "=========================================="
+
+            adb shell getprop ro.build.version.release
+            adb shell getprop ro.build.version.sdk
+
+            echo "=========================================="
+            echo "PACOTE DO APLICATIVO"
+            echo "=========================================="
+
+            adb shell pm list packages | grep br.com.lojaebac || true
+
+            echo "=========================================="
+            echo "EXECUTANDO TESTES"
+            echo "=========================================="
+
+            npm test
+
+
+      # ==========================================
+      # LOG APPIUM
+      # ==========================================
+
+      - name: Upload Logs do Appium
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: appium-log
           path: appium.log
           if-no-files-found: ignore
+
+
+      # ==========================================
+      # SCREENSHOTS
+      # ==========================================
 
       - name: Upload Screenshots
         if: always()
