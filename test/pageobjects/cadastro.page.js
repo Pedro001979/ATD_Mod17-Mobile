@@ -7,15 +7,15 @@ class CadastroPage {
     }
 
     get firstName() {
-        return $('android=new UiSelector().resourceId("br.com.lojaebac:id/firstName")');
+        return $('~firstName');
     }
 
     get lastName() {
-        return $('android=new UiSelector().resourceId("lastName")')
+        return $('~lastName');
     }
 
     get phoneNumber() {
-        return $('//android.widget.EditText[@resource-id="phone"]')
+        return $('~phone');
     }
 
     get email() {
