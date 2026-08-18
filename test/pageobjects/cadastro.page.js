@@ -7,11 +7,11 @@ class CadastroPage {
     }
     
     get firstName() { 
-        return $('id:firstName') 
+        return $('android=new UiSelector().resourceId("firstName")') 
     }
     
     get lastName() { 
-        return $('id:lastName') 
+        return $('android=new UiSelector().resourceId("lastName")') 
     }
     
     get phoneNumber() { 
