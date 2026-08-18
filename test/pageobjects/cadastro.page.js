@@ -7,11 +7,12 @@ class CadastroPage {
     }
     
     get firstName() { 
-        return $('//android.widget.EditText[@resource-id="firstName"]') 
+        await driver.pause(1000) // Adiciona uma pausa antes de localizar o elemento
+        return $('new UiSelector().resourceId("firstName")') 
     }
     
     get lastName() { 
-        return $('//android.widget.EditText[@resource-id="lastName"]') 
+        return $('new UiSelector().resourceId("lastName")') 
     }
     
     get phoneNumber() { 
