@@ -3,7 +3,7 @@ import { $, driver } from '@wdio/globals'
 class CadastroPage {
     // Locators simples usando XPath
     get btnSignUp() { 
-        return $('//android.widget.Button[contains(@text, "Sign")]') 
+        return $('//android.widget.Button[contains(@text, "sign")]') 
     }
     
     get firstName() { 
