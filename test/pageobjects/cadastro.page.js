@@ -2,36 +2,36 @@ import { $, driver } from '@wdio/globals'
 
 class CadastroPage {
     // Locators simples usando XPath
-    get btnSignUp() { 
-        return $('//android.widget.TextView[@text="Sign up"]') 
+    get btnSignUp() {
+        return $('//android.widget.TextView[@text="Sign up"]')
     }
-    
-    get firstName() { 
-        return $('android=new UiSelector().resourceId("firstName")') 
+
+    get firstName() {
+        return $('android=new UiSelector().resourceId("br.com.lojaebac:id/firstName")');
     }
-    
-    get lastName() { 
-        return $('android=new UiSelector().resourceId("lastName")') 
+
+    get lastName() {
+        return $('android=new UiSelector().resourceId("lastName")')
     }
-    
-    get phoneNumber() { 
-        return $('//android.widget.EditText[@resource-id="phone"]') 
+
+    get phoneNumber() {
+        return $('//android.widget.EditText[@resource-id="phone"]')
     }
-    
-    get email() { 
-        return $('//android.widget.EditText[@resource-id="email"]') 
+
+    get email() {
+        return $('//android.widget.EditText[@resource-id="email"]')
     }
-    
-    get password() { 
-        return $('//android.widget.EditText[@resource-id="password"]') 
+
+    get password() {
+        return $('//android.widget.EditText[@resource-id="password"]')
     }
-    
-    get repassword() { 
-        return $('//android.widget.EditText[@resource-id="repassword"]') 
+
+    get repassword() {
+        return $('//android.widget.EditText[@resource-id="repassword"]')
     }
-    
-    get btnCreate() { 
-        return $('//android.view.ViewGroup[@content-desc="Create"]') 
+
+    get btnCreate() {
+        return $('//android.view.ViewGroup[@content-desc="Create"]')
     }
 
     // Métodos simples
