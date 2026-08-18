@@ -1,74 +1,55 @@
 import { $, driver } from '@wdio/globals'
 
 class CadastroPage {
-    // Locators simples usando XPath
-    get btnSignUp() {
-        return $('//android.widget.TextView[@text="Sign up"]')
-    }
+    // Mapeamento simplificado usando atalho id: e XPath curto
+    get btnprofile() { return $('//android.view.View[@content-desc=", Profile"]') } // busca por texto
+    get btnSignUp() { return $('//android.widget.TextView[@text="Sign up"]') }
+    get firstName() { return $('//android.widget.EditText[@resource-id="firstName"]') }
+    get lastName() { return $('//android.widget.EditText[@resource-id="lastName"]') }
+    get phoneNumber() { return $('//android.widget.EditText[@resource-id="phone"]') }
+    get email() { return $('//android.widget.EditText[@resource-id="email"]') }
+    get password() { return $('//android.widget.EditText[@resource-id="password"]') }
+    get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]') }
+    get btnCreate() { return $('//android.view.ViewGroup[@content-desc="Create"]') } // busca por resourceId
+    get btnwishlist() { return $('//android.widget.TextView[@resource-id="wishlist"]') } // busca por resourceId
+    get btnback() { return $('//android.view.ViewGroup[@content-desc=""]') } // busca por content-desc
+    get btnprofile() { return $('//android.view.View[@content-desc=", Profile"]') } // busca por texto
 
-    get firstName() {
-        return $('~firstName');
-    }
 
-    get lastName() {
-        return $('~lastName');
-    }
-
-    get phoneNumber() {
-        return $('~phone');
-    }
-
-    get email() {
-        return $('//android.widget.EditText[@resource-id="email"]')
-    }
-
-    get password() {
-        return $('//android.widget.EditText[@resource-id="password"]')
-    }
-
-    get repassword() {
-        return $('//android.widget.EditText[@resource-id="repassword"]')
-    }
-
-    get btnCreate() {
-        return $('//android.view.ViewGroup[@content-desc="Create"]')
-    }
-
-    // Métodos simples
-    async clicar(elemento) {
-        await driver.pause(1000)
-        await elemento.click()
-    }
-
-    async preencher(elemento, valor) {
-        await driver.pause(1000)
-        await elemento.setValue(valor)
-    }
-
-    async esconderTeclado() {
-        try {
-            await driver.hideKeyboard()
-        } catch (e) {
-            // Ignora
-        }
-    }
-
-    // Fluxo
+    // Fluxo com passo a passo direto por linha
     async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
-        try {
-            await this.clicar(this.btnSignUp)
-            await this.preencher(this.firstName, firstName)
-            await this.preencher(this.lastName, lastName)
-            await this.preencher(this.phoneNumber, phoneNumber)
-            await this.preencher(this.email, email)
-            await this.preencher(this.password, password)
-            await this.preencher(this.repassword, repassword)
-            await this.esconderTeclado()
-            await this.clicar(this.btnCreate)
-        } catch (e) {
-            console.log('Erro no cadastro:', e.message)
-            throw e
-        }
+        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await this.btnprofile.click()
+        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await this.btnSignUp.click()
+        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await this.firstName.setValue(firstName)
+        await driver.pause(5000) // Pausa para garantir que a tela de carregue
+        await this.btnprofile.click()
+        await this.lastName.setValue(lastName)
+        await driver.pause(5000) // Pausa para garantir que a tela de carregue
+        await this.btnprofile.click()
+        await this.phoneNumber.setValue(phoneNumber)
+        await driver.pause(5000) // Pausa para garantir que a tela de carregue
+        await this.btnprofile.click()
+        await this.email.setValue(email)
+        await driver.pause(5000) // Pausa para garantir que a tela de carregue
+        await this.btnprofile.click()
+        await this.password.setValue(password)
+        await driver.pause(5000) // Pausa para garantir que a tela de carregue
+        await this.btnprofile.click()
+        await this.repassword.setValue(repassword)
+        await driver.pause(5000) // Pausa para garantir que a tela de carregue
+        await this.btnprofile.click()
+        await driver.pause(5000) // Pausa para garantir que a tela de carregue
+        await this.btnCreate.click()
+        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await this.btnwishlist.click()
+        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await this.btnback.click()
+        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await this.btnprofile.click()
+
     }
 }
 
