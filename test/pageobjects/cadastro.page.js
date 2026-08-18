@@ -3,35 +3,35 @@ import { $, driver } from '@wdio/globals'
 class CadastroPage {
     // Locators simples usando XPath
     get btnSignUp() { 
-        return $('//android.widget.Button[contains(@text, "signUp")]') 
+        return $('//android.widget.TextView[@text="Sign up"]') 
     }
     
     get firstName() { 
-        return $('//android.widget.EditText[1]') 
+        return $('//android.widget.EditText[@resource-id="firstName"]') 
     }
     
     get lastName() { 
-        return $('//android.widget.EditText[2]') 
+        return $('//android.widget.EditText[@resource-id="lastName"]') 
     }
     
     get phoneNumber() { 
-        return $('//android.widget.EditText[3]') 
+        return $('//android.widget.EditText[@resource-id="phone"]') 
     }
     
     get email() { 
-        return $('//android.widget.EditText[4]') 
+        return $('//android.widget.EditText[@resource-id="email"]') 
     }
     
     get password() { 
-        return $('//android.widget.EditText[5]') 
+        return $('//android.widget.EditText[@resource-id="password"]') 
     }
     
     get repassword() { 
-        return $('//android.widget.EditText[6]') 
+        return $('//android.widget.EditText[@resource-id="repassword"]') 
     }
     
     get btnCreate() { 
-        return $('//android.widget.Button[contains(@text, "Create")]') 
+        return $('//android.view.ViewGroup[@content-desc="Create"]') 
     }
 
     // Métodos simples
