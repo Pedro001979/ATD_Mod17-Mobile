@@ -18,7 +18,7 @@ class CadastroPage {
 
     // Fluxo com passo a passo direto por linha
     async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
-        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await driver.pause(20000) // Pausa para garantir que a tela de carregue
         await this.btnprofile.click()
         await driver.pause(10000) // Pausa para garantir que a tela de carregue
         await this.btnSignUp.click()
