@@ -7,12 +7,11 @@ class CadastroPage {
     }
     
     get firstName() { 
-        await driver.pause(1000) // Adiciona uma pausa antes de localizar o elemento
-        return $('new UiSelector().resourceId("firstName")') 
+        return $('id:firstName') 
     }
     
     get lastName() { 
-        return $('new UiSelector().resourceId("lastName")') 
+        return $('id:lastName') 
     }
     
     get phoneNumber() { 
