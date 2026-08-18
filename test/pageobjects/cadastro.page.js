@@ -3,7 +3,7 @@ import { $, driver } from '@wdio/globals'
 class CadastroPage {
     // Mapeamento simplificado usando atalho id: e XPath curto
     get btnprofile() { return $('//android.view.View[@content-desc=", Profile"]') } // busca por texto
-    get btnsingU() { return $('//android.view.ViewGroup[@content-desc="Sign up"]') }
+    get btnsingUp() { return $('//android.view.ViewGroup[@content-desc="Sign up"]') }
     get firstName() { return $('//android.widget.EditText[@resource-id="firstName"]') }
     get lastName() { return $('//android.widget.EditText[@resource-id="lastName"]') }
     get phoneNumber() { return $('//android.widget.EditText[@resource-id="phone"]') }
@@ -21,7 +21,7 @@ class CadastroPage {
         await driver.pause(20000) // Pausa para garantir que a tela de carregue
         await this.btnprofile.click()
         await driver.pause(10000) // Pausa para garantir que a tela de carregue
-        await this.btnSignUp.click()
+        await this.btnsingUp.click()
         await driver.pause(10000) // Pausa para garantir que a tela de carregue
         await this.firstName.setValue(firstName)
         await driver.pause(5000) // Pausa para garantir que a tela de carregue
