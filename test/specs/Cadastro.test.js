@@ -1,5 +1,4 @@
 import { expect } from '@wdio/globals'
-import HomePageCadastro from '../pageobjects/home.page.cadastro.js'
 import cadastroPage from '../pageobjects/cadastro.page.js'
 
 describe('Cadastro de usuário', () => {

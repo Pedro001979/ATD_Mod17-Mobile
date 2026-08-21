@@ -2,52 +2,45 @@ import { $, driver } from '@wdio/globals'
 
 class CadastroPage {
     // Mapeamento simplificado usando atalho id: e XPath curto
-    get btnprofile() { return $('//android.view.View[@content-desc=", Profile"]') } // busca por texto
-    get btnsingUp() { return $('//android.view.ViewGroup[@content-desc="Sign up"]') }
-    get firstName() { return $('//android.widget.EditText[@resource-id="firstName"]') }
-    get lastName() { return $('//android.widget.EditText[@resource-id="lastName"]') }
-    get phoneNumber() { return $('//android.widget.EditText[@resource-id="phone"]') }
-    get email() { return $('//android.widget.EditText[@resource-id="email"]') }
-    get password() { return $('//android.widget.EditText[@resource-id="password"]') }
-    get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]') }
-    get btnCreate() { return $('//android.view.ViewGroup[@content-desc="Create"]') } // busca por resourceId
-    get btnwishlist() { return $('//android.widget.TextView[@resource-id="wishlist"]') } // busca por resourceId
-    get btnback() { return $('//android.view.ViewGroup[@content-desc=""]') } // busca por content-desc
-    get btnprofile() { return $('//android.view.View[@content-desc=", Profile"]') } // busca por texto
+    get btnprofile() { return $('~, Profile') } // busca por texto
+    get btnsingUp() { return $('~Sign up') }
+    get firstName() { return $('id=firstName') }
+    get lastName() { return $('id=lastName') }
+    get phoneNumber() { return $('id=phone') }
+    get email() { return $('id=email') }
+    get password() { return $('id=password') }
+    get repassword() { return $('id=repassword') }
+    get btnCreate() { return $('~Create') } // busca por resourceId
+    get btnwishlist() { return $('id=wishlist') } // busca por resourceId
+    get btnback() { return $('id=back') } // busca por content-desc
+    get btnprofile() { return $('~, Profile') } // busca por texto
 
 
     // Fluxo com passo a passo direto por linha
     async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
-        await driver.pause(20000) // Pausa para garantir que a tela de carregue
+        await waitForDisplayed(this.btnprofile)
         await this.btnprofile.click()
-        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await waitForDisplayed(this.btnsingUp)
         await this.btnsingUp.click()
-        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await waitForDisplayed(this.firstName)
         await this.firstName.setValue(firstName)
-        await driver.pause(5000) // Pausa para garantir que a tela de carregue
-        await this.btnprofile.click()
+        await waitForDisplayed(this.lastName)
         await this.lastName.setValue(lastName)
-        await driver.pause(5000) // Pausa para garantir que a tela de carregue
-        await this.btnprofile.click()
+        await waitForDisplayed(this.phoneNumber)
         await this.phoneNumber.setValue(phoneNumber)
-        await driver.pause(5000) // Pausa para garantir que a tela de carregue
-        await this.btnprofile.click()
+        await waitForDisplayed(this.email)
         await this.email.setValue(email)
-        await driver.pause(5000) // Pausa para garantir que a tela de carregue
-        await this.btnprofile.click()
+        await waitForDisplayed(this.password)
         await this.password.setValue(password)
-        await driver.pause(5000) // Pausa para garantir que a tela de carregue
-        await this.btnprofile.click()
+        await waitForDisplayed(this.repassword)
         await this.repassword.setValue(repassword)
-        await driver.pause(5000) // Pausa para garantir que a tela de carregue
-        await this.btnprofile.click()
-        await driver.pause(5000) // Pausa para garantir que a tela de carregue
+        await waitForDisplayed(this.btnCreate)
         await this.btnCreate.click()
-        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await waitForDisplayed(this.btnwishlist)
         await this.btnwishlist.click()
-        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await waitForDisplayed(this.btnback)
         await this.btnback.click()
-        await driver.pause(10000) // Pausa para garantir que a tela de carregue
+        await waitForDisplayed(this.btnprofile)
         await this.btnprofile.click()
 
     }
