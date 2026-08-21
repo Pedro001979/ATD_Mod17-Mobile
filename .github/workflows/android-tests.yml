@@ -34,35 +34,19 @@ jobs:
       - name: Executar testes no Emulador Android
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
-          api-level: 30
+          api-level: 29
           target: default
           arch: x86_64
           profile: pixel
-          force-avd-creation: false
-          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -memory 2048 -disk 4096
+          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
           disable-animations: true
           script: |
             set -e
             echo "========================================"
             echo "Aguardando emulador ficar pronto..."
             echo "========================================"
-            
-            # Aguardar device ficar online
-            timeout 300 adb wait-for-device
-            sleep 10
-            
-            # Verificar boot completo
-            for i in {1..30}; do
-              if adb shell getprop sys.boot_completed | grep -q 1; then
-                echo "Emulador iniciou com sucesso!"
-                break
-              fi
-              echo "Aguardando boot... ($i/30)"
-              sleep 5
-            done
-            
+            sleep 20
             adb devices
-            adb shell getprop ro.build.version.release
             
             echo "========================================"
             echo "Iniciando Appium na porta 4723..."
@@ -74,20 +58,7 @@ jobs:
             echo "========================================"
             echo "Aguardando Appium ficar pronto..."
             echo "========================================"
-            sleep 20
-            
-            # Verificar se Appium está respondendo
-            max_attempts=10
-            attempt=1
-            while [ $attempt -le $max_attempts ]; do
-              if curl -s http://127.0.0.1:4723/status | grep -q "value"; then
-                echo "Appium está respondendo!"
-                break
-              fi
-              echo "Aguardando Appium responder... ($attempt/$max_attempts)"
-              sleep 3
-              attempt=$((attempt + 1))
-            done
+            sleep 15
             
             echo "========================================"
             echo "Executando testes WebdriverIO..."
