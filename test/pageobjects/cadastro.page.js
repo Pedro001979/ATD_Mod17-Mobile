@@ -42,7 +42,6 @@ class CadastroPage {
         await this.btnback.click()
         await waitForDisplayed(this.btnprofile)
         await this.btnprofile.click()
-
     }
 }
 
