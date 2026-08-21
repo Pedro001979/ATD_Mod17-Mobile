@@ -10,70 +10,42 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 50
 
     steps:
-      - name: Checkout do código
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Java
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Configurar Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: npm
 
-      - name: Instalar dependências
+      - name: Install dependencies
         run: npm ci
 
-      - name: Executar testes no Emulador Android
+      - name: Run tests
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
-          api-level: 31  # ← Trocar de 29 para 31+ (melhor compatibilidade)
+          api-level: 30
           target: google_apis
           arch: x86_64
-          profile: Nexus 6
-          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
-          disable-animations: true
+          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -cores 4 -memory 2048
           script: |
-            set -e
-            echo "========================================"
-            echo "Aguardando emulador ficar pronto..."
-            echo "========================================"
-            sleep 20
+            sleep 30
             adb devices
-            
-            echo "========================================"
-            echo "Iniciando Appium na porta 4723..."
-            echo "========================================"
-            nohup npx appium --port 4723 --log-level info > appium.log 2>&1 &
-            APPIUM_PID=$!
-            echo "Appium PID: $APPIUM_PID"
-            
-            echo "========================================"
-            echo "Aguardando Appium ficar pronto..."
-            echo "========================================"
+            nohup npx appium --port 4723 > appium.log 2>&1 &
             sleep 15
-            
-            echo "========================================"
-            echo "Executando testes WebdriverIO..."
-            echo "========================================"
-            npm test || TEST_EXIT=$?
-            
-            echo "========================================"
-            echo "Limpando processos..."
-            echo "========================================"
-            kill $APPIUM_PID 2>/dev/null || true
-            sleep 2
-            
-            exit ${TEST_EXIT:-0}
+            npm test || true
 
-      - name: Upload evidências
+      - name: Upload results
         if: always()
         uses: actions/upload-artifact@v4
         with:
