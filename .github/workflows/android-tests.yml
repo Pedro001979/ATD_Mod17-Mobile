@@ -1,33 +1,61 @@
-name: EBAC CI - Suite 2
+name: EBAC CI - Mobile
 
 on:
   push:
-    branches: [ ci ]
+    branches: [ci]
   workflow_dispatch:
 
 jobs:
-  test:
+  mobile:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Copiar o código do repositório
+      - name: Copiar o código
         uses: actions/checkout@v4
 
-      - name: Configurar o Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      - name: Instalar Dependências
+      - name: Instalar dependências
         run: npm ci
 
-      - name: Rodar os testes e Gerar HTML
-        run: npm run test:ci
-        continue-on-error: true
+      - name: Configurar Android
+        uses: android-actions/setup-android@v3
 
-      - name: Publish Report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./mochawesome-report
+      - name: Instalar Android Emulator
+        run: |
+          sdkmanager "platform-tools"
+          sdkmanager "emulator"
+          sdkmanager "platforms;android-29"
+          sdkmanager "system-images;android-29;default;x86"
+
+      - name: Criar emulador
+        run: |
+          echo "no" | avdmanager create avd \
+            -n test \
+            -k "system-images;android-29;default;x86" \
+            --force
+
+      - name: Iniciar emulador
+        run: |
+          nohup emulator \
+            -avd test \
+            -no-window \
+            -no-audio \
+            -no-boot-anim \
+            -gpu swiftshader_indirect \
+            > emulator.log 2>&1 &
+
+          adb wait-for-device
+
+          timeout 300 bash -c \
+            'until adb shell getprop sys.boot_completed | grep -m 1 "1"; do sleep 5; done'
+
+      - name: Verificar dispositivo
+        run: adb devices
+
+      - name: Rodar testes
+        run: npm test
