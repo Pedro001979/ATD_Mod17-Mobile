@@ -39,13 +39,13 @@ jobs:
       - name: Verificar teste de cadastro
         shell: bash
         run: |
-          if [ ! -f "./test/specs/cadastro.test.js" ]; then
+          if [ ! -f "./test/specs/Cadastro.test.js" ]; then
             echo "========================================"
             echo "ERRO: TESTE NÃO ENCONTRADO"
             echo "========================================"
 
             echo "Procurado:"
-            echo "./test/specs/cadastro.test.js"
+            echo "./test/specs/Cadastro.test.js"
 
             echo ""
             echo "Testes disponíveis:"
