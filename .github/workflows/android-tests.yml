@@ -2,7 +2,7 @@ name: EBAC CI - Mobile
 
 on:
   push:
-    branches: [ci]
+    branches: [ci, main]
   workflow_dispatch:
 
 jobs:
