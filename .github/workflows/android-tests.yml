@@ -10,83 +10,107 @@ on:
 jobs:
   mobile:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: npm
 
       - name: Instalar dependências
         run: npm ci
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Instalar Android Emulator
-        run: |
-          sdkmanager "platform-tools"
-          sdkmanager "emulator"
-          sdkmanager "platforms;android-35"
-          sdkmanager "system-images;android-35;google_apis;x86_64"
-
-      - name: Aceitar licenças Android
-        run: yes | sdkmanager --licenses || true
-
-      - name: Criar AVD
-        run: |
-          echo "no" | avdmanager create avd \
-            --name test \
-            --package "system-images;android-35;google_apis;x86_64" \
-            --device "pixel_2" \
-            --force
-
-      - name: Iniciar Android Emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 35
-          target: google_apis
-          arch: x86_64
-          profile: pixel_2
-          emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot
-          disable-animations: true
-          script: |
-            echo "Android iniciado!"
-            adb devices
-            adb shell getprop ro.build.version.release
-            adb shell getprop ro.build.version.sdk
-
       - name: Verificar APK
         run: |
+          echo "Verificando APK..."
+
           if [ ! -f "./apps/ebacshop.apk" ]; then
-            echo "ERRO: apps/ebacshop.apk não encontrado!"
-            ls -la apps/
+            echo "ERRO: APK não encontrado!"
+            find . -maxdepth 3 -type f | sort
             exit 1
           fi
 
           ls -lh ./apps/ebacshop.apk
           file ./apps/ebacshop.apk
 
-      - name: Iniciar Appium
-        run: |
-          npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
+      - name: Executar testes Android
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          target: default
+          arch: x86
+          profile: pixel_2
+          force-avd-creation: true
+          emulator-options: >-
+            -no-window
+            -no-audio
+            -no-boot-anim
+            -no-snapshot
+            -no-metrics
+            -gpu swiftshader_indirect
+          disable-animations: true
+          cores: 2
+          ram-size: 2048M
+          heap-size: 512M
+          disk-size: 4096M
+          emulator-boot-timeout: 600
+          script: |
+            echo "========================================"
+            echo "DISPOSITIVO"
+            echo "========================================"
 
-          sleep 5
+            adb devices
 
-          curl --fail http://127.0.0.1:4723/status
+            echo "Android:"
+            adb shell getprop ro.build.version.release
 
-      - name: Rodar testes mobile
-        run: npm test
+            echo "API:"
+            adb shell getprop ro.build.version.sdk
 
-      - name: Salvar logs
+            echo "Boot:"
+            adb shell getprop sys.boot_completed
+
+            echo "========================================"
+            echo "INICIANDO APPIUM"
+            echo "========================================"
+
+            npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
+
+            APPIUM_PID=$!
+
+            echo "Appium PID: $APPIUM_PID"
+
+            for i in {1..30}; do
+              if curl -sf http://127.0.0.1:4723/status > /dev/null; then
+                echo "Appium iniciado com sucesso!"
+                break
+              fi
+
+              echo "Aguardando Appium..."
+              sleep 2
+            done
+
+            if ! curl -sf http://127.0.0.1:4723/status > /dev/null; then
+              echo "ERRO: Appium não iniciou."
+              cat appium.log
+              exit 1
+            fi
+
+            echo "========================================"
+            echo "EXECUTANDO TESTES"
+            echo "========================================"
+
+            npm test
+
+      - name: Salvar log do Appium
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: mobile-logs
-          path: |
-            appium.log
+          name: appium-log
+          path: appium.log
+          if-no-files-found: ignore

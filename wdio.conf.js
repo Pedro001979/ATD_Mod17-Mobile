@@ -14,7 +14,7 @@ export const config = {
         platformName: 'Android',
         'appium:automationName': 'UiAutomator2',
 
-        'appium:deviceName': 'test',
+        'appium:deviceName': 'Pixel_2',
         'appium:platformVersion': '10',
         'appium:udid': 'emulator-5554',
 
