@@ -18,29 +18,17 @@ class CadastroPage {
 
     // Fluxo com passo a passo direto por linha
     async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
-        await waitForDisplayed(this.btnprofile)
         await this.btnprofile.click()
-        await waitForDisplayed(this.btnsingUp)
         await this.btnsingUp.click()
-        await waitForDisplayed(this.firstName)
         await this.firstName.setValue(firstName)
-        await waitForDisplayed(this.lastName)
         await this.lastName.setValue(lastName)
-        await waitForDisplayed(this.phoneNumber)
         await this.phoneNumber.setValue(phoneNumber)
-        await waitForDisplayed(this.email)
         await this.email.setValue(email)
-        await waitForDisplayed(this.password)
         await this.password.setValue(password)
-        await waitForDisplayed(this.repassword)
         await this.repassword.setValue(repassword)
-        await waitForDisplayed(this.btnCreate)
         await this.btnCreate.click()
-        await waitForDisplayed(this.btnwishlist)
         await this.btnwishlist.click()
-        await waitForDisplayed(this.btnback)
         await this.btnback.click()
-        await waitForDisplayed(this.btnprofile)
         await this.btnprofile.click()
     }
 }
