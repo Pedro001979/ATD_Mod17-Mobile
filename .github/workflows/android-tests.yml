@@ -1,85 +1,33 @@
-name: Executar Testes Mobile (WebdriverIO + Appium)
+name: EBAC CI - Suite 2
 
 on:
   push:
-    branches: [main, master, ci]
-  pull_request:
-    branches: [main, master, ci]
+    branches: [ ci ]
   workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
+      - name: Copiar o código do repositório
+        uses: actions/checkout@v4
 
-      - name: Setup Java
-        uses: actions/setup-java@v5
-        with:
-          distribution: temurin
-          java-version: '17'
-
-      - name: Setup Node
+      - name: Configurar o Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          cache: npm
+          node-version: '20'
+          cache: 'npm'
 
-      - name: Install dependencies
+      - name: Instalar Dependências
         run: npm ci
 
-      - name: Run tests
-        uses: ReactiveCircus/android-emulator-runner@v2
+      - name: Rodar os testes e Gerar HTML
+        run: npm run test:ci
+        continue-on-error: true
+
+      - name: Publish Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          api-level: 30
-          target: google_apis
-          arch: x86_64
-          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -cores 4 -memory 2048
-          script: |
-            #!/bin/bash
-            set -euxo pipefail
-
-            echo "Listando dispositivos antes do boot"
-            adb devices || true
-
-            echo "Aguardando o emulador conectar..."
-            adb wait-for-device
-
-            echo "Aguardando o emulador terminar o boot (até ~5 minutos)..."
-            for i in $(seq 1 60); do
-              BOOT=$(adb shell getprop sys.boot_completed 2>/dev/null || echo 0)
-              if [ "$BOOT" = "1" ]; then
-                echo "Emulador bootado"
-                break
-              fi
-              echo "Ainda não bootado ($i/60), esperando 5s..."
-              sleep 5
-            done
-
-            adb devices -l
-            ps aux | head -n 20
-
-            echo "Iniciando Appium e registrando versão"
-            npx appium --version || true
-            nohup npx appium --port 4723 > appium.log 2>&1 &
-            sleep 8
-            ps aux | grep -i appium || true
-            tail -n 200 appium.log || true
-
-            echo "Executando testes (sem || true para falhar se der erro)"
-            npm test
-
-      - name: Upload results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: |
-            errorShots
-            screenshots
-            allure-results
-            appium.log
-          if-no-files-found: ignore
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./mochawesome-report

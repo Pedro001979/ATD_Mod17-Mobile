@@ -7,13 +7,14 @@ export const config = {
     path: '/',
 
     specs: [
-        './test/specs/login.test.js'
+        './test/specs/login.test.js',
     ],
 
     capabilities: [{
         platformName: 'Android',
         'appium:automationName': 'UiAutomator2',
-        'appium:deviceName': 'Android Emulator',
+
+        'appium:deviceName': 'test',
         'appium:platformVersion': '10',
         'appium:udid': 'emulator-5554',
 
