@@ -72,10 +72,10 @@ jobs:
       - name: Executar testes Mobile
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 36.0
+          api-level: 29
           target: default
-          arch: x86
-          profile: Ebac
+          arch: x86_64
+          profile: Pixel9a
 
           force-avd-creation: true
 
