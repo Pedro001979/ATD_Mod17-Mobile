@@ -1,4 +1,4 @@
-name: Executar Testes Mobile (WebdriverIO + Appium)
+name: Mobile Tests - WebdriverIO + Appium
 
 on:
   push:
@@ -7,79 +7,89 @@ on:
     branches: [main, master, ci]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 35
 
     steps:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Setup Java
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Setup Java 17
         uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: '17'
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-          cache: npm
+          java-version: 17
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests
+      - name: Verify project
+        run: |
+          node --version
+          npm --version
+          npx appium --version
+          test -f apps/ebacshop.apk
+          file apps/ebacshop.apk
+
+      - name: Run Android tests
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
           api-level: 30
           target: google_apis
           arch: x86_64
-          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -cores 4 -memory 2048
+          profile: pixel_2
+          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect
+          disable-animations: true
           script: |
-            #!/bin/bash
-            set -euxo pipefail
+            set -e
 
-            echo "Listando dispositivos antes do boot"
-            adb devices || true
-
-            echo "Aguardando o emulador conectar..."
             adb wait-for-device
 
-            echo "Aguardando o emulador terminar o boot (até ~5 minutos)..."
             for i in $(seq 1 60); do
-              BOOT=$(adb shell getprop sys.boot_completed 2>/dev/null || echo 0)
-              if [ "$BOOT" = "1" ]; then
-                echo "Emulador bootado"
-                break
-              fi
-              echo "Ainda não bootado ($i/60), esperando 5s..."
+              boot=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
+              if [ "$boot" = "1" ]; then break; fi
               sleep 5
             done
 
+            if [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" != "1" ]; then
+              echo 'Android emulator did not finish booting.'
+              adb logcat -d | tail -n 300 || true
+              exit 1
+            fi
+
             adb devices -l
-            ps aux | head -n 20
 
-            echo "Iniciando Appium e registrando versão"
-            npx appium --version || true
-            nohup npx appium --port 4723 > appium.log 2>&1 &
-            sleep 8
-            ps aux | grep -i appium || true
-            tail -n 200 appium.log || true
+            npx appium --port 4723 > appium.log 2>&1 &
+            APPIUM_PID=$!
+            trap 'kill $APPIUM_PID 2>/dev/null || true' EXIT
 
-            echo "Executando testes (sem || true para falhar se der erro)"
+            for i in $(seq 1 30); do
+              if curl -fsS http://127.0.0.1:4723/status >/dev/null; then break; fi
+              sleep 2
+            done
+
+            curl -fsS http://127.0.0.1:4723/status
             npm test
 
-      - name: Upload results
+      - name: Upload test diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
+          name: mobile-test-diagnostics
           path: |
-            errorShots
-            screenshots
-            allure-results
             appium.log
+            errorShots/
+            screenshots/
+            allure-results/
           if-no-files-found: ignore
