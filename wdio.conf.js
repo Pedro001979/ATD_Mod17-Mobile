@@ -7,7 +7,7 @@ export const config = {
     path: '/',
 
     specs: [
-        './test/specs/Cadastro.test.js'
+        './test/specs/login.test.js'
     ],
 
     capabilities: [{

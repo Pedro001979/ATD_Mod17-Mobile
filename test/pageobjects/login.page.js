@@ -2,6 +2,8 @@ import { $, driver } from '@wdio/globals'
 
 class LoginPage {
 
+      get btnprofile() { return $('~Profile') } // busca por texto
+
     // 1. Mapeamento dos elementos usando UiSelector pelo resourceId
     get email() {
         return $('android=new UiSelector().resourceId("email")')
@@ -26,6 +28,9 @@ class LoginPage {
 
     // 3. Método de Login limpo e robusto
     async login(email, password) {
+
+        await this.btnprofile.waitForDisplayed({ timeout: 15000 })
+        await this.btnprofile.click()
         // Preenche o E-mail
         await this.email.waitForDisplayed({ timeout: 15000 })
         await this.email.click()

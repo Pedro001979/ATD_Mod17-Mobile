@@ -2,7 +2,7 @@ import { $, driver } from '@wdio/globals'
 
 class CadastroPage {
     // Mapeamento simplificado usando atalho id: e XPath curto
-    get btnprofile() { return $('~, Profile') } // busca por texto
+    get btnprofile() { return $('~Profile') } // busca por texto
     get btnsingUp() { return $('~Sign up') }
     get firstName() { return $('id=firstName') }
     get lastName() { return $('id=lastName') }
@@ -13,7 +13,7 @@ class CadastroPage {
     get btnCreate() { return $('~Create') } // busca por resourceId
     get btnwishlist() { return $('id=wishlist') } // busca por resourceId
     get btnback() { return $('id=back') } // busca por content-desc
-    get btnprofile() { return $('~, Profile') } // busca por texto
+    get btnprofile() { return $('~Profile') } // busca por texto
 
 
     // Fluxo com passo a passo direto por linha
