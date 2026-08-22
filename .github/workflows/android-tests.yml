@@ -10,7 +10,7 @@ on:
 jobs:
   mobile:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -25,27 +25,82 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+      - name: Verificar estrutura do projeto
+        run: |
+          echo "========================================"
+          echo "ESTRUTURA DO PROJETO"
+          echo "========================================"
+
+          find . -maxdepth 4 -type f | sort
+
+          echo ""
+          echo "========================================"
+          echo "TESTES ENCONTRADOS"
+          echo "========================================"
+
+          find . -type f \
+            \( -name "*.test.js" -o -name "*.spec.js" \) \
+            -print
+
+      - name: Validar teste de cadastro
+        run: |
+          if [ ! -f "./test/specs/cadastro.test.js" ]; then
+            echo "========================================"
+            echo "ERRO: TESTE NÃO ENCONTRADO"
+            echo "========================================"
+
+            echo ""
+            echo "O WebdriverIO está configurado para:"
+            echo "./test/specs/cadastro.test.js"
+
+            echo ""
+            echo "Arquivos de teste encontrados:"
+            find . -type f \
+              \( -name "*.test.js" -o -name "*.spec.js" \) \
+              -print
+
+            echo ""
+            echo "Verifique o nome e o caminho do arquivo."
+
+            exit 1
+          fi
+
+          echo "Teste encontrado:"
+          ls -lh ./test/specs/cadastro.test.js
+
       - name: Verificar APK
         run: |
-          echo "Verificando APK..."
+          echo "========================================"
+          echo "VERIFICANDO APK"
+          echo "========================================"
 
           if [ ! -f "./apps/ebacshop.apk" ]; then
-            echo "ERRO: APK não encontrado!"
-            find . -maxdepth 3 -type f | sort
+            echo "ERRO: apps/ebacshop.apk não encontrado!"
+
+            echo ""
+            echo "Arquivos encontrados na pasta apps:"
+            if [ -d "./apps" ]; then
+              find ./apps -maxdepth 2 -type f -print
+            else
+              echo "A pasta ./apps não existe!"
+            fi
+
             exit 1
           fi
 
           ls -lh ./apps/ebacshop.apk
           file ./apps/ebacshop.apk
 
-      - name: Executar testes Android
+      - name: Executar testes Mobile
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
           target: default
           arch: x86
           profile: pixel_2
+
           force-avd-creation: true
+
           emulator-options: >-
             -no-window
             -no-audio
@@ -53,57 +108,60 @@ jobs:
             -no-snapshot
             -no-metrics
             -gpu swiftshader_indirect
+
           disable-animations: true
+
           cores: 2
           ram-size: 2048M
           heap-size: 512M
           disk-size: 4096M
+
           emulator-boot-timeout: 600
+
           script: |
             echo "========================================"
-            echo "DISPOSITIVO"
+            echo "DISPOSITIVO ANDROID"
             echo "========================================"
 
             adb devices
 
-            echo "Android:"
+            echo ""
+            echo "Versão do Android:"
             adb shell getprop ro.build.version.release
 
+            echo ""
             echo "API:"
             adb shell getprop ro.build.version.sdk
 
+            echo ""
             echo "Boot:"
             adb shell getprop sys.boot_completed
 
+            echo ""
             echo "========================================"
             echo "INICIANDO APPIUM"
             echo "========================================"
 
-            npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
-            APPIUM_PID=$!
+            npx appium \
+              --address 127.0.0.1 \
+              --port 4723 \
+              > appium.log 2>&1 &
 
-            echo "Appium PID: $APPIUM_PID"
+            sleep 10
 
-            i=1
-            while [ $i -le 30 ]; do
-              if curl -sf http://127.0.0.1:4723/status > /dev/null; then
-                echo "Appium iniciado com sucesso!"
-                break
-              fi
+            echo ""
+            echo "Verificando Appium..."
 
-              echo "Aguardando Appium..."
-              sleep 2
-              i=$((i+1))
-            done
+            curl --fail http://127.0.0.1:4723/status
 
-            if ! curl -sf http://127.0.0.1:4723/status > /dev/null; then
-              echo "ERRO: Appium não iniciou."
-              cat appium.log
-              exit 1
-            fi
-
+            echo ""
             echo "========================================"
-            echo "EXECUTANDO TESTES"
+            echo "APPIUM FUNCIONANDO"
+            echo "========================================"
+
+            echo ""
+            echo "========================================"
+            echo "EXECUTANDO WEBDRIVERIO"
             echo "========================================"
 
             npm test
