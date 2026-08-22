@@ -39,6 +39,9 @@ jobs:
           arch: x86_64
           emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -cores 4 -memory 2048
           script: |
+            #!/bin/bash
+            set -euxo pipefail
+
             echo "Listando dispositivos antes do boot"
             adb devices || true
 
