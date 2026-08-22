@@ -1,5 +1,5 @@
 import { expect } from '@wdio/globals'
-import CadastroPage from '../pageobjects/specs/Cadastro.page.js'
+import CadastroPage from '../test/pageobjects/cadastro.page.js'
 
 describe('Cadastro de usuário', () => {
     it('deve cadastrar um usuário com sucesso', async () => {
