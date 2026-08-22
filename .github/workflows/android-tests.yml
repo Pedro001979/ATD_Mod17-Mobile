@@ -44,10 +44,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install latest UiAutomator2 driver
+      - name: Prepare UiAutomator2 driver
         run: |
           mkdir -p "$APPIUM_HOME"
-          npx appium driver install uiautomator2
+
+          if npx appium driver list --installed | grep -qi 'uiautomator2'; then
+            echo 'UiAutomator2 is already installed; updating it when possible.'
+            npx appium driver update uiautomator2 --unsafe || true
+          else
+            echo 'UiAutomator2 is not installed; installing the latest release.'
+            npx appium driver install uiautomator2
+          fi
+
           npx appium driver list --installed
 
       - name: Verify project
