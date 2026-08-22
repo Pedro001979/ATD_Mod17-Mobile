@@ -26,19 +26,27 @@ jobs:
       - name: Configurar Android
         uses: android-actions/setup-android@v3
 
-      - name: Instalar ferramentas Android
+      - name: Instalar Android SDK
         run: |
           sdkmanager "platform-tools"
           sdkmanager "emulator"
-          sdkmanager "platforms;android-29"
-          sdkmanager "system-images;android-29;default;x86_64"
+          sdkmanager "platforms;android-35"
+          sdkmanager "system-images;android-35;google_apis;x86_64"
 
       - name: Criar emulador
         run: |
           echo "no" | avdmanager create avd \
             --name test \
-            --package "system-images;android-29;default;x86_64" \
+            --package "system-images;android-35;google_apis;x86_64" \
+            --device "pixel_2" \
             --force
+
+      - name: Configurar KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger
+          sudo chmod 666 /dev/kvm
 
       - name: Iniciar emulador
         run: |
@@ -49,23 +57,61 @@ jobs:
             -no-boot-anim \
             -no-snapshot \
             -no-metrics \
+            -no-save-state \
             -gpu swiftshader_indirect \
+            -camera-back none \
+            -camera-front none \
             > emulator.log 2>&1 &
 
-      - name: Aguardar dispositivo Android
+          echo $! > emulator.pid
+
+      - name: Aguardar ADB
         timeout-minutes: 5
         run: |
-          adb wait-for-device
+          echo "Aguardando ADB..."
 
-          echo "Aguardando Android inicializar..."
+          for i in {1..60}; do
+            adb devices
+            if adb devices | grep -q "emulator-"; then
+              echo "Emulador detectado!"
+              break
+            fi
+            sleep 5
+          done
 
-          timeout 300 bash -c '
-            until adb shell getprop sys.boot_completed 2>/dev/null | grep -m 1 "1"; do
-              sleep 5
-            done
-          '
+          adb devices
 
-          echo "Android inicializado!"
+          if ! adb devices | grep -q "emulator-.*device"; then
+            echo "ERRO: O emulador não ficou disponível."
+            echo "===== LOG DO EMULADOR ====="
+            cat emulator.log
+            exit 1
+          fi
+
+      - name: Aguardar Android inicializar
+        timeout-minutes: 5
+        run: |
+          echo "Aguardando boot completo..."
+
+          for i in {1..60}; do
+            BOOT=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
+
+            echo "Boot: $BOOT"
+
+            if [ "$BOOT" = "1" ]; then
+              echo "Android inicializado!"
+              break
+            fi
+
+            sleep 5
+          done
+
+          if [ "$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" != "1" ]; then
+            echo "ERRO: Android não terminou de inicializar."
+            echo "===== LOG DO EMULADOR ====="
+            cat emulator.log
+            exit 1
+          fi
 
       - name: Verificar dispositivo
         run: |
@@ -73,10 +119,11 @@ jobs:
           adb shell getprop ro.build.version.release
           adb shell getprop ro.build.version.sdk
 
-      - name: Verificar aplicativo
+      - name: Verificar APK
         run: |
           if [ ! -f "./apps/ebacshop.apk" ]; then
-            echo "ERRO: ./apps/ebacshop.apk não encontrado!"
+            echo "ERRO: APK não encontrado."
+            ls -la apps/
             exit 1
           fi
 
@@ -89,13 +136,20 @@ jobs:
 
           echo "Aguardando Appium..."
 
-          timeout 60 bash -c '
-            until curl -s http://127.0.0.1:4723/status > /dev/null; do
-              sleep 2
-            done
-          '
+          for i in {1..30}; do
+            if curl -s http://127.0.0.1:4723/status > /dev/null; then
+              echo "Appium iniciado!"
+              break
+            fi
 
-          echo "Appium iniciado!"
+            sleep 2
+          done
+
+          if ! curl -s http://127.0.0.1:4723/status > /dev/null; then
+            echo "ERRO: Appium não iniciou."
+            cat appium.log
+            exit 1
+          fi
 
       - name: Rodar testes mobile
         run: npm test
