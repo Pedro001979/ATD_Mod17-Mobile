@@ -10,7 +10,7 @@ on:
 jobs:
   mobile:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -25,27 +25,60 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
-      - name: Verificar APK
+      - name: Verificar estrutura dos testes
+        shell: bash
         run: |
-          echo "Verificando APK..."
+          echo "========================================"
+          echo "TESTES ENCONTRADOS"
+          echo "========================================"
 
-          if [ ! -f "./apps/ebacshop.apk" ]; then
-            echo "ERRO: APK não encontrado!"
-            find . -maxdepth 3 -type f | sort
+          find . -type f \
+            \( -name "*.test.js" -o -name "*.spec.js" \) \
+            -print
+
+      - name: Verificar teste de cadastro
+        shell: bash
+        run: |
+          if [ ! -f "./test/specs/cadastro.test.js" ]; then
+            echo "========================================"
+            echo "ERRO: TESTE NÃO ENCONTRADO"
+            echo "========================================"
+
+            echo "Procurado:"
+            echo "./test/specs/cadastro.test.js"
+
+            echo ""
+            echo "Testes disponíveis:"
+            find . -type f \
+              \( -name "*.test.js" -o -name "*.spec.js" \) \
+              -print
+
             exit 1
           fi
 
-          ls -lh ./apps/ebacshop.apk
-          file ./apps/ebacshop.apk
+          echo "Teste encontrado com sucesso!"
 
-      - name: Executar testes Android
+      - name: Verificar APK
+        shell: bash
+        run: |
+          if [ ! -f "./apps/ebacshop.apk" ]; then
+            echo "ERRO: APK não encontrado!"
+            exit 1
+          fi
+
+          echo "APK encontrado:"
+          ls -lh ./apps/ebacshop.apk
+
+      - name: Executar testes Mobile
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
           target: default
           arch: x86
           profile: pixel_2
+
           force-avd-creation: true
+
           emulator-options: >-
             -no-window
             -no-audio
@@ -53,26 +86,25 @@ jobs:
             -no-snapshot
             -no-metrics
             -gpu swiftshader_indirect
+
           disable-animations: true
+
           cores: 2
           ram-size: 2048M
           heap-size: 512M
           disk-size: 4096M
+
           emulator-boot-timeout: 600
+
           script: |
             echo "========================================"
-            echo "DISPOSITIVO"
+            echo "ANDROID"
             echo "========================================"
 
             adb devices
 
-            echo "Android:"
             adb shell getprop ro.build.version.release
-
-            echo "API:"
             adb shell getprop ro.build.version.sdk
-
-            echo "Boot:"
             adb shell getprop sys.boot_completed
 
             echo "========================================"
@@ -81,25 +113,18 @@ jobs:
 
             npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
 
-            APPIUM_PID=$!
+            sleep 10
 
-            echo "Appium PID: $APPIUM_PID"
+            echo "========================================"
+            echo "VERIFICANDO APPIUM"
+            echo "========================================"
 
-            for i in {1..30}; do
-              if curl -sf http://127.0.0.1:4723/status > /dev/null; then
-                echo "Appium iniciado com sucesso!"
-                break
-              fi
+            curl --fail http://127.0.0.1:4723/status
 
-              echo "Aguardando Appium..."
-              sleep 2
-            done
-
-            if ! curl -sf http://127.0.0.1:4723/status > /dev/null; then
-              echo "ERRO: Appium não iniciou."
-              cat appium.log
-              exit 1
-            fi
+            echo ""
+            echo "========================================"
+            echo "APPIUM OK"
+            echo "========================================"
 
             echo "========================================"
             echo "EXECUTANDO TESTES"
@@ -107,7 +132,7 @@ jobs:
 
             npm test
 
-      - name: Salvar log do Appium
+      - name: Upload do log do Appium
         if: always()
         uses: actions/upload-artifact@v4
         with:
