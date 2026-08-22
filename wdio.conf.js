@@ -14,9 +14,8 @@ export const config = {
         platformName: 'Android',
         'appium:automationName': 'UiAutomator2',
         'appium:deviceName': 'Android Emulator',
-        // API 30 = Android 11
-        'appium:platformVersion': '11',
         'appium:udid': 'emulator-5554',
+        'appium:platformVersion': '11',
 
         'appium:app': './apps/ebacshop.apk',
         'appium:appPackage': 'br.com.lojaebac',
@@ -24,22 +23,25 @@ export const config = {
 
         'appium:autoGrantPermissions': true,
         'appium:noReset': false,
+        'appium:fullReset': false,
+        'appium:printPageSourceOnFindFailure': true,
 
-        'appium:adbExecTimeout': 60000,
-        'appium:androidInstallTimeout': 90000,
-        'appium:uiautomator2ServerLaunchTimeout': 120000,
-        'appium:newCommandTimeout': 240,
+        'appium:adbExecTimeout': 120000,
+        'appium:androidInstallTimeout': 120000,
+        'appium:uiautomator2ServerLaunchTimeout': 180000,
+        'appium:uiautomator2ServerInstallTimeout': 180000,
+        'appium:newCommandTimeout': 300,
     }],
 
     logLevel: 'info',
     waitforTimeout: 30000,
-    connectionRetryTimeout: 120000,
+    connectionRetryTimeout: 180000,
     connectionRetryCount: 2,
 
     framework: 'mocha',
 
     mochaOpts: {
         ui: 'bdd',
-        timeout: 120000
+        timeout: 180000
     }
 };
