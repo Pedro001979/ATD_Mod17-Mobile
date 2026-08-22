@@ -14,7 +14,8 @@ export const config = {
         platformName: 'Android',
         'appium:automationName': 'UiAutomator2',
         'appium:deviceName': 'Android Emulator',
-        'appium:platformVersion': '10',
+        // API 30 = Android 11
+        'appium:platformVersion': '11',
         'appium:udid': 'emulator-5554',
 
         'appium:app': './apps/ebacshop.apk',
@@ -27,6 +28,7 @@ export const config = {
         'appium:adbExecTimeout': 60000,
         'appium:androidInstallTimeout': 90000,
         'appium:uiautomator2ServerLaunchTimeout': 120000,
+        'appium:newCommandTimeout': 240,
     }],
 
     logLevel: 'info',
