@@ -2,7 +2,9 @@ name: EBAC CI - Mobile
 
 on:
   push:
-    branches: [ci, main]
+    branches:
+      - ci
+      - main
   workflow_dispatch:
 
 jobs:
@@ -11,29 +13,32 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - name: Copiar o código
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: 20
+          cache: npm
 
       - name: Instalar dependências
         run: npm ci
 
-      - name: Configurar Android
+      - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Instalar Android SDK
+      - name: Instalar Android Emulator
         run: |
           sdkmanager "platform-tools"
           sdkmanager "emulator"
           sdkmanager "platforms;android-35"
           sdkmanager "system-images;android-35;google_apis;x86_64"
 
-      - name: Criar emulador
+      - name: Aceitar licenças Android
+        run: yes | sdkmanager --licenses || true
+
+      - name: Criar AVD
         run: |
           echo "no" | avdmanager create avd \
             --name test \
@@ -41,88 +46,25 @@ jobs:
             --device "pixel_2" \
             --force
 
-      - name: Configurar KVM
-        run: |
-          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm.rules
-          sudo udevadm control --reload-rules
-          sudo udevadm trigger
-          sudo chmod 666 /dev/kvm
-
-      - name: Iniciar emulador
-        run: |
-          nohup emulator \
-            -avd test \
-            -no-window \
-            -no-audio \
-            -no-boot-anim \
-            -no-snapshot \
-            -no-metrics \
-            -no-save-state \
-            -gpu swiftshader_indirect \
-            -camera-back none \
-            -camera-front none \
-            > emulator.log 2>&1 &
-
-          echo $! > emulator.pid
-
-      - name: Aguardar ADB
-        timeout-minutes: 5
-        run: |
-          echo "Aguardando ADB..."
-
-          for i in {1..60}; do
+      - name: Iniciar Android Emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_2
+          emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot
+          disable-animations: true
+          script: |
+            echo "Android iniciado!"
             adb devices
-            if adb devices | grep -q "emulator-"; then
-              echo "Emulador detectado!"
-              break
-            fi
-            sleep 5
-          done
-
-          adb devices
-
-          if ! adb devices | grep -q "emulator-.*device"; then
-            echo "ERRO: O emulador não ficou disponível."
-            echo "===== LOG DO EMULADOR ====="
-            cat emulator.log
-            exit 1
-          fi
-
-      - name: Aguardar Android inicializar
-        timeout-minutes: 5
-        run: |
-          echo "Aguardando boot completo..."
-
-          for i in {1..60}; do
-            BOOT=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
-
-            echo "Boot: $BOOT"
-
-            if [ "$BOOT" = "1" ]; then
-              echo "Android inicializado!"
-              break
-            fi
-
-            sleep 5
-          done
-
-          if [ "$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" != "1" ]; then
-            echo "ERRO: Android não terminou de inicializar."
-            echo "===== LOG DO EMULADOR ====="
-            cat emulator.log
-            exit 1
-          fi
-
-      - name: Verificar dispositivo
-        run: |
-          adb devices
-          adb shell getprop ro.build.version.release
-          adb shell getprop ro.build.version.sdk
+            adb shell getprop ro.build.version.release
+            adb shell getprop ro.build.version.sdk
 
       - name: Verificar APK
         run: |
           if [ ! -f "./apps/ebacshop.apk" ]; then
-            echo "ERRO: APK não encontrado."
+            echo "ERRO: apps/ebacshop.apk não encontrado!"
             ls -la apps/
             exit 1
           fi
@@ -134,22 +76,9 @@ jobs:
         run: |
           npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
 
-          echo "Aguardando Appium..."
+          sleep 5
 
-          for i in {1..30}; do
-            if curl -s http://127.0.0.1:4723/status > /dev/null; then
-              echo "Appium iniciado!"
-              break
-            fi
-
-            sleep 2
-          done
-
-          if ! curl -s http://127.0.0.1:4723/status > /dev/null; then
-            echo "ERRO: Appium não iniciou."
-            cat appium.log
-            exit 1
-          fi
+          curl --fail http://127.0.0.1:4723/status
 
       - name: Rodar testes mobile
         run: npm test
@@ -160,5 +89,4 @@ jobs:
         with:
           name: mobile-logs
           path: |
-            emulator.log
             appium.log
