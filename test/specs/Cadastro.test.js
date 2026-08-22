@@ -1,10 +1,10 @@
 import { expect } from '@wdio/globals'
-import cadastroPage from '../pageobjects/cadastro.page.js'
+import CadastroPage from '../pageobjects/specs/Cadastro.page.js'
 
 describe('Cadastro de usuário', () => {
     it('deve cadastrar um usuário com sucesso', async () => {
         const email = `user${Date.now()}@example.com`
-        await cadastroPage.createAccount(
+        await CadastroPage.createAccount(
             'John',
             'Silva',
             '11987654321',

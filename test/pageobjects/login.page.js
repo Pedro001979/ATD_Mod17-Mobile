@@ -2,7 +2,7 @@ import { $, driver } from '@wdio/globals'
 
 class LoginPage {
 
-      get btnprofile() { return $('~Profile') } // busca por texto
+      get btnprofile() { return $('//android.widget.TextView[@resource-id="tab-profile') } // busca por texto
 
     // 1. Mapeamento dos elementos usando UiSelector pelo resourceId
     get email() {
