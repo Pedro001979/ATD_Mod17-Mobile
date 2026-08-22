@@ -14,8 +14,8 @@ export const config = {
         platformName: 'Android',
         'appium:automationName': 'UiAutomator2',
 
-        'appium:deviceName': 'Pixel_2',
-        'appium:platformVersion': '10',
+        'appium:deviceName': 'Ebac',
+        'appium:platformVersion': '16',
         'appium:udid': 'emulator-5554',
 
         'appium:app': './apps/ebacshop.apk',

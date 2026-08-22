@@ -72,7 +72,7 @@ jobs:
       - name: Executar testes Mobile
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 29
+          api-level: 36
           target: default
           arch: x86
           profile: pixel_2
