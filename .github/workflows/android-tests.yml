@@ -111,8 +111,20 @@ jobs:
           ls -l /dev/kvm
 
           echo "Testando acesso:"
-          [ -r /dev/kvm ] && echo "KVM leitura: OK"
-          [ -w /dev/kvm ] && echo "KVM escrita: OK"
+
+          if [ -r /dev/kvm ]; then
+            echo "KVM leitura: OK"
+          else
+            echo "ERRO: KVM sem permissão de leitura."
+            exit 1
+          fi
+
+          if [ -w /dev/kvm ]; then
+            echo "KVM escrita: OK"
+          else
+            echo "ERRO: KVM sem permissão de escrita."
+            exit 1
+          fi
 
       - name: Verificar KVM
         shell: bash
@@ -156,13 +168,12 @@ jobs:
           emulator-boot-timeout: 600
 
           script: |
-            set -o pipefail
-
             echo "========================================"
             echo "ANDROID"
             echo "========================================"
 
             adb wait-for-device
+
             adb devices
 
             echo ""
@@ -196,22 +207,31 @@ jobs:
             echo "AGUARDANDO APPIUM"
             echo "========================================"
 
-            for i in {1..30}; do
-              if curl -sf http://127.0.0.1:4723/status > /dev/null; then
+            APPIUM_READY=false
+
+            for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+            do
+              if curl -sf http://127.0.0.1:4723/status > /dev/null
+              then
                 echo "Appium está pronto!"
+                APPIUM_READY=true
                 break
               fi
 
-              if [ "$i" -eq 30 ]; then
-                echo "ERRO: Appium não iniciou."
-                echo ""
-                cat appium.log || true
-                exit 1
-              fi
-
-              echo "Tentativa $i/30..."
+              echo "Tentativa $i/15..."
               sleep 2
             done
+
+            if [ "$APPIUM_READY" != "true" ]
+            then
+              echo "========================================"
+              echo "ERRO: APPIUM NÃO INICIOU"
+              echo "========================================"
+
+              cat appium.log || true
+
+              exit 1
+            fi
 
             echo ""
             echo "========================================"
@@ -219,6 +239,11 @@ jobs:
             echo "========================================"
 
             curl --fail http://127.0.0.1:4723/status
+
+            echo ""
+            echo "========================================"
+            echo "APPIUM OK"
+            echo "========================================"
 
             echo ""
             echo "========================================"
