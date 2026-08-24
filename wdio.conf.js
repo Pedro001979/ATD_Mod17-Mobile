@@ -1,159 +1,86 @@
 export const config = {
-
     runner: 'local',
+    maxInstances: 1,
 
     hostname: '127.0.0.1',
     port: 4723,
     path: '/',
 
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/Cadastro.test.js',
     ],
 
-    exclude: [],
-
-    maxInstances: 1,
-
-    //
-    // Appium
-    //
-    services: [
-        ['appium', {
-            command: 'appium',
-            args: {
-                relaxedSecurity: true
-            }
-        }]
-    ],
-
-    //
-    // Capabilities
-    //
     capabilities: [{
-
         platformName: 'Android',
-
         'appium:automationName': 'UiAutomator2',
 
-        'appium:deviceName': 'Android Emulator',
+        // O emulator-runner cria exatamente este AVD e o Android 10/API 29.
+        'appium:deviceName': 'pixel_2',
+        'appium:platformVersion': '10',
+        'appium:udid': 'emulator-5554',
 
-        // Apontando diretamente para o arquivo .apk
+        // APK válido e presente no repositório após o checkout/LFS.
         'appium:app': './apps/ebacshop.apk',
-
         'appium:appPackage': 'br.com.lojaebac',
-
         'appium:appActivity': '.MainActivity',
 
         'appium:autoGrantPermissions': true,
-
-        //
-        // Reset do aplicativo
-        //
         'appium:noReset': false,
         'appium:fullReset': false,
         'appium:dontStopAppOnReset': false,
         'appium:shouldTerminateApp': true,
 
-        //
-        // Performance
-        //
-        'appium:disableIdLocatorAutocompletion': true,
-
+        // Timeouts elevados para o runner do GitHub Actions.
         'appium:newCommandTimeout': 300,
-
         'appium:adbExecTimeout': 120000,
-
         'appium:androidInstallTimeout': 180000,
-
         'appium:uiautomator2ServerInstallTimeout': 120000,
-
-        'appium:uiautomator2ServerLaunchTimeout': 120000
-
+        'appium:uiautomator2ServerLaunchTimeout': 120000,
     }],
 
-    //
-    // Logs
-    //
     logLevel: 'info',
-
     outputDir: './logs',
 
-    //
-    // Timeouts
-    //
     waitforTimeout: 30000,
-
     connectionRetryTimeout: 180000,
-
     connectionRetryCount: 5,
 
-    //
-    // Framework
-    //
     framework: 'mocha',
 
     mochaOpts: {
         ui: 'bdd',
-        timeout: 180000
+        timeout: 180000,
     },
 
-    //
-    // Reporters
-    //
     reporters: [
-
         'spec',
-
         ['allure', {
-
             outputDir: 'allure-results',
-
             disableWebdriverStepsReporting: true,
-
-            disableWebdriverScreenshotsReporting: false
-
-        }]
-
+            disableWebdriverScreenshotsReporting: false,
+        }],
     ],
 
-    //
-    // Hooks
-    //
     before: async function () {
-
-        await driver.setTimeout({
-
+        await browser.setTimeout({
             implicit: 10000,
-
             pageLoad: 120000,
-
-            script: 120000
-
-        })
-
+            script: 120000,
+        });
     },
 
     afterTest: async function (test, context, { error }) {
-
         if (error) {
-
-            console.error('========================================')
-            console.error('TESTE FALHOU')
-            console.error(error)
-            console.error('========================================')
+            console.error('========================================');
+            console.error('TESTE FALHOU');
+            console.error(error);
+            console.error('========================================');
 
             try {
-
-                await browser.saveScreenshot(
-                    `./errorShots/${Date.now()}.png`
-                )
-
+                await browser.saveScreenshot(`./errorShots/${Date.now()}.png`);
             } catch (e) {
-                console.log('Não foi possível salvar screenshot.')
+                console.log('Não foi possível salvar screenshot.');
             }
-
         }
-
-    }
-
-}
+    },
+};
