@@ -193,10 +193,7 @@ jobs:
             echo "INICIANDO APPIUM"
             echo "========================================"
 
-            npx appium \
-              --address 127.0.0.1 \
-              --port 4723 \
-              > appium.log 2>&1 &
+            npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
 
             APPIUM_PID=$!
 
