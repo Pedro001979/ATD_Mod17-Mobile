@@ -3,7 +3,7 @@ import { $, driver } from '@wdio/globals'
 class CadastroPage {
     // Mapeamento simplificado usando atalho id: e XPath curto
     get btnprofile() { return $('//android.widget.TextView[@resource-id="tab-profile"]') } // busca por texto
-    get btnsingUp() { return $('//android.view.ViewGroup[@content-desc="Sign up"]') }
+    get btnsingUp() { return $('new UiSelector().resourceId("signUp")') }
     get firstName() { return $('id=firstName') }
     get lastName() { return $('id=lastName') }
     get phoneNumber() { return $('id=phone') }
