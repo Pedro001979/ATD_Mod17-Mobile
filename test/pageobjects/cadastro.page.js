@@ -13,7 +13,7 @@ class CadastroPage {
     get btnCreate() { return $('~Create') } // busca por resourceId
     get btnwishlist() { return $('id=wishlist') } // busca por resourceId
     get btnback() { return $('id=back') } // busca por content-desc
-    get btnprofile() { return $('~Profile') } // busca por texto
+    get btnprofile() { return $('//android.widget.TextView[@resource-id="tab-profile"]') } // busca por texto
 
 
     // Fluxo com passo a passo direto por linha
