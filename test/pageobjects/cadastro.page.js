@@ -4,9 +4,9 @@ class CadastroPage {
     // Mapeamento simplificado usando atalho id: e XPath curto
     get btnprofile() { return $('//android.widget.TextView[@resource-id="tab-profile"]') } // busca por texto
     get btnsingUp() { return $('//android.view.ViewGroup[@content-desc="Sign up"]') }
-    get firstName() { return $('//android.widget.EditText[@resource-id="firstName"]') }
-    get lastName() { return $('id=lastName') }
-    get phoneNumber() { return $('id=phone') }
+    get firstName() { return $('id:firstName') }
+    get lastName() { return $('id:lastName') }
+    get phoneNumber() { return $('id:phone') }
     get email() { return $('id=email') }
     get password() { return $('id=password') }
     get repassword() { return $('id=repassword') }
