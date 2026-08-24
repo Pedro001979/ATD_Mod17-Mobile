@@ -1,19 +1,23 @@
-name: Executar Testes Mobile (WebdriverIO + Appium)
+name: EBAC CI - Mobile
 
 on:
   push:
-    branches: [ main, master, ci ]
+    branches:
+      - ci
+      - main
   pull_request:
-    branches: [ main, master, ci ]
+    branches:
+      - ci
+      - main
   workflow_dispatch:
 
 jobs:
-  test:
+  mobile:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
     steps:
-      - name: Checkout do código
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           lfs: true
@@ -22,75 +26,160 @@ jobs:
       - name: Baixar arquivos Git LFS
         run: git lfs pull
 
-      - name: Verificar arquivo do app (.apk)
-        run: |
-          ls -lh apps
-          file apps/ebacshop.apk
-
-      - name: Habilitar KVM
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
-          sudo chmod 666 /dev/kvm
-
-      - name: Configurar Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: npm
 
       - name: Instalar dependências
         run: npm ci
 
-      - name: Verificar versões
+      - name: Verificar estrutura dos testes
+        shell: bash
         run: |
-          node -v
-          npm -v
-          appium --version
-          npm ls appium
-          npm ls appium-uiautomator2-driver
+          set -e
+          echo "========================================"
+          echo "ESTRUTURA DOS TESTES"
+          echo "========================================"
+          find ./test -maxdepth 3 -type f -print | sort
+          echo ""
+          echo "========================================"
+          echo "CADASTRO.TEST.JS"
+          echo "========================================"
+          test -f ./test/specs/Cadastro.test.js
+          ls -la ./test/specs/Cadastro.test.js
+          echo ""
+          echo "========================================"
+          echo "PAGE OBJECTS"
+          echo "========================================"
+          ls -la ./test/pageobjects || true
+          test -f ./test/pageobjects/Cadastro.page.js
+          echo "Cadastro.page.js encontrado com sucesso."
 
-      - name: Executar testes no Emulador Android
-        uses: ReactiveCircus/android-emulator-runner@v2
+      - name: Verificar APK
+        shell: bash
+        run: |
+          set -e
+          test -f ./apps/ebacshop.apk
+          echo "APK encontrado:"
+          ls -lh ./apps/ebacshop.apk
+          file ./apps/ebacshop.apk
+
+      - name: Habilitar KVM
+        shell: bash
+        run: |
+          set -e
+          echo "========================================"
+          echo "HABILITANDO KVM"
+          echo "========================================"
+          sudo apt-get update
+          sudo apt-get install -y qemu-kvm
+          sudo chmod 666 /dev/kvm
+          ls -l /dev/kvm
+          test -r /dev/kvm && test -w /dev/kvm
+
+      - name: Executar testes Mobile
+        uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
           target: default
-          arch: x86
-          profile: pixel
-          disable-animations: true
-          emulator-options: >
+          arch: x86_64
+          profile: pixel_2
+          force-avd-creation: true
+
+          emulator-options: >-
             -no-window
-            -gpu swiftshader_indirect
-            -noaudio
+            -no-audio
             -no-boot-anim
+            -no-snapshot
             -no-metrics
+            -gpu swiftshader_indirect
+
+          disable-animations: true
+          cores: 2
+          ram-size: 2048M
+          heap-size: 512M
+          disk-size: 4096M
+          emulator-boot-timeout: 600
+
           script: |
-            echo "======= DEVICES ======="
+            set -e
+
+            echo "========================================"
+            echo "ANDROID"
+            echo "========================================"
             adb devices
+            adb shell getprop ro.build.version.release
+            adb shell getprop ro.build.version.sdk
+            adb shell getprop sys.boot_completed
 
-            echo "======= APPIUM ======="
-            appium --version
+            echo "========================================"
+            echo "VERIFICANDO KVM"
+            echo "========================================"
+            ls -l /dev/kvm || true
 
-            echo "======= TESTES ======="
+            echo "========================================"
+            echo "INICIANDO APPIUM"
+            echo "========================================"
+            npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
+            APPIUM_PID=$!
+
+            echo "PID do Appium: $APPIUM_PID"
+
+            echo "========================================"
+            echo "AGUARDANDO APPIUM"
+            echo "========================================"
+            for i in {1..30}; do
+              if curl --silent --fail http://127.0.0.1:4723/status > /tmp/appium-status.json; then
+                cat /tmp/appium-status.json
+                break
+              fi
+              if ! kill -0 "$APPIUM_PID" 2>/dev/null; then
+                echo "Appium encerrou antes de ficar disponível."
+                cat appium.log || true
+                exit 1
+              fi
+              echo "Aguardando Appium... tentativa $i/30"
+              sleep 2
+            done
+
+            curl --fail http://127.0.0.1:4723/status
+
+            echo "========================================"
+            echo "APPIUM LOG ANTES DOS TESTES"
+            echo "========================================"
+            cat appium.log || true
+
+            echo "========================================"
+            echo "EXECUTANDO TESTES"
+            echo "========================================"
             npm test
 
-      - name: Capturar Logcat
-        if: always()
-        run: |
-          adb logcat -d > logcat.txt || true
-
-      - name: Upload Logcat
+      - name: Upload do log do Appium
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: logcat
-          path: logcat.txt
+          name: appium-log
+          path: appium.log
+          if-no-files-found: ignore
+
+      - name: Upload dos logs WDIO
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wdio-logs
+          path: logs
+          if-no-files-found: ignore
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: |
+            errorShots
+            screenshots
           if-no-files-found: ignore
 
       - name: Upload Allure
@@ -99,14 +188,4 @@ jobs:
         with:
           name: allure-results
           path: allure-results
-          if-no-files-found: ignore
-
-      - name: Upload Screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: screenshots
-          path: |
-            ./errorShots
-            ./screenshots
           if-no-files-found: ignore
