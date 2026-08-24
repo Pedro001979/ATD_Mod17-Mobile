@@ -40,20 +40,7 @@ jobs:
         shell: bash
         run: |
           if [ ! -f "./test/specs/Cadastro.test.js" ]; then
-            echo "========================================"
-            echo "ERRO: TESTE NÃO ENCONTRADO"
-            echo "========================================"
-
-            echo "Procurado:"
-            echo "./test/specs/Cadastro.test.js"
-
-            echo ""
-            echo "Testes disponíveis:"
-
-            find . -type f \
-              \( -name "*.test.js" -o -name "*.spec.js" \) \
-              -print
-
+            echo "ERRO: teste Cadastro.test.js não encontrado!"
             exit 1
           fi
 
@@ -62,10 +49,6 @@ jobs:
       - name: Verificar Page Objects
         shell: bash
         run: |
-          echo "========================================"
-          echo "PAGE OBJECTS"
-          echo "========================================"
-
           if [ ! -d "./test/pageobjects" ]; then
             echo "ERRO: pasta test/pageobjects não encontrada!"
             exit 1
@@ -92,51 +75,18 @@ jobs:
           echo "========================================"
 
           if [ ! -e /dev/kvm ]; then
-            echo "ERRO: /dev/kvm não existe neste runner."
+            echo "ERRO: /dev/kvm não existe!"
             exit 1
           fi
-
-          echo "Antes:"
-          ls -l /dev/kvm
-
-          echo "Usuário:"
-          whoami
-
-          echo "Grupos:"
-          groups
 
           sudo chmod 666 /dev/kvm
 
-          echo "Depois:"
           ls -l /dev/kvm
-
-          echo "Testando acesso:"
-
-          if [ -r /dev/kvm ]; then
-            echo "KVM leitura: OK"
-          else
-            echo "ERRO: KVM sem permissão de leitura."
-            exit 1
-          fi
-
-          if [ -w /dev/kvm ]; then
-            echo "KVM escrita: OK"
-          else
-            echo "ERRO: KVM sem permissão de escrita."
-            exit 1
-          fi
-
-      - name: Verificar KVM
-        shell: bash
-        run: |
-          echo "========================================"
-          echo "TESTE FINAL DO KVM"
-          echo "========================================"
 
           if [ -r /dev/kvm ] && [ -w /dev/kvm ]; then
             echo "KVM DISPONÍVEL!"
           else
-            echo "ERRO: KVM não está acessível."
+            echo "ERRO: KVM não está acessível!"
             exit 1
           fi
 
@@ -173,7 +123,6 @@ jobs:
             echo "========================================"
 
             adb wait-for-device
-
             adb devices
 
             echo ""
@@ -190,44 +139,17 @@ jobs:
 
             echo ""
             echo "========================================"
-            echo "INICIANDO APPIUM"
-            echo "========================================"
-
-            npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
-
-            echo "Appium iniciado em segundo plano."
-
-            echo ""
-            echo "========================================"
-            echo "AGUARDANDO APPIUM"
-            echo "========================================"
-
-            i=1
-            while [ $i -le 30 ]; do curl -sf http://127.0.0.1:4723/status > /dev/null && break; echo "Tentativa $i/30..."; i=$((i+1)); sleep 2; done
-
-            echo ""
-            echo "========================================"
-            echo "VERIFICANDO APPIUM"
-            echo "========================================"
-
-            curl --fail http://127.0.0.1:4723/status
-
-            echo ""
-            echo "========================================"
-            echo "APPIUM OK"
-            echo "========================================"
-
-            echo ""
-            echo "========================================"
-            echo "EXECUTANDO TESTES"
+            echo "EXECUTANDO WDIO"
             echo "========================================"
 
             npm test
 
-      - name: Upload do log do Appium
+      - name: Upload logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: appium-log
-          path: appium.log
+          name: mobile-test-logs
+          path: |
+            logs/
+            allure-results/
           if-no-files-found: ignore
