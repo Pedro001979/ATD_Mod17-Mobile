@@ -49,6 +49,7 @@ jobs:
 
             echo ""
             echo "Testes disponíveis:"
+
             find . -type f \
               \( -name "*.test.js" -o -name "*.spec.js" \) \
               -print
@@ -57,6 +58,20 @@ jobs:
           fi
 
           echo "Teste encontrado com sucesso!"
+
+      - name: Verificar Page Objects
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "PAGE OBJECTS"
+          echo "========================================"
+
+          if [ ! -d "./test/pageobjects" ]; then
+            echo "ERRO: pasta test/pageobjects não encontrada!"
+            exit 1
+          fi
+
+          find ./test/pageobjects -maxdepth 1 -type f -print
 
       - name: Verificar APK
         shell: bash
@@ -68,6 +83,50 @@ jobs:
 
           echo "APK encontrado:"
           ls -lh ./apps/ebacshop.apk
+
+      - name: Habilitar KVM
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "CONFIGURANDO KVM"
+          echo "========================================"
+
+          if [ ! -e /dev/kvm ]; then
+            echo "ERRO: /dev/kvm não existe neste runner."
+            exit 1
+          fi
+
+          echo "Antes:"
+          ls -l /dev/kvm
+
+          echo "Usuário:"
+          whoami
+
+          echo "Grupos:"
+          groups
+
+          sudo chmod 666 /dev/kvm
+
+          echo "Depois:"
+          ls -l /dev/kvm
+
+          echo "Testando acesso:"
+          [ -r /dev/kvm ] && echo "KVM leitura: OK"
+          [ -w /dev/kvm ] && echo "KVM escrita: OK"
+
+      - name: Verificar KVM
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "TESTE FINAL DO KVM"
+          echo "========================================"
+
+          if [ -r /dev/kvm ] && [ -w /dev/kvm ]; then
+            echo "KVM DISPONÍVEL!"
+          else
+            echo "ERRO: KVM não está acessível."
+            exit 1
+          fi
 
       - name: Executar testes Mobile
         uses: reactivecircus/android-emulator-runner@v2
@@ -97,10 +156,13 @@ jobs:
           emulator-boot-timeout: 600
 
           script: |
+            set -o pipefail
+
             echo "========================================"
             echo "ANDROID"
             echo "========================================"
 
+            adb wait-for-device
             adb devices
 
             echo ""
@@ -114,15 +176,6 @@ jobs:
             echo ""
             echo "Boot:"
             adb shell getprop sys.boot_completed
-
-            echo ""
-            echo "========================================"
-            echo "VERIFICANDO ADB"
-            echo "========================================"
-
-            adb wait-for-device
-
-            adb devices
 
             echo ""
             echo "========================================"
@@ -143,29 +196,22 @@ jobs:
             echo "AGUARDANDO APPIUM"
             echo "========================================"
 
-            APPIUM_READY=false
-
             for i in {1..30}; do
               if curl -sf http://127.0.0.1:4723/status > /dev/null; then
                 echo "Appium está pronto!"
-
-                APPIUM_READY=true
                 break
               fi
 
-              echo "Aguardando Appium... tentativa $i/30"
+              if [ "$i" -eq 30 ]; then
+                echo "ERRO: Appium não iniciou."
+                echo ""
+                cat appium.log || true
+                exit 1
+              fi
+
+              echo "Tentativa $i/30..."
               sleep 2
             done
-
-            if [ "$APPIUM_READY" != "true" ]; then
-              echo "========================================"
-              echo "ERRO: APPIUM NÃO INICIOU"
-              echo "========================================"
-
-              cat appium.log || true
-
-              exit 1
-            fi
 
             echo ""
             echo "========================================"
@@ -176,27 +222,10 @@ jobs:
 
             echo ""
             echo "========================================"
-            echo "APPIUM OK"
-            echo "========================================"
-
-            echo ""
-            echo "========================================"
             echo "EXECUTANDO TESTES"
             echo "========================================"
 
             npm test
-
-      - name: Coletar logcat Android
-        if: always()
-        shell: bash
-        run: |
-          echo "========================================"
-          echo "COLETANDO LOGCAT"
-          echo "========================================"
-
-          adb logcat -d > android-logcat.txt || true
-
-          echo "Logcat coletado."
 
       - name: Upload do log do Appium
         if: always()
@@ -204,12 +233,4 @@ jobs:
         with:
           name: appium-log
           path: appium.log
-          if-no-files-found: ignore
-
-      - name: Upload logs Android
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: android-debug-logs
-          path: android-logcat.txt
           if-no-files-found: ignore
