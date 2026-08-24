@@ -4,12 +4,12 @@ class CadastroPage {
     // Mapeamento simplificado usando atalho id: e XPath curto
     get btnprofile() { return $('//android.widget.TextView[@resource-id="tab-profile"]') } // busca por texto
     get btnsingUp() { return $('//android.widget.TextView[@text="Sign up"]') }
-    get firstName() { return $('id=firstName') }
-    get lastName() { return $('//android.widget.EditText[@resource-id="lastName"]') }
-    get phoneNumber() { return $('//android.widget.EditText[@resource-id="phone"]') }
-    get email() { return $('//android.widget.EditText[@resource-id="email"]') }
-    get password() { return $('//android.widget.EditText[@resource-id="password"]') }
-    get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]') }
+    get firstName() { return $('new UiSelector().resourceId("firstName")') }
+    get lastName() { return $('new UiSelector().resourceId("lastName")') }
+    get phoneNumber() { return $('new UiSelector().resourceId("phone")') }
+    get email() { return $('new UiSelector().resourceId("email")') }
+    get password() { return $('new UiSelector().resourceId("password")') }
+    get repassword() { return $('new UiSelector().resourceId("repassword")') }
     get btnCreate() { return $('//android.view.ViewGroup[@content-desc="Create"]') } // busca por resourceId
     // get btnwishlist() { return $('id=wishlist') } // busca por resourceId
     get btnback() { return $('//android.view.ViewGroup[@content-desc="back"]') } // busca por content-desc
