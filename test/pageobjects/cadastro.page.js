@@ -3,7 +3,7 @@ import { $, driver } from '@wdio/globals'
 class CadastroPage {
     // Mapeamento simplificado usando atalho id: e XPath curto
     get btnprofile() { return $('//android.widget.TextView[@resource-id="tab-profile"]') } // busca por texto
-    get btnsingUp() { return $('//android.view.ViewGroup[@content-desc="Sign up"]') }
+    get btnsingUp() { return $('//android.widget.TextView[@text="Sign up"]') }
     get firstName() { return $('//android.widget.EditText[@resource-id="firstName"]') }
     get lastName() { return $('//android.widget.EditText[@resource-id="lastName"]') }
     get phoneNumber() { return $('//android.widget.EditText[@resource-id="phone"]') }
@@ -17,7 +17,18 @@ class CadastroPage {
 
     // Fluxo com passo a passo direto por linha
     async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
+        await this.btnprofile.waitForDisplayed({
+            timeout: 30000,
+            timeoutMsg: 'Botão Profile não apareceu'
+        })
+
         await this.btnprofile.click()
+
+        await this.btnsingUp.waitForDisplayed({
+            timeout: 30000,
+            timeoutMsg: 'Botão Sign up não apareceu após clicar em Profile'
+        })
+
         await this.btnsingUp.click()
         await this.firstName.setValue(firstName)
         await this.lastName.setValue(lastName)
