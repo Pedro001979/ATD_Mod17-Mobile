@@ -28,7 +28,6 @@ class CadastroPage {
         await this.btnCreate.click()
         await this.btnwishlist.click()
         await this.btnback.click()
-        await this.btnprofile.click()
     }
 }
 
