@@ -15,7 +15,7 @@ export const config = {
         'appium:automationName': 'UiAutomator2',
 
         'appium:deviceName': 'pixel_2',
-        'appium:platformVersion': '16',
+        'appium:platformVersion': '10',
         'appium:udid': 'emulator-5554',
 
         'appium:app': './apps/ebacshop.apk',
@@ -28,6 +28,7 @@ export const config = {
         'appium:adbExecTimeout': 60000,
         'appium:androidInstallTimeout': 90000,
         'appium:uiautomator2ServerLaunchTimeout': 120000,
+        "appium:uiautomator2ServerInstallTimeout": 120000
     }],
 
     logLevel: 'info',
