@@ -17,17 +17,30 @@ class CadastroPage {
 
     // Fluxo com passo a passo direto por linha
     async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
-        await this.btnprofile.waitForDisplayed({
-            timeout: 30000,
-            timeoutMsg: 'Botão Profile não apareceu'
-        })
+         await this.btnprofile.waitForDisplayed({
+        timeout: 60000
+    })
 
-        await this.btnprofile.click()
+    await this.btnprofile.click()
 
-        await this.btnsingUp.waitForDisplayed({
-            timeout: 30000,
-            timeoutMsg: 'Botão Sign up não apareceu após clicar em Profile'
-        })
+    console.log('========================================')
+    console.log('PAGE SOURCE APÓS CLICAR NO PROFILE')
+    console.log('========================================')
+
+    const source = await driver.getPageSource()
+
+    console.log(source)
+
+    console.log('========================================')
+    console.log('FIM PAGE SOURCE')
+    console.log('========================================')
+
+    await this.btnsingUp.waitForDisplayed({
+        timeout: 30000,
+        timeoutMsg: 'Sign up não apareceu'
+    })
+
+    await this.btnsingUp.click()
 
         await this.btnsingUp.click()
         await this.firstName.setValue(firstName)

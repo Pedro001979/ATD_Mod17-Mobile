@@ -89,9 +89,9 @@ jobs:
 
           disable-animations: true
 
-          cores: 2
-          ram-size: 2048M
-          heap-size: 512M
+          cores: 4
+          ram-size: 4096M
+          heap-size: 1024M
           disk-size: 4096M
 
           emulator-boot-timeout: 600
@@ -103,20 +103,73 @@ jobs:
 
             adb devices
 
+            echo ""
+            echo "Android:"
             adb shell getprop ro.build.version.release
+
+            echo ""
+            echo "API:"
             adb shell getprop ro.build.version.sdk
+
+            echo ""
+            echo "Boot:"
             adb shell getprop sys.boot_completed
 
+            echo ""
+            echo "========================================"
+            echo "VERIFICANDO ADB"
+            echo "========================================"
+
+            adb wait-for-device
+
+            adb devices
+
+            echo ""
             echo "========================================"
             echo "INICIANDO APPIUM"
             echo "========================================"
 
-            npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
+            npx appium \
+              --address 127.0.0.1 \
+              --port 4723 \
+              > appium.log 2>&1 &
 
-            sleep 10
+            APPIUM_PID=$!
 
+            echo "Appium PID: $APPIUM_PID"
+
+            echo ""
             echo "========================================"
-            echo "VERIFICANDO APPIUM"
+            echo "AGUARDANDO APPIUM"
+            echo "========================================"
+
+            APPIUM_READY=false
+
+            for i in {1..30}; do
+              if curl -sf http://127.0.0.1:4723/status > /dev/null; then
+                echo "Appium está pronto!"
+
+                APPIUM_READY=true
+                break
+              fi
+
+              echo "Aguardando Appium... tentativa $i/30"
+              sleep 2
+            done
+
+            if [ "$APPIUM_READY" != "true" ]; then
+              echo "========================================"
+              echo "ERRO: APPIUM NÃO INICIOU"
+              echo "========================================"
+
+              cat appium.log || true
+
+              exit 1
+            fi
+
+            echo ""
+            echo "========================================"
+            echo "STATUS APPIUM"
             echo "========================================"
 
             curl --fail http://127.0.0.1:4723/status
@@ -126,11 +179,24 @@ jobs:
             echo "APPIUM OK"
             echo "========================================"
 
+            echo ""
             echo "========================================"
             echo "EXECUTANDO TESTES"
             echo "========================================"
 
             npm test
+
+      - name: Coletar logcat Android
+        if: always()
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "COLETANDO LOGCAT"
+          echo "========================================"
+
+          adb logcat -d > android-logcat.txt || true
+
+          echo "Logcat coletado."
 
       - name: Upload do log do Appium
         if: always()
@@ -138,4 +204,12 @@ jobs:
         with:
           name: appium-log
           path: appium.log
+          if-no-files-found: ignore
+
+      - name: Upload logs Android
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-debug-logs
+          path: android-logcat.txt
           if-no-files-found: ignore
