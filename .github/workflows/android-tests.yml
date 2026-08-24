@@ -195,44 +195,19 @@ jobs:
 
             npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
 
-            APPIUM_PID=$!
-
-            echo "Appium PID: $APPIUM_PID"
+            echo "Appium iniciado em segundo plano."
 
             echo ""
             echo "========================================"
             echo "AGUARDANDO APPIUM"
             echo "========================================"
 
-            APPIUM_READY=false
-
-            for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
-            do
-              if curl -sf http://127.0.0.1:4723/status > /dev/null
-              then
-                echo "Appium está pronto!"
-                APPIUM_READY=true
-                break
-              fi
-
-              echo "Tentativa $i/15..."
-              sleep 2
-            done
-
-            if [ "$APPIUM_READY" != "true" ]
-            then
-              echo "========================================"
-              echo "ERRO: APPIUM NÃO INICIOU"
-              echo "========================================"
-
-              cat appium.log || true
-
-              exit 1
-            fi
+            i=1
+            while [ $i -le 30 ]; do curl -sf http://127.0.0.1:4723/status > /dev/null && break; echo "Tentativa $i/30..."; i=$((i+1)); sleep 2; done
 
             echo ""
             echo "========================================"
-            echo "STATUS APPIUM"
+            echo "VERIFICANDO APPIUM"
             echo "========================================"
 
             curl --fail http://127.0.0.1:4723/status
