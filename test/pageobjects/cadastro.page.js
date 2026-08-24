@@ -10,9 +10,9 @@ class CadastroPage {
     get email() { return $('//android.widget.EditText[@resource-id="email"]') }
     get password() { return $('//android.widget.EditText[@resource-id="password"]') }
     get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]') }
-    get btnCreate() { return $('~Create') } // busca por resourceId
-    get btnwishlist() { return $('id=wishlist') } // busca por resourceId
-    get btnback() { return $('id=back') } // busca por content-desc
+    get btnCreate() { return $('//android.view.ViewGroup[@content-desc="Create"]') } // busca por resourceId
+    // get btnwishlist() { return $('id=wishlist') } // busca por resourceId
+    get btnback() { return $('//android.view.ViewGroup[@content-desc="back"]') } // busca por content-desc
 
 
     // Fluxo com passo a passo direto por linha
@@ -26,7 +26,7 @@ class CadastroPage {
         await this.password.setValue(password)
         await this.repassword.setValue(repassword)
         await this.btnCreate.click()
-        await this.btnwishlist.click()
+        // await this.btnwishlist.click()
         await this.btnback.click()
     }
 }
