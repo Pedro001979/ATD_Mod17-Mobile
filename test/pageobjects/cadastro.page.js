@@ -49,8 +49,18 @@ class CadastroPage {
         await this.email.setValue(email)
         await this.password.setValue(password)
         await this.repassword.setValue(repassword)
-        await browser.hideKeyboard();
-        await browser.pause(5000) // Pausa para garantir que o teclado foi fechado;
+        await browser.hideKeyboard().catch(() => { });
+
+        await this.createButton.scrollIntoView({
+            block: 'center',
+            inline: 'center'
+        });
+
+        await this.createButton.waitForDisplayed({
+            timeout: 10000
+        });
+
+        await this.createButton.click();
         await this.btnCreate.click()
         //     await this.btnwishlist.click()
         //     await this.btnback.click()
