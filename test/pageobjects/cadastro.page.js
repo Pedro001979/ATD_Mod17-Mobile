@@ -51,22 +51,13 @@ class CadastroPage {
         await this.email.setValue(email)
         await this.password.setValue(password)
         await this.repassword.setValue(repassword)
-        try {
-            await browser.hideKeyboard();
-        } catch (error) {
-            console.log('Teclado já estava fechado.');
-        }
-
-        await browser.pause(500);
-
-        const scrollView = $('//android.widget.ScrollView');
-
-        await scrollView.waitForDisplayed({
-            timeout: 5000
-        });
-
-        await scrollView.scrollIntoView({
-            direction: 'down'
+        await browser.execute('mobile: scrollGesture', {
+            left: 0,
+            top: 400,
+            width: 1080,
+            height: 1200,
+            direction: 'down',
+            percent: 0.8
         });
 
         await browser.pause(500);
