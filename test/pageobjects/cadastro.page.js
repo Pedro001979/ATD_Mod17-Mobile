@@ -49,6 +49,8 @@ class CadastroPage {
         await this.email.setValue(email)
         await this.password.setValue(password)
         await this.repassword.setValue(repassword)
+        await browser.hideKeyboard();
+        await browser.pause(500);
         await this.btnCreate.click()
         await this.btnwishlist.click()
         await this.btnback.click()
