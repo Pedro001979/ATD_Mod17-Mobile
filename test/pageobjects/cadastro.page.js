@@ -54,8 +54,7 @@ class CadastroPage {
         await browser.hideKeyboard().catch(() => { });
 
         await this.createButton.scrollIntoView({
-            block: 'center',
-            inline: 'center'
+            direction: 'down'
         });
 
         await this.createButton.waitForDisplayed({
