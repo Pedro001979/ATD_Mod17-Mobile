@@ -2,19 +2,19 @@ import { $, driver } from '@wdio/globals'
 
 class CadastroPage {
     // Mapeamento simplificado usando atalho id: e XPath curto
-    get btnprofile() { return $('//android.widget.TextView[@resource-id="tab-profile"]') } // busca por texto
-    get btnsingUp() { return $('//android.widget.TextView[@text="Sign up"]') }
-    get firstName() { return $('//android.widget.EditText[@resource-id="firstName"]') }
-    get lastName() { return $('//android.widget.EditText[@resource-id="lastName"]') }
-    get phoneNumber() { return $('//android.widget.EditText[@resource-id="phone"]') }
-    get email() { return $('//android.widget.EditText[@resource-id="email"]') }
-    get password() { return $('//android.widget.EditText[@resource-id="password"]') }
-    get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]') }
+    get btnprofile() { return $('//android.widget.TextView[@resource-id="tab-profile"]'); } // busca por texto
+    get btnsingUp() { return $('//android.widget.TextView[@text="Sign up"]'); }
+    get firstName() { return $('//android.widget.EditText[@resource-id="firstName"]'); }
+    get lastName() { return $('//android.widget.EditText[@resource-id="lastName"]'); }
+    get phoneNumber() { return $('//android.widget.EditText[@resource-id="phone"]'); }
+    get email() { return $('//android.widget.EditText[@resource-id="email"]'); }
+    get password() { return $('//android.widget.EditText[@resource-id="password"]'); }
+    get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]'); }
     get createButton() {
-        return $('~Create');
+        return $('id=create');
     }
-    // get btnwishlist() { return $('//android.widget.TextView[@resource-id="wishlist"]') } // busca por resourceId
-    // get btnback() { return $('//android.widget.TextView[@text=""]') } // busca por content-desc
+    get btnwishlist() { return $('//android.widget.TextView[@resource-id="wishlist"]') } // busca por resourceId
+    get btnback() { return $('//android.widget.TextView[@text=""]') } // busca por content-desc
 
 
     // Fluxo com passo a passo direto por linha
@@ -64,8 +64,8 @@ class CadastroPage {
 
         await this.createButton.click();
         await this.btnCreate.click()
-        //     await this.btnwishlist.click()
-        //     await this.btnback.click()
+        await this.btnwishlist.click()
+        await this.btnback.click()
     }
 }
 export default new CadastroPage()
