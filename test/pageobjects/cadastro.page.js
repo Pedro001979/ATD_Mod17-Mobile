@@ -10,38 +10,37 @@ class CadastroPage {
     get email() { return $('//android.widget.EditText[@resource-id="email"]') }
     get password() { return $('//android.widget.EditText[@resource-id="password"]') }
     get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]') }
-    
-    get btnCreate() { return $('~Create') } // busca por texto
-    get btnwishlist() { return $('//android.widget.TextView[@resource-id="wishlist"]') } // busca por resourceId
-    get btnback() { return $('//android.widget.TextView[@text=""]') } // busca por content-desc
+    get btnCreate() { return $('//android.widget.TextView[@text="Create"]') } // busca por texto
+    // get btnwishlist() { return $('//android.widget.TextView[@resource-id="wishlist"]') } // busca por resourceId
+    // get btnback() { return $('//android.widget.TextView[@text=""]') } // busca por content-desc
 
 
     // Fluxo com passo a passo direto por linha
     async createAccount(firstName, lastName, phoneNumber, email, password, repassword) {
-         await this.btnprofile.waitForDisplayed({
-        timeout: 60000
-    })
+        await this.btnprofile.waitForDisplayed({
+            timeout: 60000
+        })
 
-    await this.btnprofile.click()
+        await this.btnprofile.click()
 
-    console.log('========================================')
-    console.log('PAGE SOURCE APÓS CLICAR NO PROFILE')
-    console.log('========================================')
+        console.log('========================================')
+        console.log('PAGE SOURCE APÓS CLICAR NO PROFILE')
+        console.log('========================================')
 
-    const source = await driver.getPageSource()
+        const source = await driver.getPageSource()
 
-    console.log(source)
+        console.log(source)
 
-    console.log('========================================')
-    console.log('FIM PAGE SOURCE')
-    console.log('========================================')
+        console.log('========================================')
+        console.log('FIM PAGE SOURCE')
+        console.log('========================================')
 
-    await this.btnsingUp.waitForDisplayed({
-        timeout: 30000,
-        timeoutMsg: 'Sign up não apareceu'
-    })
+        await this.btnsingUp.waitForDisplayed({
+            timeout: 30000,
+            timeoutMsg: 'Sign up não apareceu'
+        })
 
-    await this.btnsingUp.click()
+        await this.btnsingUp.click()
 
         await this.btnsingUp.click()
         await this.firstName.setValue(firstName)
@@ -53,8 +52,8 @@ class CadastroPage {
         await browser.hideKeyboard();
         await browser.pause(5000) // Pausa para garantir que o teclado foi fechado;
         await this.btnCreate.click()
-        await this.btnwishlist.click()
-        await this.btnback.click()
+        //     await this.btnwishlist.click()
+        //     await this.btnback.click()
     }
 }
 export default new CadastroPage()
