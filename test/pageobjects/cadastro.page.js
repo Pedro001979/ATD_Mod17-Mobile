@@ -11,8 +11,8 @@ class CadastroPage {
     get password() { return $('//android.widget.EditText[@resource-id="password"]') }
     get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]') }
     get btnCreate() { return $('//android.view.ViewGroup[@content-desc="Create"]') } // busca por resourceId
-    // get btnwishlist() { return $('id=wishlist') } // busca por resourceId
-    get btnback() { return $('//android.view.ViewGroup[@content-desc="back"]') } // busca por content-desc
+    get btnwishlist() { return $('//android.widget.TextView[@resource-id="wishlist"]') } // busca por resourceId
+    get btnback() { return $('//android.widget.TextView[@text=""]') } // busca por content-desc
 
 
     // Fluxo com passo a passo direto por linha
@@ -46,11 +46,15 @@ class CadastroPage {
         await this.firstName.setValue(firstName)
         await this.lastName.setValue(lastName)
         await this.phoneNumber.setValue(phoneNumber)
+        await browser.hideKeyboard();
         await this.email.setValue(email)
+        await browser.hideKeyboard();
         await this.password.setValue(password)
+        await browser.hideKeyboard();
         await this.repassword.setValue(repassword)
+        await browser.hideKeyboard();
         await this.btnCreate.click()
-        // await this.btnwishlist.click()
+        await this.btnwishlist.click()
         await this.btnback.click()
     }
 }
