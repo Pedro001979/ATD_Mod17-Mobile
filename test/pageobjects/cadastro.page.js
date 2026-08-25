@@ -10,6 +10,9 @@ class CadastroPage {
     get email() { return $('//android.widget.EditText[@resource-id="email"]'); }
     get password() { return $('//android.widget.EditText[@resource-id="password"]'); }
     get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]'); }
+    get formScrollView() {
+        return $('//android.widget.ScrollView');
+    }
     get createButton() {
         return $('~Create');
     }
@@ -56,21 +59,24 @@ class CadastroPage {
         try {
             await browser.hideKeyboard();
         } catch (error) {
-            console.log('Não foi possível fechar o teclado automaticamente.');
+            console.log('Teclado já estava fechado.');
         }
 
         await browser.pause(500);
 
         await browser.execute('mobile: scrollGesture', {
-            left: 0,
-            top: 400,
-            width: 1080,
-            height: 1200,
+            elementId: await this.formScrollView.elementId,
             direction: 'up',
             percent: 0.8
         });
 
         await browser.pause(500);
+
+        await this.createButton.waitForDisplayed({
+            timeout: 10000
+        });
+
+        await this.createButton.click();
 
         await this.createButton.waitForDisplayed({
             timeout: 10000
