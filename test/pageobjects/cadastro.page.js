@@ -66,7 +66,7 @@ class CadastroPage {
             top: 400,
             width: 1080,
             height: 1200,
-            direction: 'down',
+            direction: 'up',
             percent: 0.8
         });
 
