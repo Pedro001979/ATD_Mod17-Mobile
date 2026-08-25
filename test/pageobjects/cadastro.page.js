@@ -11,7 +11,7 @@ class CadastroPage {
     get password() { return $('//android.widget.EditText[@resource-id="password"]'); }
     get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]'); }
     get createButton() {
-        return $('id=create');
+        return $('~Create');
     }
     get btnwishlist() { return $('//android.widget.TextView[@resource-id="wishlist"]') } // busca por resourceId
     get btnback() { return $('//android.widget.TextView[@text=""]') } // busca por content-desc
