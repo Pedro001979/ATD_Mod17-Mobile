@@ -51,6 +51,16 @@ class CadastroPage {
         await this.email.setValue(email)
         await this.password.setValue(password)
         await this.repassword.setValue(repassword)
+        await this.repassword.setValue(password);
+
+        try {
+            await browser.hideKeyboard();
+        } catch (error) {
+            console.log('Não foi possível fechar o teclado automaticamente.');
+        }
+
+        await browser.pause(500);
+
         await browser.execute('mobile: scrollGesture', {
             left: 0,
             top: 400,
@@ -59,6 +69,14 @@ class CadastroPage {
             direction: 'down',
             percent: 0.8
         });
+
+        await browser.pause(500);
+
+        await this.createButton.waitForDisplayed({
+            timeout: 10000
+        });
+
+        await this.createButton.click();
 
         await browser.pause(500);
         await this.createButton.click();
