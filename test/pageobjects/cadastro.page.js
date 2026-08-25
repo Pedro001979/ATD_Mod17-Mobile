@@ -46,17 +46,12 @@ class CadastroPage {
         await this.firstName.setValue(firstName)
         await this.lastName.setValue(lastName)
         await this.phoneNumber.setValue(phoneNumber)
-        await browser.hideKeyboard();
         await this.email.setValue(email)
-        await browser.hideKeyboard();
         await this.password.setValue(password)
-        await browser.hideKeyboard();
         await this.repassword.setValue(repassword)
-        await browser.hideKeyboard();
         await this.btnCreate.click()
         await this.btnwishlist.click()
         await this.btnback.click()
     }
 }
-
 export default new CadastroPage()
