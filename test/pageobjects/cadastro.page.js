@@ -10,7 +10,7 @@ class CadastroPage {
     get email() { return $('//android.widget.EditText[@resource-id="email"]') }
     get password() { return $('//android.widget.EditText[@resource-id="password"]') }
     get repassword() { return $('//android.widget.EditText[@resource-id="repassword"]') }
-    get btnCreate() { return $('//android.view.ViewGroup[@content-desc="Create"]') } // busca por resourceId
+    get btnCreate() { return $('//android.widget.TextView[@text="Create"]') } // busca por texto
     get btnwishlist() { return $('//android.widget.TextView[@resource-id="wishlist"]') } // busca por resourceId
     get btnback() { return $('//android.widget.TextView[@text=""]') } // busca por content-desc
 
