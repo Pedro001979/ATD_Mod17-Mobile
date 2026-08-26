@@ -13,9 +13,9 @@ class CadastroPage {
     get formScrollView() {
         return $('//android.widget.ScrollView');
     }
-        // get createButton() {
-        //     return $('~Create');
-        // }
+        get createButton() {
+            return $('~Create');
+        }
     get btnwishlist() { return $('//android.widget.TextView[@resource-id="wishlist"]') } // busca por resourceId
     get btnback() { return $('//android.widget.TextView[@text=""]') } // busca por content-desc
 
@@ -56,37 +56,36 @@ class CadastroPage {
         await this.repassword.setValue(repassword)
         await this.repassword.setValue(password);
 
-        // try {
-        //     await browser.hideKeyboard();
-        // } catch (error) {
-        //     console.log('Teclado já estava fechado.');
-        // }
-
-        // await browser.pause(500);
-
-        // await browser.execute('mobile: scrollGesture', {
-        //     elementId: await this.formScrollView.elementId,
-        //     direction: 'up',
-        //     percent: 0.8
-        // });
-
-        // await browser.pause(500);
-
-        // await this.createButton.waitForDisplayed({
-        //     timeout: 10000
-        // });
-
-        // await this.createButton.click();
-
-        // await this.createButton.waitForDisplayed({
-        //     timeout: 10000
-        // });
-
-        // await this.createButton.click();
+        try {
+            await browser.hideKeyboard();
+        } catch (error) {
+            console.log('Teclado já estava fechado.');
+        }
 
         await browser.pause(500);
-        // await this.createButton.click();
-        // await this.btnCreate.click()
+
+        await browser.execute('mobile: scrollGesture', {
+            elementId: await this.formScrollView.elementId,
+            direction: 'up',
+            percent: 0.8
+        });
+
+        await browser.pause(500);
+
+        await this.createButton.waitForDisplayed({
+            timeout: 10000
+        });
+
+        await this.createButton.click();
+
+        await this.createButton.waitForDisplayed({
+            timeout: 10000
+        });
+
+        await this.createButton.click();
+
+        await browser.pause(500);
+        await this.createButton.click();
         await this.btnwishlist.click()
         await this.btnback.click()
     }
