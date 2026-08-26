@@ -3,7 +3,7 @@ import { $, driver } from '@wdio/globals'
 class LoginPage {
 
     get btnProfile() {
-        return $('//android.widget.TextView[@resource-id="tab-profile"]')
+        return $('~, Profile')
     }
 
     // 1. Mapeamento dos elementos usando UiSelector pelo resourceId
