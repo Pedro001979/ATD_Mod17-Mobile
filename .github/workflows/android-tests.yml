@@ -199,3 +199,10 @@ jobs:
           name: appium-log
           path: appium.log
           if-no-files-found: ignore
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./caminho/do/seu/relatorio  # Substitua pelo caminho da pasta do relatório (ex: ./allure-report ou ./cypress/reports)
