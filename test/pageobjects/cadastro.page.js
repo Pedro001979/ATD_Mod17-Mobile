@@ -15,7 +15,7 @@ class CadastroPage {
     }
 
     // ============================================================
-    // CAMPOS DO FORMULÁRIO DE CADASTRO
+    // CAMPOS DO FORMULÁRIO
     // ============================================================
 
     get firstName() {
@@ -43,38 +43,40 @@ class CadastroPage {
     }
 
     // ============================================================
-    // SCROLL DO FORMULÁRIO
-    // ============================================================
-
-    get formScrollView() {
-        return $('//android.widget.ScrollView')
-    }
-
-    // ============================================================
     // BOTÃO CREATE
     // ============================================================
     //
-    // IMPORTANTE:
-    // O seletor antigo era:
+    // NÃO usamos ~Create.
     //
-    // $('~Create')
+    // Também não usamos:
     //
-    // Isso significa ACCESSIBILITY ID.
+    // //android.widget.Button[@text="Create"]
     //
-    // No último Actions, o Appium procurou:
+    // porque o último Actions mostrou que esse elemento não existe.
     //
-    // findElement("accessibility id", "Create")
-    //
-    // e não encontrou.
-    //
-    // Por enquanto usamos TEXT.
-    // Se o próximo Page Source mostrar um resource-id real
-    // para o botão, vamos trocar por ele.
+    // Como ainda não temos o Page Source da tela de cadastro,
+    // usamos um seletor mais abrangente procurando "Create"
+    // independentemente da classe do elemento.
     //
     // ============================================================
 
     get createButton() {
-        return $('//android.widget.Button[@text="Create"]')
+        return $('//*[contains(@text, "Create")]')
+    }
+
+    // ============================================================
+    // MÉTODO AUXILIAR
+    // Espera um elemento aparecer
+    // ============================================================
+
+    async waitForElement(element, description, timeout = 30000) {
+
+        await element.waitForDisplayed({
+            timeout,
+            timeoutMsg: `${description} não apareceu após ${timeout}ms.`
+        })
+
+        return element
     }
 
     // ============================================================
@@ -82,35 +84,249 @@ class CadastroPage {
     // ============================================================
 
     async hideKeyboard() {
+
         try {
+
             await driver.hideKeyboard()
+
+            console.log('✓ Teclado fechado.')
+
         } catch (error) {
-            console.log('Teclado já estava fechado.')
+
+            console.log('✓ Teclado já estava fechado.')
+
         }
     }
 
     // ============================================================
-    // ROLAR FORMULÁRIO
+    // ROLAR A TELA
     // ============================================================
 
-    async scrollToCreateButton() {
+    async scrollUp() {
 
-        await this.formScrollView.waitForDisplayed({
-            timeout: 10000,
-            timeoutMsg: 'ScrollView do formulário não apareceu.'
-        })
+        try {
 
-        await driver.execute('mobile: scrollGesture', {
-            elementId: await this.formScrollView.elementId,
-            direction: 'up',
-            percent: 0.8
-        })
+            const scrollView = $('//android.widget.ScrollView')
 
-        await driver.pause(500)
+            const exists = await scrollView.isExisting()
+
+            if (!exists) {
+                console.log('ℹ ScrollView não encontrado. Continuando sem scroll.')
+                return
+            }
+
+            await driver.execute('mobile: scrollGesture', {
+                elementId: await scrollView.elementId,
+                direction: 'up',
+                percent: 0.8
+            })
+
+            await driver.pause(500)
+
+            console.log('✓ Scroll executado.')
+
+        } catch (error) {
+
+            console.log('ℹ Não foi possível executar o scroll.')
+            console.log('ℹ Continuando o teste para localizar o Create.')
+
+        }
     }
 
     // ============================================================
-    // CADASTRAR USUÁRIO
+    // DIAGNÓSTICO DA TELA
+    // ============================================================
+    //
+    // Se o Create não for encontrado, imprimimos informações
+    // importantes dos elementos da tela.
+    //
+    // Isso evita ficar chutando seletores.
+    //
+    // ============================================================
+
+    async printCreateCandidates() {
+
+        console.log('')
+        console.log('========================================')
+        console.log('DIAGNÓSTICO DOS ELEMENTOS DA TELA')
+        console.log('========================================')
+
+        try {
+
+            const elements = await $$(
+                '//*[@text or @content-desc or @resource-id]'
+            )
+
+            console.log(
+                `Total de elementos analisados: ${elements.length}`
+            )
+
+            for (const element of elements) {
+
+                try {
+
+                    const text = await element.getAttribute('text')
+                    const contentDesc =
+                        await element.getAttribute('content-desc')
+                    const resourceId =
+                        await element.getAttribute('resource-id')
+                    const className =
+                        await element.getAttribute('className')
+
+                    const textValue = text || ''
+                    const descValue = contentDesc || ''
+                    const resourceValue = resourceId || ''
+
+                    const isCreate =
+                        textValue.toLowerCase().includes('create') ||
+                        descValue.toLowerCase().includes('create') ||
+                        resourceValue.toLowerCase().includes('create')
+
+                    if (isCreate) {
+
+                        console.log('----------------------------------------')
+
+                        console.log({
+                            text: textValue,
+                            contentDesc: descValue,
+                            resourceId: resourceValue,
+                            className: className || ''
+                        })
+
+                        console.log('----------------------------------------')
+                    }
+
+                } catch (error) {
+
+                    // Ignora elementos que desapareçam durante a leitura
+
+                }
+            }
+
+        } catch (error) {
+
+            console.log(
+                'Não foi possível analisar os candidatos ao Create.'
+            )
+
+            console.log(error.message)
+
+        }
+
+        console.log('========================================')
+        console.log('FIM DO DIAGNÓSTICO')
+        console.log('========================================')
+        console.log('')
+    }
+
+    // ============================================================
+    // CAPTURAR PAGE SOURCE
+    // ============================================================
+
+    async printPageSource() {
+
+        try {
+
+            console.log('')
+            console.log('========================================')
+            console.log('PAGE SOURCE - TELA DE CADASTRO')
+            console.log('========================================')
+
+            const pageSource = await driver.getPageSource()
+
+            console.log(pageSource)
+
+            console.log('========================================')
+            console.log('FIM PAGE SOURCE')
+            console.log('========================================')
+            console.log('')
+
+        } catch (error) {
+
+            console.log(
+                'Não foi possível capturar o Page Source.'
+            )
+
+            console.log(error.message)
+
+        }
+    }
+
+    // ============================================================
+    // LOCALIZAR CREATE
+    // ============================================================
+
+    async findCreateButton() {
+
+        // --------------------------------------------------------
+        // PRIMEIRA TENTATIVA
+        // text contendo Create
+        // --------------------------------------------------------
+
+        const createByText = $('//*[contains(@text, "Create")]')
+
+        if (await createByText.isExisting()) {
+
+            console.log('✓ Create encontrado através do atributo text.')
+
+            return createByText
+        }
+
+        // --------------------------------------------------------
+        // SEGUNDA TENTATIVA
+        // content-desc contendo Create
+        // --------------------------------------------------------
+
+        const createByDescription = $(
+            '//*[contains(@content-desc, "Create")]'
+        )
+
+        if (await createByDescription.isExisting()) {
+
+            console.log(
+                '✓ Create encontrado através do content-desc.'
+            )
+
+            return createByDescription
+        }
+
+        // --------------------------------------------------------
+        // TERCEIRA TENTATIVA
+        // resource-id contendo create
+        // --------------------------------------------------------
+
+        const createByResourceId = $(
+            '//*[contains(@resource-id, "create")]'
+        )
+
+        if (await createByResourceId.isExisting()) {
+
+            console.log(
+                '✓ Create encontrado através do resource-id.'
+            )
+
+            return createByResourceId
+        }
+
+        // --------------------------------------------------------
+        // NÃO ENCONTROU
+        // --------------------------------------------------------
+
+        console.log(
+            '❌ Nenhum elemento Create encontrado.'
+        )
+
+        await this.printCreateCandidates()
+        await this.printPageSource()
+
+        throw new Error(
+            'Botão Create não foi encontrado na tela. ' +
+            'Consulte o Page Source e o diagnóstico acima.'
+        )
+    }
+
+    // ============================================================
+    // FLUXO COMPLETO DE CADASTRO
     // ============================================================
 
     async createAccount(
@@ -126,28 +342,31 @@ class CadastroPage {
         console.log('========================================')
         console.log('INÍCIO DO FLUXO DE CADASTRO')
         console.log('========================================')
+        console.log('')
 
         // ========================================================
-        // 1. ABRIR PROFILE
+        // 1. PROFILE
         // ========================================================
 
-        await this.btnProfile.waitForDisplayed({
-            timeout: 60000,
-            timeoutMsg: 'Botão Profile não apareceu.'
-        })
+        await this.waitForElement(
+            this.btnProfile,
+            'Botão Profile',
+            60000
+        )
 
         await this.btnProfile.click()
 
         console.log('✓ Profile aberto.')
 
         // ========================================================
-        // 2. ABRIR SIGN UP
+        // 2. SIGN UP
         // ========================================================
 
-        await this.btnSignUp.waitForDisplayed({
-            timeout: 30000,
-            timeoutMsg: 'Botão Sign up não apareceu após abrir o Profile.'
-        })
+        await this.waitForElement(
+            this.btnSignUp,
+            'Botão Sign up',
+            30000
+        )
 
         await this.btnSignUp.click()
 
@@ -157,10 +376,10 @@ class CadastroPage {
         // 3. PRIMEIRO NOME
         // ========================================================
 
-        await this.firstName.waitForDisplayed({
-            timeout: 30000,
-            timeoutMsg: 'Campo firstName não apareceu.'
-        })
+        await this.waitForElement(
+            this.firstName,
+            'Campo firstName'
+        )
 
         await this.firstName.setValue(firstName)
 
@@ -170,10 +389,10 @@ class CadastroPage {
         // 4. SOBRENOME
         // ========================================================
 
-        await this.lastName.waitForDisplayed({
-            timeout: 30000,
-            timeoutMsg: 'Campo lastName não apareceu.'
-        })
+        await this.waitForElement(
+            this.lastName,
+            'Campo lastName'
+        )
 
         await this.lastName.setValue(lastName)
 
@@ -183,10 +402,10 @@ class CadastroPage {
         // 5. TELEFONE
         // ========================================================
 
-        await this.phoneNumber.waitForDisplayed({
-            timeout: 30000,
-            timeoutMsg: 'Campo phone não apareceu.'
-        })
+        await this.waitForElement(
+            this.phoneNumber,
+            'Campo phone'
+        )
 
         await this.phoneNumber.setValue(phoneNumber)
 
@@ -196,10 +415,10 @@ class CadastroPage {
         // 6. EMAIL
         // ========================================================
 
-        await this.email.waitForDisplayed({
-            timeout: 30000,
-            timeoutMsg: 'Campo email não apareceu.'
-        })
+        await this.waitForElement(
+            this.email,
+            'Campo email'
+        )
 
         await this.email.setValue(email)
 
@@ -209,10 +428,10 @@ class CadastroPage {
         // 7. SENHA
         // ========================================================
 
-        await this.password.waitForDisplayed({
-            timeout: 30000,
-            timeoutMsg: 'Campo password não apareceu.'
-        })
+        await this.waitForElement(
+            this.password,
+            'Campo password'
+        )
 
         await this.password.setValue(password)
 
@@ -222,10 +441,10 @@ class CadastroPage {
         // 8. CONFIRMAÇÃO DA SENHA
         // ========================================================
 
-        await this.repassword.waitForDisplayed({
-            timeout: 30000,
-            timeoutMsg: 'Campo repassword não apareceu.'
-        })
+        await this.waitForElement(
+            this.repassword,
+            'Campo repassword'
+        )
 
         await this.repassword.setValue(repassword)
 
@@ -239,42 +458,60 @@ class CadastroPage {
 
         await driver.pause(500)
 
-        console.log('✓ Teclado fechado.')
-
         // ========================================================
-        // 10. ROLAR ATÉ O BOTÃO CREATE
+        // 10. CAPTURAR A TELA ANTES DO CREATE
         // ========================================================
-
-        await this.scrollToCreateButton()
-
-        console.log('✓ Formulário rolado.')
-
-        // ========================================================
-        // 11. LOCALIZAR CREATE
+        //
+        // Isso é proposital.
+        //
+        // Se o Create falhar novamente, teremos no Actions
+        // exatamente o que o Appium está enxergando.
+        //
         // ========================================================
 
-        await this.createButton.waitForDisplayed({
-            timeout: 15000,
-            timeoutMsg:
-                'Botão Create não apareceu após rolar o formulário.'
-        })
-
-        console.log('✓ Botão Create encontrado.')
+        await this.printCreateCandidates()
 
         // ========================================================
-        // 12. CLICAR NO CREATE
+        // 11. TENTAR SCROLL
         // ========================================================
 
-        await this.createButton.click()
+        await this.scrollUp()
+
+        // ========================================================
+        // 12. PROCURAR CREATE
+        // ========================================================
+
+        const createButton = await this.findCreateButton()
+
+        // ========================================================
+        // 13. ESPERAR CREATE FICAR VISÍVEL
+        // ========================================================
+
+        await this.waitForElement(
+            createButton,
+            'Botão Create',
+            15000
+        )
+
+        console.log('✓ Botão Create está visível.')
+
+        // ========================================================
+        // 14. CLICAR UMA ÚNICA VEZ
+        // ========================================================
+
+        await createButton.click()
 
         console.log('✓ Botão Create clicado.')
 
-        // Pequena espera para a aplicação processar o cadastro
+        // ========================================================
+        // 15. AGUARDAR PROCESSAMENTO
+        // ========================================================
+
         await driver.pause(1000)
 
         console.log('')
         console.log('========================================')
-        console.log('FIM DO FLUXO DE CADASTRO')
+        console.log('CADASTRO ENVIADO COM SUCESSO')
         console.log('========================================')
         console.log('')
     }
