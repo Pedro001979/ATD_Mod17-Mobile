@@ -200,12 +200,53 @@ jobs:
           path: appium.log
           if-no-files-found: ignore
 
+      # ============================================================
+      # ALLURE / GITHUB PAGES
+      # ============================================================
+
       - name: Generate Allure Report
-        run: npx allure generate allure-results --clean -o allure-report
+        if: always()
+        run: |
+          echo "========================================"
+          echo "GERANDO ALLURE REPORT"
+          echo "========================================"
+
+          if [ -d "./allure-results" ]; then
+            echo "allure-results encontrado."
+
+            npx allure generate ./allure-results \
+              --clean \
+              -o ./allure-report
+
+            echo ""
+            echo "========================================"
+            echo "ALLURE REPORT GERADO"
+            echo "========================================"
+
+            ls -lah ./allure-report
+          else
+            echo "AVISO: allure-results não encontrado."
+
+            mkdir -p ./allure-report
+
+            cat > ./allure-report/index.html <<'EOF'
+            <!DOCTYPE html>
+            <html lang="pt-BR">
+              <head>
+              <meta charset="UTF-8">
+              <title>Allure Report</title>
+              </head>
+              <body>
+                <h1>Allure Report</h1>
+                  <p>Nenhum resultado Allure foi gerado nesta execução.</p>
+              </body>
+            </html>
+            EOF
+           fi
 
       - name: Deploy to GitHub Pages
+        if: always() && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-report
