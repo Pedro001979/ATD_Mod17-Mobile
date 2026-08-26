@@ -11,8 +11,8 @@ describe('Cadastro de usuário', () => {
             email,
             '123456',
             '123456'
-        )
+        );
 
        await expect($('//android.widget.TextView[@text="Silva John"]')).toBeDisplayed()
-    })
-})
+    });
+});
