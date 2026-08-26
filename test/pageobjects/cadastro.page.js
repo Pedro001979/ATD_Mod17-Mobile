@@ -43,44 +43,33 @@ class CadastroPage {
     }
 
     // ============================================================
-    // CONTAINERS
+    // SCROLL VIEW
     // ============================================================
 
-    get scrollView() {
+    get formScrollView() {
         return $('//android.widget.ScrollView')
     }
 
     // ============================================================
-    // BOTÃO CREATE
-    // ============================================================
-    //
-    // NÃO assumimos que Create é Button.
-    //
-    // O último Actions mostrou que:
-    //
-    // //android.widget.Button[@text="Create"]
-    //
-    // NÃO existe.
-    //
-    // Também não usamos:
-    //
-    // ~Create
-    //
-    // porque accessibility-id="Create" também não foi encontrado.
-    //
-    // O método findCreateButton() abaixo faz a descoberta.
+    // POSSÍVEIS LOCALIZADORES DO CREATE
     // ============================================================
 
     get createByText() {
-        return $('//*[contains(translate(@text, "CREATE", "create"), "create")]')
+        return $(
+            '//*[contains(translate(@text,"CREATE","create"),"create")]'
+        )
     }
 
     get createByContentDescription() {
-        return $('//*[contains(translate(@content-desc, "CREATE", "create"), "create")]')
+        return $(
+            '//*[contains(translate(@content-desc,"CREATE","create"),"create")]'
+        )
     }
 
     get createByResourceId() {
-        return $('//*[contains(translate(@resource-id, "CREATE", "create"), "create")]')
+        return $(
+            '//*[contains(translate(@resource-id,"CREATE","create"),"create")]'
+        )
     }
 
     // ============================================================
@@ -91,7 +80,8 @@ class CadastroPage {
 
         await element.waitForDisplayed({
             timeout,
-            timeoutMsg: `${description} não apareceu após ${timeout}ms.`
+            timeoutMsg:
+                `${description} não apareceu após ${timeout}ms.`
         })
 
         return element
@@ -111,25 +101,26 @@ class CadastroPage {
 
         } catch (error) {
 
-            console.log('✓ Teclado já estava fechado.')
-
+            console.log(
+                'ℹ Teclado já estava fechado.'
+            )
         }
     }
 
     // ============================================================
-    // SCROLL
+    // ROLAR FORMULÁRIO
     // ============================================================
 
-    async scrollUp() {
+    async scrollToBottom() {
 
         try {
 
-            const scrollView = this.scrollView
+            const scrollView = this.formScrollView
 
             if (!(await scrollView.isExisting())) {
 
                 console.log(
-                    'ℹ ScrollView não encontrado. Continuando sem scroll.'
+                    'ℹ ScrollView não encontrado.'
                 )
 
                 return false
@@ -138,7 +129,7 @@ class CadastroPage {
             if (!(await scrollView.isDisplayed())) {
 
                 console.log(
-                    'ℹ ScrollView não está visível. Continuando sem scroll.'
+                    'ℹ ScrollView não está visível.'
                 )
 
                 return false
@@ -153,42 +144,38 @@ class CadastroPage {
                 }
             )
 
-            await driver.pause(500)
+            await driver.pause(700)
 
-            console.log(`ℹ Resultado do scroll: ${result}`)
+            console.log(
+                `ℹ Resultado do scroll: ${result}`
+            )
 
-            if (result === false) {
-
-                console.log(
-                    'ℹ A tela não possui mais conteúdo para rolar.'
-                )
-
-                return false
-            }
-
-            console.log('✓ Scroll executado.')
-
-            return true
+            return result
 
         } catch (error) {
 
-            console.log('ℹ Scroll não pôde ser executado.')
-            console.log(`ℹ Motivo: ${error.message}`)
+            console.log(
+                'ℹ Não foi possível executar o scroll.'
+            )
+
+            console.log(
+                `ℹ Motivo: ${error.message}`
+            )
 
             return false
         }
     }
 
     // ============================================================
-    // DIAGNÓSTICO DOS ELEMENTOS CREATE
+    // DIAGNÓSTICO DE ELEMENTOS
     // ============================================================
 
-    async printCreateCandidates() {
+    async diagnoseScreen() {
 
         console.log('')
-        console.log('==============================================')
-        console.log('🔎 DIAGNÓSTICO DO BOTÃO CREATE')
-        console.log('==============================================')
+        console.log('================================================')
+        console.log('🔎 DIAGNÓSTICO DA TELA DE CADASTRO')
+        console.log('================================================')
 
         try {
 
@@ -197,10 +184,8 @@ class CadastroPage {
             )
 
             console.log(
-                `Elementos encontrados na tela: ${elements.length}`
+                `Total de elementos encontrados: ${elements.length}`
             )
-
-            let candidatesFound = 0
 
             for (const element of elements) {
 
@@ -210,160 +195,72 @@ class CadastroPage {
                         (await element.getAttribute('text')) || ''
 
                     const contentDesc =
-                        (await element.getAttribute('content-desc')) || ''
+                        (await element.getAttribute(
+                            'content-desc'
+                        )) || ''
 
                     const resourceId =
-                        (await element.getAttribute('resource-id')) || ''
+                        (await element.getAttribute(
+                            'resource-id'
+                        )) || ''
 
                     const className =
-                        (await element.getAttribute('className')) || ''
+                        (await element.getAttribute(
+                            'className'
+                        )) || ''
 
                     const clickable =
-                        (await element.getAttribute('clickable')) || ''
+                        (await element.getAttribute(
+                            'clickable'
+                        )) || ''
 
                     const enabled =
-                        (await element.getAttribute('enabled')) || ''
+                        (await element.getAttribute(
+                            'enabled'
+                        )) || ''
 
-                    const textLower =
-                        text.toLowerCase()
+                    const visible =
+                        (await element.getAttribute(
+                            'displayed'
+                        )) || ''
 
-                    const descLower =
-                        contentDesc.toLowerCase()
+                    const normalized =
+                        `${text} ${contentDesc} ${resourceId}`
+                            .toLowerCase()
 
-                    const resourceLower =
-                        resourceId.toLowerCase()
+                    if (
+                        normalized.includes('create') ||
+                        clickable === 'true'
+                    ) {
 
-                    const isCreate =
-                        textLower.includes('create') ||
-                        descLower.includes('create') ||
-                        resourceLower.includes('create')
-
-                    if (!isCreate) {
-                        continue
+                        console.log({
+                            text,
+                            contentDesc,
+                            resourceId,
+                            className,
+                            clickable,
+                            enabled,
+                            visible
+                        })
                     }
 
-                    candidatesFound++
-
-                    console.log('')
-                    console.log('------------- CANDIDATO CREATE -------------')
-
-                    console.log({
-                        text,
-                        contentDesc,
-                        resourceId,
-                        className,
-                        clickable,
-                        enabled
-                    })
-
-                    console.log(
-                        '---------------------------------------------'
-                    )
-
                 } catch (error) {
-
-                    // Elemento pode ter desaparecido durante a leitura.
-
-                }
-            }
-
-            if (candidatesFound === 0) {
-
-                console.log('')
-                console.log(
-                    '❌ Nenhum elemento contendo "Create" foi encontrado.'
-                )
-
-            } else {
-
-                console.log('')
-                console.log(
-                    `✓ ${candidatesFound} possível(is) elemento(s) Create encontrado(s).`
-                )
-            }
-
-        } catch (error) {
-
-            console.log(
-                '❌ Falha ao executar diagnóstico do Create.'
-            )
-
-            console.log(error.message)
-        }
-
-        console.log('==============================================')
-        console.log('🔎 FIM DO DIAGNÓSTICO CREATE')
-        console.log('==============================================')
-        console.log('')
-    }
-
-    // ============================================================
-    // DIAGNÓSTICO DOS ELEMENTOS CLICÁVEIS
-    // ============================================================
-
-    async printClickableElements() {
-
-        console.log('')
-        console.log('==============================================')
-        console.log('🖱️ ELEMENTOS CLICÁVEIS DA TELA')
-        console.log('==============================================')
-
-        try {
-
-            const elements = await $$(
-                '//*[@clickable="true"]'
-            )
-
-            console.log(
-                `Elementos clicáveis encontrados: ${elements.length}`
-            )
-
-            for (const element of elements) {
-
-                try {
-
-                    const text =
-                        (await element.getAttribute('text')) || ''
-
-                    const contentDesc =
-                        (await element.getAttribute('content-desc')) || ''
-
-                    const resourceId =
-                        (await element.getAttribute('resource-id')) || ''
-
-                    const className =
-                        (await element.getAttribute('className')) || ''
-
-                    const enabled =
-                        (await element.getAttribute('enabled')) || ''
-
-                    console.log({
-                        text,
-                        contentDesc,
-                        resourceId,
-                        className,
-                        enabled
-                    })
-
-                } catch (error) {
-
-                    // Ignora elementos que desapareçam durante o diagnóstico.
-
+                    // Elemento pode desaparecer durante a leitura.
                 }
             }
 
         } catch (error) {
 
             console.log(
-                '❌ Não foi possível obter os elementos clicáveis.'
+                '❌ Falha ao analisar os elementos da tela.'
             )
 
             console.log(error.message)
         }
 
-        console.log('==============================================')
-        console.log('🖱️ FIM DOS ELEMENTOS CLICÁVEIS')
-        console.log('==============================================')
+        console.log('================================================')
+        console.log('🔎 FIM DO DIAGNÓSTICO')
+        console.log('================================================')
         console.log('')
     }
 
@@ -376,24 +273,24 @@ class CadastroPage {
         try {
 
             console.log('')
-            console.log('==============================================')
-            console.log('📱 PAGE SOURCE - TELA DE CADASTRO')
-            console.log('==============================================')
+            console.log('================================================')
+            console.log('📱 PAGE SOURCE ATUAL')
+            console.log('================================================')
 
-            const pageSource =
+            const source =
                 await driver.getPageSource()
 
-            console.log(pageSource)
+            console.log(source)
 
-            console.log('==============================================')
+            console.log('================================================')
             console.log('📱 FIM PAGE SOURCE')
-            console.log('==============================================')
+            console.log('================================================')
             console.log('')
 
         } catch (error) {
 
             console.log(
-                '❌ Não foi possível capturar o Page Source.'
+                '❌ Não foi possível obter o Page Source.'
             )
 
             console.log(error.message)
@@ -407,9 +304,7 @@ class CadastroPage {
     async findCreateButton() {
 
         console.log('')
-        console.log('==============================================')
-        console.log('🔎 PROCURANDO BOTÃO CREATE')
-        console.log('==============================================')
+        console.log('🔎 Procurando botão Create...')
 
         // --------------------------------------------------------
         // 1. TEXT
@@ -417,19 +312,21 @@ class CadastroPage {
 
         try {
 
-            if (await this.createByText.isExisting()) {
+            const element = this.createByText
+
+            if (await element.isExisting()) {
 
                 console.log(
-                    '✓ Create encontrado através do atributo text.'
+                    '✓ Create encontrado pelo atributo text.'
                 )
 
-                return this.createByText
+                return element
             }
 
         } catch (error) {
 
             console.log(
-                'ℹ Falha na busca por text.'
+                'ℹ Busca por text falhou.'
             )
         }
 
@@ -439,19 +336,22 @@ class CadastroPage {
 
         try {
 
-            if (await this.createByContentDescription.isExisting()) {
+            const element =
+                this.createByContentDescription
+
+            if (await element.isExisting()) {
 
                 console.log(
-                    '✓ Create encontrado através do content-desc.'
+                    '✓ Create encontrado pelo content-desc.'
                 )
 
-                return this.createByContentDescription
+                return element
             }
 
         } catch (error) {
 
             console.log(
-                'ℹ Falha na busca por content-desc.'
+                'ℹ Busca por content-desc falhou.'
             )
         }
 
@@ -461,50 +361,248 @@ class CadastroPage {
 
         try {
 
-            if (await this.createByResourceId.isExisting()) {
+            const element =
+                this.createByResourceId
+
+            if (await element.isExisting()) {
 
                 console.log(
-                    '✓ Create encontrado através do resource-id.'
+                    '✓ Create encontrado pelo resource-id.'
                 )
 
-                return this.createByResourceId
+                return element
             }
 
         } catch (error) {
 
             console.log(
-                'ℹ Falha na busca por resource-id.'
+                'ℹ Busca por resource-id falhou.'
             )
         }
 
         // --------------------------------------------------------
-        // 4. DIAGNÓSTICOS
+        // 4. DIAGNÓSTICO
         // --------------------------------------------------------
 
         console.log('')
         console.log(
-            '❌ Create não foi encontrado pelos seletores conhecidos.'
+            '❌ Create não foi encontrado.'
         )
 
-        await this.printCreateCandidates()
-
-        await this.printClickableElements()
+        await this.diagnoseScreen()
 
         await this.printPageSource()
 
-        // --------------------------------------------------------
-        // ERRO FINAL
-        // --------------------------------------------------------
-
         throw new Error(
-            'Botão Create não foi encontrado na árvore de elementos ' +
-            'da tela de cadastro. O Page Source completo foi impresso ' +
-            'no log do GitHub Actions.'
+            'O botão Create não está disponível na árvore de UI ' +
+            'do Appium nesta etapa do cadastro.'
         )
     }
 
     // ============================================================
-    // FLUXO COMPLETO DE CADASTRO
+    // ABRIR PROFILE
+    // ============================================================
+
+    async openProfile() {
+
+        await this.waitForElement(
+            this.btnProfile,
+            'Botão Profile',
+            60000
+        )
+
+        await this.btnProfile.click()
+
+        console.log('✓ Profile aberto.')
+    }
+
+    // ============================================================
+    // ABRIR SIGN UP
+    // ============================================================
+
+    async openSignUp() {
+
+        await this.waitForElement(
+            this.btnSignUp,
+            'Botão Sign up',
+            30000
+        )
+
+        await this.btnSignUp.click()
+
+        console.log('✓ Tela de cadastro aberta.')
+    }
+
+    // ============================================================
+    // PREENCHER PRIMEIRO NOME
+    // ============================================================
+
+    async fillFirstName(value) {
+
+        await this.waitForElement(
+            this.firstName,
+            'Campo firstName'
+        )
+
+        await this.firstName.setValue(value)
+
+        console.log('✓ Primeiro nome preenchido.')
+    }
+
+    // ============================================================
+    // PREENCHER SOBRENOME
+    // ============================================================
+
+    async fillLastName(value) {
+
+        await this.waitForElement(
+            this.lastName,
+            'Campo lastName'
+        )
+
+        await this.lastName.setValue(value)
+
+        console.log('✓ Sobrenome preenchido.')
+    }
+
+    // ============================================================
+    // PREENCHER TELEFONE
+    // ============================================================
+
+    async fillPhone(value) {
+
+        await this.waitForElement(
+            this.phoneNumber,
+            'Campo phone'
+        )
+
+        await this.phoneNumber.setValue(value)
+
+        console.log('✓ Telefone preenchido.')
+    }
+
+    // ============================================================
+    // PREENCHER EMAIL
+    // ============================================================
+
+    async fillEmail(value) {
+
+        await this.waitForElement(
+            this.email,
+            'Campo email'
+        )
+
+        await this.email.setValue(value)
+
+        console.log('✓ Email preenchido.')
+    }
+
+    // ============================================================
+    // PREENCHER SENHA
+    // ============================================================
+
+    async fillPassword(value) {
+
+        await this.waitForElement(
+            this.password,
+            'Campo password'
+        )
+
+        await this.password.setValue(value)
+
+        console.log('✓ Senha preenchida.')
+    }
+
+    // ============================================================
+    // PREENCHER CONFIRMAÇÃO
+    // ============================================================
+
+    async fillRepassword(value) {
+
+        await this.waitForElement(
+            this.repassword,
+            'Campo repassword'
+        )
+
+        await this.repassword.setValue(value)
+
+        console.log(
+            '✓ Confirmação da senha preenchida.'
+        )
+    }
+
+    // ============================================================
+    // VALIDAR FORMULÁRIO
+    // ============================================================
+
+    async validateFormFields() {
+
+        console.log('')
+        console.log(
+            '🔎 Validando campos do formulário...'
+        )
+
+        const fields = [
+            {
+                element: this.firstName,
+                name: 'firstName'
+            },
+            {
+                element: this.lastName,
+                name: 'lastName'
+            },
+            {
+                element: this.phoneNumber,
+                name: 'phone'
+            },
+            {
+                element: this.email,
+                name: 'email'
+            },
+            {
+                element: this.password,
+                name: 'password'
+            },
+            {
+                element: this.repassword,
+                name: 'repassword'
+            }
+        ]
+
+        for (const field of fields) {
+
+            const exists =
+                await field.element.isExisting()
+
+            if (!exists) {
+
+                throw new Error(
+                    `Campo ${field.name} não existe.`
+                )
+            }
+
+            const displayed =
+                await field.element.isDisplayed()
+
+            if (!displayed) {
+
+                throw new Error(
+                    `Campo ${field.name} não está visível.`
+                )
+            }
+
+            console.log(
+                `✓ ${field.name} OK`
+            )
+        }
+
+        console.log(
+            '✓ Todos os campos do formulário estão OK.'
+        )
+    }
+
+    // ============================================================
+    // CRIAR CONTA
     // ============================================================
 
     async createAccount(
@@ -517,116 +615,58 @@ class CadastroPage {
     ) {
 
         console.log('')
-        console.log('==============================================')
-        console.log('🚀 INÍCIO DO CADASTRO')
-        console.log('==============================================')
+        console.log('================================================')
+        console.log('🚀 INÍCIO DO FLUXO DE CADASTRO')
+        console.log('================================================')
         console.log('')
 
         // ========================================================
         // 1. PROFILE
         // ========================================================
 
-        await this.waitForElement(
-            this.btnProfile,
-            'Botão Profile',
-            60000
-        )
-
-        await this.btnProfile.click()
-
-        console.log('✓ Profile aberto.')
+        await this.openProfile()
 
         // ========================================================
         // 2. SIGN UP
         // ========================================================
 
-        await this.waitForElement(
-            this.btnSignUp,
-            'Botão Sign up',
-            30000
-        )
-
-        await this.btnSignUp.click()
-
-        console.log('✓ Tela de cadastro aberta.')
+        await this.openSignUp()
 
         // ========================================================
         // 3. PRIMEIRO NOME
         // ========================================================
 
-        await this.waitForElement(
-            this.firstName,
-            'Campo firstName'
-        )
-
-        await this.firstName.setValue(firstName)
-
-        console.log('✓ Primeiro nome preenchido.')
+        await this.fillFirstName(firstName)
 
         // ========================================================
         // 4. SOBRENOME
         // ========================================================
 
-        await this.waitForElement(
-            this.lastName,
-            'Campo lastName'
-        )
-
-        await this.lastName.setValue(lastName)
-
-        console.log('✓ Sobrenome preenchido.')
+        await this.fillLastName(lastName)
 
         // ========================================================
         // 5. TELEFONE
         // ========================================================
 
-        await this.waitForElement(
-            this.phoneNumber,
-            'Campo phone'
-        )
-
-        await this.phoneNumber.setValue(phoneNumber)
-
-        console.log('✓ Telefone preenchido.')
+        await this.fillPhone(phoneNumber)
 
         // ========================================================
         // 6. EMAIL
         // ========================================================
 
-        await this.waitForElement(
-            this.email,
-            'Campo email'
-        )
-
-        await this.email.setValue(email)
-
-        console.log('✓ Email preenchido.')
+        await this.fillEmail(email)
 
         // ========================================================
         // 7. SENHA
         // ========================================================
 
-        await this.waitForElement(
-            this.password,
-            'Campo password'
-        )
-
-        await this.password.setValue(password)
-
-        console.log('✓ Senha preenchida.')
+        await this.fillPassword(password)
 
         // ========================================================
-        // 8. CONFIRMAÇÃO DA SENHA
+        // 8. CONFIRMAÇÃO
         // ========================================================
 
-        await this.waitForElement(
-            this.repassword,
-            'Campo repassword'
-        )
-
-        await this.repassword.setValue(repassword)
-
-        console.log('✓ Confirmação da senha preenchida.')
+        await this.fillRepassword(repassword)
 
         // ========================================================
         // 9. FECHAR TECLADO
@@ -636,35 +676,70 @@ class CadastroPage {
 
         await driver.pause(1000)
 
-        console.log('✓ Tela preparada para localizar Create.')
+        console.log(
+            '✓ Formulário preenchido.'
+        )
 
         // ========================================================
-        // 10. DIAGNÓSTICO ANTES DO SCROLL
+        // 10. VALIDAR TODOS OS CAMPOS
         // ========================================================
 
-        await this.printCreateCandidates()
+        await this.validateFormFields()
 
         // ========================================================
-        // 11. TENTAR SCROLL
+        // 11. DIAGNÓSTICO ANTES DO SCROLL
         // ========================================================
 
-        await this.scrollUp()
+        console.log('')
+        console.log(
+            '🔎 Verificando Create antes do scroll...'
+        )
+
+        let createButton = null
+
+        try {
+
+            createButton =
+                await this.findCreateButton()
+
+        } catch (error) {
+
+            console.log(
+                'ℹ Create ainda não foi encontrado antes do scroll.'
+            )
+        }
 
         // ========================================================
-        // 12. AGUARDAR EVENTUAL ATUALIZAÇÃO DA UI
+        // 12. SCROLL
         // ========================================================
 
-        await driver.pause(1000)
+        if (!createButton) {
+
+            console.log(
+                '🔄 Tentando rolar até o final do formulário...'
+            )
+
+            await this.scrollToBottom()
+
+            await driver.pause(1000)
+        }
 
         // ========================================================
-        // 13. PROCURAR CREATE
+        // 13. TENTAR ENCONTRAR NOVAMENTE
         // ========================================================
 
-        const createButton =
-            await this.findCreateButton()
+        if (!createButton) {
+
+            console.log(
+                '🔎 Procurando Create novamente após scroll...'
+            )
+
+            createButton =
+                await this.findCreateButton()
+        }
 
         // ========================================================
-        // 14. GARANTIR QUE ESTÁ VISÍVEL
+        // 14. GARANTIR VISIBILIDADE
         // ========================================================
 
         await this.waitForElement(
@@ -673,44 +748,50 @@ class CadastroPage {
             15000
         )
 
-        console.log('✓ Botão Create está visível.')
+        console.log(
+            '✓ Botão Create está visível.'
+        )
 
         // ========================================================
-        // 15. GARANTIR QUE ESTÁ HABILITADO
+        // 15. VALIDAR HABILITADO
         // ========================================================
 
         const enabled =
             await createButton.getAttribute('enabled')
 
         console.log(
-            `ℹ Estado enabled do Create: ${enabled}`
+            `ℹ Create enabled: ${enabled}`
         )
 
         if (enabled === 'false') {
 
+            await this.diagnoseScreen()
+
             throw new Error(
-                'O botão Create existe, mas está DESABILITADO.'
+                'O botão Create existe, mas está desabilitado.'
             )
         }
 
         // ========================================================
-        // 16. CLICAR UMA ÚNICA VEZ
+        // 16. CLICAR
         // ========================================================
 
         await createButton.click()
 
-        console.log('✓ Botão Create clicado.')
+        console.log(
+            '✓ Botão Create clicado.'
+        )
 
         // ========================================================
-        // 17. AGUARDAR PROCESSAMENTO
+        // 17. AGUARDAR APLICAÇÃO
         // ========================================================
 
         await driver.pause(1500)
 
         console.log('')
-        console.log('==============================================')
-        console.log('✅ CADASTRO ENVIADO')
-        console.log('==============================================')
+        console.log('================================================')
+        console.log('✅ FLUXO DE CADASTRO FINALIZADO')
+        console.log('================================================')
         console.log('')
     }
 }
