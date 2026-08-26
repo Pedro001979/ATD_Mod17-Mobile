@@ -49,6 +49,9 @@ class LoginPage {
         // Clica no botão de Login
         await this.loginButton.waitForDisplayed({ timeout: 15000 })
         await this.loginButton.click()
+
+        await this.btnProfile.waitForDisplayed({ timeout: 15000 })
+        await this.btnProfile.click()
     }
 }
 
