@@ -7,7 +7,7 @@ export const config = {
     path: '/',
 
     specs: [
-        './test/specs/Login.test.js',
+        'wdio run ./wdio.conf.js',
     ],
 
     capabilities: [{
