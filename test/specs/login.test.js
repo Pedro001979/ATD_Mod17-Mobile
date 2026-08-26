@@ -1,14 +1,23 @@
 import { expect, driver } from '@wdio/globals'
-import loginPage from '../test/pageobjects/login.page.js'
+import LoginPage from '../pageobjects/login.page.js'
 
-describe('My Login application', () => {
-
+describe('Login functionality', () => {
     it('should login with valid credentials', async () => {
-
-        await loginPage.login(
+        await LoginPage.login(
             'cliente@ebac.art.br',
             'GD*peToHNJ1#c$sgk08EaYJQ'
         );
+    });
+});
 
-    })
-})
+// describe('My Login application', () => {
+
+//     it('should login with valid credentials', async () => {
+
+//         await LoginPage.login(
+//             'cliente@ebac.art.br',
+//             'GD*peToHNJ1#c$sgk08EaYJQ'
+//         );
+
+//     })
+// })
