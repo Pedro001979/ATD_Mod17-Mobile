@@ -39,34 +39,24 @@ export const config = {
         'appium:appPackage': 'br.com.lojaebac',
         'appium:appActivity': '.MainActivity',
 
-        // Permissões
         'appium:autoGrantPermissions': true,
-
-        // Estado do aplicativo
         'appium:noReset': false,
 
         // ========================================================
-        // TIMEOUTS APPIUM / ANDROID
+        // TIMEOUTS APPIUM
         // ========================================================
 
         'appium:adbExecTimeout': 180000,
-
         'appium:androidInstallTimeout': 300000,
-
         'appium:uiautomator2ServerInstallTimeout': 180000,
-
         'appium:uiautomator2ServerLaunchTimeout': 180000,
     }],
 
     // ============================================================
-    // LOGS
+    // WDIO
     // ============================================================
 
     logLevel: 'info',
-
-    // ============================================================
-    // TIMEOUTS WDIO
-    // ============================================================
 
     waitforTimeout: 30000,
 
@@ -75,14 +65,10 @@ export const config = {
     connectionRetryCount: 2,
 
     // ============================================================
-    // FRAMEWORK
+    // MOCHA
     // ============================================================
 
     framework: 'mocha',
-
-    // ============================================================
-    // MOCHA
-    // ============================================================
 
     mochaOpts: {
         ui: 'bdd',
@@ -102,8 +88,6 @@ export const config = {
                 outputDir: './allure-results',
 
                 disableWebdriverStepsReporting: false,
-
-                disableWebdriverScreenshotsReporting: false,
 
                 disableWebdriverScreenshotsReporting: false,
             },
