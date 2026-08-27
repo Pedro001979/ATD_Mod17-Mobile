@@ -13,11 +13,20 @@ permissions:
 jobs:
   mobile:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
 
     steps:
+
+      # ============================================================
+      # CHECKOUT
+      # ============================================================
+
       - name: Checkout
         uses: actions/checkout@v4
+
+      # ============================================================
+      # NODE
+      # ============================================================
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
@@ -25,31 +34,54 @@ jobs:
           node-version: '20'
           cache: npm
 
+      # ============================================================
+      # DEPENDÊNCIAS
+      # ============================================================
+
       - name: Instalar dependências
         run: npm ci
+
+      # ============================================================
+      # DIAGNÓSTICO DO PROJETO
+      # ============================================================
 
       - name: Verificar estrutura dos testes
         shell: bash
         run: |
+          set -e
+
           echo "========================================"
-          echo "TESTES ENCONTRADOS"
+          echo "ESTRUTURA DOS TESTES"
           echo "========================================"
 
-          find . -type f \
+          find ./test -type f \
             \( -name "*.test.js" -o -name "*.spec.js" \) \
             -print
+
+          echo ""
+          echo "========================================"
+          echo "PACKAGE.JSON"
+          echo "========================================"
+
+          node -e "const p=require('./package.json'); console.log(JSON.stringify({scripts:p.scripts,dependencies:p.dependencies,devDependencies:p.devDependencies},null,2))"
+
+      # ============================================================
+      # TESTE DE CADASTRO
+      # ============================================================
 
       - name: Verificar teste de cadastro
         shell: bash
         run: |
-          if [ ! -f "./test/specs/Cadastro.test.js" ]; then
-            echo "========================================"
-            echo "ERRO: TESTE NÃO ENCONTRADO"
-            echo "========================================"
-            echo "Procurado: ./test/specs/Cadastro.test.js"
-            echo ""
-            echo "Testes disponíveis:"
+          set -e
 
+          echo "========================================"
+          echo "VERIFICANDO CADASTRO.TEST.JS"
+          echo "========================================"
+
+          if [ ! -f "./test/specs/Cadastro.test.js" ]; then
+            echo "ERRO: ./test/specs/Cadastro.test.js não encontrado."
+            echo ""
+            echo "Arquivos encontrados:"
             find ./test -type f \
               \( -name "*.test.js" -o -name "*.spec.js" \) \
               -print
@@ -57,51 +89,78 @@ jobs:
             exit 1
           fi
 
-          echo "Teste de cadastro encontrado com sucesso!"
+          echo "Cadastro.test.js encontrado!"
+
+      # ============================================================
+      # PAGE OBJECTS
+      # ============================================================
 
       - name: Verificar Page Objects
         shell: bash
         run: |
+          set -e
+
           echo "========================================"
           echo "PAGE OBJECTS"
           echo "========================================"
 
           if [ ! -d "./test/pageobjects" ]; then
-            echo "ERRO: pasta test/pageobjects não encontrada!"
+            echo "ERRO: ./test/pageobjects não existe."
             exit 1
           fi
 
-          find ./test/pageobjects -maxdepth 1 -type f -print
+          find ./test/pageobjects -maxdepth 2 -type f -print
+
+      # ============================================================
+      # APK
+      # ============================================================
 
       - name: Verificar APK
         shell: bash
         run: |
+          set -e
+
           echo "========================================"
           echo "VERIFICANDO APK"
           echo "========================================"
 
           if [ ! -f "./apps/ebacshop.apk" ]; then
-            echo "ERRO: APK não encontrado!"
+            echo "ERRO: ./apps/ebacshop.apk não encontrado."
             exit 1
           fi
 
           echo "APK encontrado:"
           ls -lh ./apps/ebacshop.apk
+
+          echo ""
+          echo "Tipo do arquivo:"
           file ./apps/ebacshop.apk
+
+          echo ""
+          echo "SHA256:"
+          sha256sum ./apps/ebacshop.apk
+
+      # ============================================================
+      # KVM
+      # ============================================================
 
       - name: Habilitar KVM
         shell: bash
         run: |
+          set -e
+
           echo "========================================"
           echo "CONFIGURANDO KVM"
           echo "========================================"
 
           if [ ! -e /dev/kvm ]; then
-            echo "ERRO: /dev/kvm não existe neste runner."
+            echo "ERRO: /dev/kvm não existe."
             exit 1
           fi
 
           sudo chmod 666 /dev/kvm
+
+          ls -l /dev/kvm
 
           if [ -r /dev/kvm ] && [ -w /dev/kvm ]; then
             echo "KVM DISPONÍVEL!"
@@ -110,6 +169,10 @@ jobs:
             exit 1
           fi
 
+      # ============================================================
+      # ANDROID + APPIUM + WDIO
+      # ============================================================
+
       - name: Executar testes Mobile
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -117,6 +180,7 @@ jobs:
           target: default
           arch: x86_64
           profile: pixel_2
+
           force-avd-creation: true
 
           emulator-options: >-
@@ -128,10 +192,12 @@ jobs:
             -gpu swiftshader_indirect
 
           disable-animations: true
+
           cores: 4
           ram-size: 4096M
           heap-size: 1024M
           disk-size: 4096M
+
           emulator-boot-timeout: 600
 
           script: |
@@ -142,47 +208,100 @@ jobs:
             echo "========================================"
 
             adb wait-for-device
+
+            echo ""
+            echo "ADB DEVICES:"
             adb devices
 
-            echo "Android:"
+            echo ""
+            echo "ANDROID:"
             adb shell getprop ro.build.version.release
 
+            echo ""
             echo "API:"
             adb shell getprop ro.build.version.sdk
 
-            echo "Boot:"
+            echo ""
+            echo "BOOT:"
             adb shell getprop sys.boot_completed
 
+            echo ""
+            echo "========================================"
+            echo "ESPERANDO ANDROID FICAR TOTALMENTE PRONTO"
+            echo "========================================"
+
+            for i in {1..30}; do
+              BOOT_STATUS=$(adb shell getprop sys.boot_completed | tr -d '\r')
+
+              if [ "$BOOT_STATUS" = "1" ]; then
+                echo "Android totalmente iniciado!"
+                break
+              fi
+
+              echo "Tentativa $i/30 - boot_completed=$BOOT_STATUS"
+              sleep 2
+            done
+
+            if [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" != "1" ]; then
+              echo "ERRO: Android não terminou o boot."
+              exit 1
+            fi
+
+            echo ""
             echo "========================================"
             echo "INICIANDO APPIUM"
             echo "========================================"
 
-            npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
+            rm -f appium.log
+
+            npx appium \
+              --address 127.0.0.1 \
+              --port 4723 \
+              > appium.log 2>&1 &
+
             APPIUM_PID=$!
 
-            echo "Appium PID: ${APPIUM_PID}"
+            echo "Appium PID: $APPIUM_PID"
 
-            echo "Aguardando Appium ficar disponível..."
+            echo ""
+            echo "Aguardando Appium..."
+
+            APPIUM_READY=false
 
             for i in {1..30}; do
+
               if curl -sf http://127.0.0.1:4723/status > /dev/null; then
+                APPIUM_READY=true
                 echo "Appium está pronto!"
                 break
               fi
 
-              if ! kill -0 "${APPIUM_PID}" 2>/dev/null; then
-                echo "ERRO: Appium encerrou antes de ficar disponível."
+              if ! kill -0 "$APPIUM_PID" 2>/dev/null; then
+                echo ""
+                echo "ERRO: Appium encerrou inesperadamente."
+                echo ""
+                echo "LOG DO APPIUM:"
                 cat appium.log || true
                 exit 1
               fi
 
-              echo "Tentativa ${i}/30..."
+              echo "Tentativa $i/30..."
               sleep 2
+
             done
+
+            if [ "$APPIUM_READY" != "true" ]; then
+              echo ""
+              echo "ERRO: Appium não ficou disponível."
+              echo ""
+              echo "LOG DO APPIUM:"
+              cat appium.log || true
+              exit 1
+            fi
 
             echo ""
             echo "========================================"
-            echo "VERIFICANDO APPIUM"
+            echo "STATUS DO APPIUM"
             echo "========================================"
 
             curl --fail http://127.0.0.1:4723/status
@@ -194,18 +313,64 @@ jobs:
 
             echo ""
             echo "========================================"
+            echo "INSTALANDO APK"
+            echo "========================================"
+
+            adb install -r "./apps/ebacshop.apk" || true
+
+            echo ""
+            echo "PACOTE:"
+            adb shell pm list packages | grep "br.com.lojaebac" || true
+
+            echo ""
+            echo "========================================"
             echo "EXECUTANDO WDIO"
             echo "========================================"
 
             npm test
 
-      - name: Upload do log do Appium
+      # ============================================================
+      # LOG APPIUM
+      # ============================================================
+
+      - name: Upload log do Appium
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: appium-log
           path: appium.log
           if-no-files-found: ignore
+          retention-days: 7
+
+      # ============================================================
+      # RESULTADOS ALLURE
+      # ============================================================
+
+      - name: Verificar resultados Allure
+        if: always()
+        shell: bash
+        run: |
+          echo "========================================"
+          echo "VERIFICANDO ALLURE RESULTS"
+          echo "========================================"
+
+          if [ -d "./allure-results" ]; then
+            echo "Pasta allure-results encontrada."
+
+            echo ""
+            echo "Arquivos:"
+            find ./allure-results -type f -maxdepth 2 -print || true
+
+            echo ""
+            echo "Quantidade:"
+            find ./allure-results -type f | wc -l
+          else
+            echo "AVISO: pasta allure-results não existe."
+          fi
+
+      # ============================================================
+      # GERAR ALLURE
+      # ============================================================
 
       - name: Generate Allure Report
         if: always()
@@ -218,41 +383,75 @@ jobs:
           rm -rf ./allure-report
           mkdir -p ./allure-report
 
-          if [ -d "./allure-results" ] && find ./allure-results -type f -print -quit | grep -q .; then
-            echo "allure-results encontrado."
+          if [ -d "./allure-results" ] && \
+             find "./allure-results" -type f -print -quit | grep -q .; then
 
-            npx allure generate ./allure-results \
+            echo "Resultados Allure encontrados."
+
+            npx allure generate \
+              ./allure-results \
               --clean \
               -o ./allure-report
 
+            echo ""
             echo "========================================"
-            echo "ALLURE REPORT GERADO"
+            echo "ALLURE GERADO COM SUCESSO"
             echo "========================================"
 
-            test -f ./allure-report/index.html
-            ls -lah ./allure-report
+            if [ ! -f "./allure-report/index.html" ]; then
+              echo "ERRO: index.html não foi criado."
+              exit 1
+            fi
+
+            echo ""
+            echo "Arquivos do relatório:"
+            find ./allure-report -maxdepth 2 -type f | head -100
+
           else
-            echo "AVISO: nenhum resultado Allure foi encontrado."
-            echo "Criando página informativa para evitar deploy inválido."
 
-            printf '%s\n' \
-              '<!DOCTYPE html>' \
-              '<html lang="pt-BR">' \
-              '<head>' \
-              '<meta charset="UTF-8">' \
-              '<meta name="viewport" content="width=device-width, initial-scale=1.0">' \
-              '<title>Allure Report</title>' \
-              '</head>' \
-              '<body>' \
-              '<h1>Allure Report</h1>' \
-              '<p>Nenhum resultado Allure foi gerado nesta execução.</p>' \
-              '</body>' \
-              '</html>' \
-              > ./allure-report/index.html
+            echo "AVISO: nenhum resultado Allure encontrado."
 
-            test -f ./allure-report/index.html
-            ls -lah ./allure-report
+            echo "Criando relatório informativo."
+
+           cat > ./allure-report/index.html <<'HTML'
+          <!DOCTYPE html>
+          <html lang="pt-BR">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>EBAC Mobile - Allure Report</title>
+          </head>
+          <body>
+            <h1>EBAC Mobile - Allure Report</h1>
+            <p>Nenhum resultado Allure foi gerado nesta execução.</p>
+          </body>
+          </html>
+          HTML
+
+          if [ ! -f "./allure-report/index.html" ]; then
+            echo "ERRO: não foi possível criar index.html."
+            exit 1
           fi
+
+          fi
+
+      # ============================================================
+      # UPLOAD DO ALLURE COMO ARTIFACT
+      # ============================================================
+
+      - name: Upload Allure Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: ./allure-report
+          if-no-files-found: error
+          retention-days: 7
+
+      # ============================================================
+      # DEPLOY GITHUB PAGES
+      # SOMENTE SE TODO O JOB ESTIVER OK
+      # ============================================================
 
       - name: Deploy to GitHub Pages
         if: success() && github.ref == 'refs/heads/main'
