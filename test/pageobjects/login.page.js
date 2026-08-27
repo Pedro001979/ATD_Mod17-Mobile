@@ -48,10 +48,10 @@ class LoginPage {
         await this.esconderTeclado()
 
         // Clica no botão de Login
-        await this.loginButton.waitForDisplayed()
+        await this.loginButton.waitForDisplayed({timeout: 5000})
         await this.loginButton.click()
 
-        await this.btnProfile.waitForDisplayed()
+        await this.btnProfile.waitForDisplayed({timeout: 5000})
         await this.btnProfile.click()
 
     }
