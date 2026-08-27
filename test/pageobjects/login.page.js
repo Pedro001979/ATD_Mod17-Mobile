@@ -3,16 +3,16 @@ import { $, driver } from '@wdio/globals'
 class LoginPage {
 
     get btnProfile() {
-        return $('~Profile')
+        return $('~, Profile')
     }
 
     // 1. Mapeamento dos elementos usando UiSelector pelo resourceId
     get email() {
-        return $('id=email')
+        return $('//android.widget.EditText[@resource-id="email"]')
     }
 
     get password() {
-        return $('id=password')
+        return $('//android.widget.EditText[@resource-id="password"]')
     }
 
     get loginButton() {
