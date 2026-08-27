@@ -3,20 +3,20 @@ import { $, driver } from '@wdio/globals'
 class LoginPage {
 
     get btnProfile() {
-        return $('//android.widget.TextView[@resource-id="tab-profile"]')
+        return $('~Profile')
     }
 
     // 1. Mapeamento dos elementos usando UiSelector pelo resourceId
     get email() {
-        return $('android=new UiSelector().resourceId("email")')
+        return $('id=email')
     }
 
     get password() {
-        return $('android=new UiSelector().resourceId("password")')
+        return $('id=password')
     }
 
     get loginButton() {
-        return $('android=new UiSelector().text("Login")')
+        return $('~Login')
     }
 
     // 2. Método auxiliar para fechar teclado de forma segura
