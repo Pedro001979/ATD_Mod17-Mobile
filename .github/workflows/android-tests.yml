@@ -5,14 +5,18 @@ on:
     branches:
       - ci
       - main
+
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
+
   mobile:
+
     runs-on: ubuntu-latest
+
     timeout-minutes: 35
 
     steps:
@@ -24,8 +28,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+
       # ============================================================
-      # NODE.JS
+      # NODE
       # ============================================================
 
       - name: Configurar Node.js
@@ -34,6 +39,7 @@ jobs:
           node-version: '20'
           cache: npm
 
+
       # ============================================================
       # DEPENDÊNCIAS
       # ============================================================
@@ -41,35 +47,56 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+
       # ============================================================
       # DIAGNÓSTICO
       # ============================================================
 
-      - name: Verificar estrutura do projeto
+      - name: Verificar projeto
         shell: bash
         run: |
+
           set -e
 
           echo "========================================"
-          echo "ESTRUTURA DO PROJETO"
+          echo "PROJETO"
           echo "========================================"
 
           echo ""
-          echo "TESTES:"
+          echo "Node:"
+          node --version
+
+          echo ""
+          echo "NPM:"
+          npm --version
+
+          echo ""
+          echo "Testes:"
 
           find ./test -type f \
             \( -name "*.test.js" -o -name "*.spec.js" \) \
             -print
 
           echo ""
-          echo "PAGE OBJECTS:"
+          echo "Page Objects:"
 
-          find ./test/pageobjects -type f -maxdepth 2 -print
+          find ./test/pageobjects \
+            -maxdepth 2 \
+            -type f \
+            -print
 
           echo ""
-          echo "PACKAGE.JSON:"
+          echo "APK:"
 
-          node -e "const p=require('./package.json'); console.log(JSON.stringify(p.scripts,null,2))"
+          ls -lh ./apps/ebacshop.apk
+
+          file ./apps/ebacshop.apk
+
+          echo ""
+          echo "Package.json:"
+
+          node -e "console.log(require('./package.json').scripts)"
+
 
       # ============================================================
       # VALIDAR CADASTRO
@@ -78,38 +105,27 @@ jobs:
       - name: Validar Cadastro.test.js
         shell: bash
         run: |
+
           set -e
 
           echo "========================================"
           echo "VALIDANDO CADASTRO"
           echo "========================================"
 
-          test -f "./test/specs/Cadastro.test.js"
+          if [ ! -f "./test/specs/Cadastro.test.js" ]; then
+
+            echo "ERRO: Cadastro.test.js não encontrado."
+
+            find ./test \
+              -type f \
+              -print
+
+            exit 1
+
+          fi
 
           echo "Cadastro.test.js encontrado."
 
-      # ============================================================
-      # VALIDAR APK
-      # ============================================================
-
-      - name: Validar APK
-        shell: bash
-        run: |
-          set -e
-
-          echo "========================================"
-          echo "VALIDANDO APK"
-          echo "========================================"
-
-          test -f "./apps/ebacshop.apk"
-
-          ls -lh "./apps/ebacshop.apk"
-
-          file "./apps/ebacshop.apk"
-
-          echo ""
-          echo "SHA256:"
-          sha256sum "./apps/ebacshop.apk"
 
       # ============================================================
       # KVM
@@ -118,35 +134,214 @@ jobs:
       - name: Configurar KVM
         shell: bash
         run: |
+
           set -e
 
           echo "========================================"
-          echo "CONFIGURANDO KVM"
+          echo "KVM"
           echo "========================================"
 
-          test -e /dev/kvm
+          if [ ! -e /dev/kvm ]; then
+
+            echo "ERRO: /dev/kvm não existe."
+
+            exit 1
+
+          fi
 
           sudo chmod 666 /dev/kvm
 
           ls -l /dev/kvm
 
-          if [ -r /dev/kvm ] && [ -w /dev/kvm ]; then
-            echo "KVM DISPONÍVEL!"
-          else
-            echo "ERRO: KVM não está acessível."
+          echo "KVM OK."
+
+
+      # ============================================================
+      # CRIAR SCRIPT MOBILE
+      # ============================================================
+
+      - name: Criar script de testes Mobile
+        shell: bash
+        run: |
+
+          set -e
+
+          cat > ./run-mobile-tests.sh <<'BASH'
+
+          #!/usr/bin/env bash
+
+          set -Eeuo pipefail
+
+          echo "========================================"
+          echo "ANDROID"
+          echo "========================================"
+
+          adb devices
+
+          echo ""
+
+          echo "Android:"
+          adb shell getprop ro.build.version.release
+
+          echo ""
+
+          echo "API:"
+          adb shell getprop ro.build.version.sdk
+
+          echo ""
+
+          echo "Boot:"
+          adb shell getprop sys.boot_completed
+
+
+          # ========================================================
+          # APPIUM
+          # ========================================================
+
+          echo ""
+          echo "========================================"
+          echo "INICIANDO APPIUM"
+          echo "========================================"
+
+          rm -f appium.log
+
+          npx appium \
+            --address 127.0.0.1 \
+            --port 4723 \
+            > appium.log 2>&1 &
+
+          APPIUM_PID=$!
+
+          echo "Appium PID: ${APPIUM_PID}"
+
+
+          # ========================================================
+          # ESPERAR APPIUM
+          # ========================================================
+
+          echo ""
+          echo "Aguardando Appium..."
+
+          COUNT=0
+
+          while [ "$COUNT" -lt 30 ]; do
+
+            if curl -sf \
+              http://127.0.0.1:4723/status \
+              > /dev/null 2>&1
+            then
+
+              echo "Appium está pronto!"
+
+              break
+
+            fi
+
+            if ! kill -0 "$APPIUM_PID" 2>/dev/null
+            then
+
+              echo ""
+              echo "ERRO: Appium encerrou."
+
+              echo ""
+              echo "LOG DO APPIUM:"
+
+              cat appium.log || true
+
+              exit 1
+
+            fi
+
+            COUNT=$((COUNT + 1))
+
+            echo "Tentativa ${COUNT}/30..."
+
+            sleep 2
+
+          done
+
+
+          # ========================================================
+          # VALIDAR APPIUM
+          # ========================================================
+
+          if ! curl -sf \
+            http://127.0.0.1:4723/status \
+            > /dev/null 2>&1
+          then
+
+            echo ""
+            echo "ERRO: Appium não ficou disponível."
+
+            echo ""
+            echo "LOG DO APPIUM:"
+
+            cat appium.log || true
+
             exit 1
+
           fi
 
+
+          echo ""
+          echo "========================================"
+          echo "APPIUM OK"
+          echo "========================================"
+
+          curl --fail \
+            http://127.0.0.1:4723/status
+
+
+          # ========================================================
+          # VERIFICAR PACOTE
+          # ========================================================
+
+          echo ""
+          echo "========================================"
+          echo "APLICATIVO"
+          echo "========================================"
+
+          adb shell pm list packages |
+            grep "br.com.lojaebac" ||
+            true
+
+
+          # ========================================================
+          # WDIO
+          # ========================================================
+
+          echo ""
+          echo "========================================"
+          echo "EXECUTANDO WDIO"
+          echo "========================================"
+
+          npm test
+
+          BASH
+
+          chmod +x ./run-mobile-tests.sh
+
+          echo ""
+          echo "Script criado."
+
+          ls -lh ./run-mobile-tests.sh
+
+
       # ============================================================
-      # ANDROID EMULATOR + APPIUM + TESTES
+      # EMULADOR
       # ============================================================
 
-      - name: Executar testes Mobile
+      - name: Android Emulator + Testes
         uses: reactivecircus/android-emulator-runner@v2
+
         with:
+
           api-level: 29
+
           target: default
+
           arch: x86_64
+
           profile: pixel_2
 
           force-avd-creation: true
@@ -162,185 +357,117 @@ jobs:
           disable-animations: true
 
           cores: 4
+
           ram-size: 4096M
+
           heap-size: 1024M
+
           disk-size: 4096M
 
           emulator-boot-timeout: 600
 
-          script: |
-            echo "========================================"
-            echo "ANDROID INICIADO"
-            echo "========================================"
+          script: bash ./run-mobile-tests.sh
 
-            echo ""
-            echo "DISPOSITIVOS ADB:"
-            adb devices
-
-            echo ""
-            echo "ANDROID:"
-            adb shell getprop ro.build.version.release
-
-            echo ""
-            echo "API:"
-            adb shell getprop ro.build.version.sdk
-
-            echo ""
-            echo "BOOT:"
-            adb shell getprop sys.boot_completed
-
-            echo ""
-            echo "========================================"
-            echo "INICIANDO APPIUM"
-            echo "========================================"
-
-            rm -f appium.log
-
-            npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
-
-            APPIUM_PID=$!
-
-            echo "Appium PID: $APPIUM_PID"
-
-            echo ""
-            echo "Aguardando Appium..."
-
-            APPIUM_READY="false"
-            COUNT=0
-
-            while [ "$COUNT" -lt 30 ]; do
-
-              if curl -sf http://127.0.0.1:4723/status > /dev/null; then
-                APPIUM_READY="true"
-                echo "Appium está pronto!"
-                break
-              fi
-
-              if ! kill -0 "$APPIUM_PID" 2>/dev/null; then
-                echo ""
-                echo "ERRO: Appium encerrou."
-                echo ""
-                echo "LOG DO APPIUM:"
-                cat appium.log || true
-                exit 1
-              fi
-
-              COUNT=$((COUNT + 1))
-
-              echo "Tentativa $COUNT/30..."
-
-              sleep 2
-
-            done
-
-            if [ "$APPIUM_READY" != "true" ]; then
-              echo ""
-              echo "ERRO: Appium não ficou disponível."
-              echo ""
-              echo "LOG DO APPIUM:"
-              cat appium.log || true
-              exit 1
-            fi
-
-            echo ""
-            echo "========================================"
-            echo "APPIUM STATUS"
-            echo "========================================"
-
-            curl --fail http://127.0.0.1:4723/status
-
-            echo ""
-            echo "========================================"
-            echo "APPIUM OK"
-            echo "========================================"
-
-            echo ""
-            echo "========================================"
-            echo "VERIFICANDO APLICATIVO"
-            echo "========================================"
-
-            adb shell pm list packages | grep "br.com.lojaebac" || true
-
-            echo ""
-            echo "========================================"
-            echo "EXECUTANDO WDIO"
-            echo "========================================"
-
-            npm test
 
       # ============================================================
-      # LOG DO APPIUM
+      # APPIUM LOG
       # ============================================================
 
       - name: Upload log do Appium
+
         if: always()
+
         uses: actions/upload-artifact@v4
+
         with:
+
           name: appium-log
+
           path: appium.log
+
           if-no-files-found: ignore
+
           retention-days: 7
 
+
       # ============================================================
-      # RESULTADOS ALLURE
+      # ALLURE RESULTS
       # ============================================================
 
       - name: Verificar Allure Results
+
         if: always()
+
         shell: bash
+
         run: |
+
           echo "========================================"
           echo "ALLURE RESULTS"
           echo "========================================"
 
           if [ -d "./allure-results" ]; then
-            echo "Pasta encontrada."
+
+            echo "Allure Results encontrado."
 
             find ./allure-results \
-              -maxdepth 2 \
               -type f \
               -print
 
           else
-            echo "Nenhum allure-results encontrado."
+
+            echo "Nenhum Allure Results encontrado."
+
           fi
 
+
       # ============================================================
-      # GERAR ALLURE
+      # ALLURE REPORT
       # ============================================================
 
       - name: Generate Allure Report
+
         if: always()
+
         shell: bash
+
         run: |
+
           echo "========================================"
-          echo "GERANDO ALLURE REPORT"
+          echo "ALLURE REPORT"
           echo "========================================"
 
           rm -rf ./allure-report
+
           mkdir -p ./allure-report
 
-          if [ -d "./allure-results" ] && \
-             find "./allure-results" -type f -print -quit | grep -q .; then
 
-            echo "Resultados encontrados."
+          if [ -d "./allure-results" ] && \
+             find ./allure-results \
+               -type f \
+               -print -quit |
+             grep -q .
+          then
+
+            echo "Gerando relatório Allure..."
 
             npx allure generate \
               ./allure-results \
               --clean \
               -o ./allure-report
 
-            if [ ! -f "./allure-report/index.html" ]; then
-              echo "ERRO: Allure não gerou index.html."
-              exit 1
-            fi
 
-            echo ""
-            echo "Allure gerado com sucesso."
+            if [ ! -f "./allure-report/index.html" ]; then
+
+              echo "ERRO: index.html não foi gerado."
+
+              exit 1
+
+            fi
 
           else
 
-            echo "Nenhum resultado Allure encontrado."
+            echo "Nenhum resultado Allure."
 
             printf '%s\n' \
               '<!DOCTYPE html>' \
@@ -359,33 +486,53 @@ jobs:
 
           fi
 
-          echo ""
-          echo "ARQUIVOS DO ALLURE:"
 
-          find ./allure-report -maxdepth 2 -type f -print
+          echo ""
+          echo "Relatório pronto."
+
+          find ./allure-report \
+            -maxdepth 2 \
+            -type f \
+            -print
+
 
       # ============================================================
-      # UPLOAD ALLURE
+      # ARTIFACT ALLURE
       # ============================================================
 
       - name: Upload Allure Report
+
         if: always()
+
         uses: actions/upload-artifact@v4
+
         with:
+
           name: allure-report
+
           path: ./allure-report
+
           if-no-files-found: error
+
           retention-days: 7
+
 
       # ============================================================
       # GITHUB PAGES
       # ============================================================
 
       - name: Deploy to GitHub Pages
+
         if: success() && github.ref == 'refs/heads/main'
+
         uses: peaceiris/actions-gh-pages@v3
+
         with:
+
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
           publish_dir: ./allure-report
+
           publish_branch: gh-pages
+
           force_orphan: true
