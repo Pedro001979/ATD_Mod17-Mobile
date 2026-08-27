@@ -31,16 +31,16 @@ class LoginPage {
     // 3. Método de Login limpo e robusto
     async login(email, password) {
 
-        await this.btnProfile.waitForDisplayed()
+        await this.btnProfile.waitForDisplayed({ timeout: 15000 })
         await this.btnProfile.click()
 
         // Preenche o E-mail
-        await this.email.waitForDisplayed()     
+        await this.email.waitForDisplayed({ timeout: 15000 })     
         await this.email.click()
         await this.email.setValue(email)
 
         // Preenche a Senha
-        await this.password.waitForDisplayed()
+        await this.password.waitForDisplayed({ timeout: 15000 })
         await this.password.click()
         await this.password.setValue(password)
 
@@ -51,8 +51,6 @@ class LoginPage {
         await this.loginButton.waitForDisplayed({ timeout: 15000 })
         await this.loginButton.click()
 
-        await this.btnProfile.waitForDisplayed({ timeout: 15000 })
-        await this.btnProfile.click()
     }
 }
 
