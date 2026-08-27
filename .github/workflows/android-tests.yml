@@ -7,9 +7,6 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   mobile:
     runs-on: ubuntu-latest
@@ -34,11 +31,9 @@ jobs:
           echo "========================================"
           echo "TESTES ENCONTRADOS"
           echo "========================================"
-
           find . -type f \
             \( -name "*.test.js" -o -name "*.spec.js" \) \
             -print
-
       - name: Verificar teste de cadastro
         shell: bash
         run: |
@@ -46,78 +41,60 @@ jobs:
             echo "========================================"
             echo "ERRO: TESTE NÃO ENCONTRADO"
             echo "========================================"
-
             echo "Procurado:"
             echo "./test/specs/Cadastro.test.js"
-
             echo ""
             echo "Testes disponíveis:"
-
             find . -type f \
               \( -name "*.test.js" -o -name "*.spec.js" \) \
               -print
-
             exit 1
           fi
-
           echo "Teste encontrado com sucesso!"
-
       - name: Verificar Page Objects
         shell: bash
         run: |
           echo "========================================"
           echo "PAGE OBJECTS"
           echo "========================================"
-
           if [ ! -d "./test/pageobjects" ]; then
             echo "ERRO: pasta test/pageobjects não encontrada!"
             exit 1
           fi
-
           find ./test/pageobjects -maxdepth 1 -type f -print
-
       - name: Verificar APK
         shell: bash
         run: |
           echo "========================================"
           echo "VERIFICANDO APK"
           echo "========================================"
-
           if [ ! -f "./apps/ebacshop.apk" ]; then
             echo "ERRO: APK não encontrado!"
             exit 1
           fi
-
           echo "APK encontrado:"
           ls -lh ./apps/ebacshop.apk
-
       - name: Habilitar KVM
         shell: bash
         run: |
           echo "========================================"
           echo "CONFIGURANDO KVM"
           echo "========================================"
-
           if [ ! -e /dev/kvm ]; then
             echo "ERRO: /dev/kvm não existe neste runner."
             exit 1
           fi
-
           echo "Antes:"
           ls -l /dev/kvm
-
           sudo chmod 666 /dev/kvm
-
           echo "Depois:"
           ls -l /dev/kvm
-
           if [ -r /dev/kvm ] && [ -w /dev/kvm ]; then
             echo "KVM DISPONÍVEL!"
           else
             echo "ERRO: KVM não está acessível."
             exit 1
           fi
-
       - name: Executar testes Mobile
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -135,7 +112,6 @@ jobs:
             -no-snapshot
             -no-metrics
             -gpu swiftshader_indirect
-
           disable-animations: true
 
           cores: 4
@@ -149,52 +125,38 @@ jobs:
             echo "========================================"
             echo "ANDROID"
             echo "========================================"
-
             adb wait-for-device
             adb devices
-
             echo ""
             echo "Android:"
             adb shell getprop ro.build.version.release
-
             echo ""
             echo "API:"
             adb shell getprop ro.build.version.sdk
-
             echo ""
             echo "Boot:"
             adb shell getprop sys.boot_completed
-
             echo ""
             echo "========================================"
             echo "INICIANDO APPIUM"
             echo "========================================"
-
             npx appium --address 127.0.0.1 --port 4723 > appium.log 2>&1 &
-
             echo "Appium iniciado."
-
             sleep 10
-
             echo ""
             echo "========================================"
             echo "VERIFICANDO APPIUM"
             echo "========================================"
-
             curl --fail http://127.0.0.1:4723/status
-
             echo ""
             echo "========================================"
             echo "APPIUM OK"
             echo "========================================"
-
             echo ""
             echo "========================================"
             echo "EXECUTANDO WDIO"
             echo "========================================"
-
             npm test
-
       - name: Upload do log do Appium
         if: always()
         uses: actions/upload-artifact@v4
@@ -202,55 +164,3 @@ jobs:
           name: appium-log
           path: appium.log
           if-no-files-found: ignore
-
-      # ============================================================
-      # ALLURE / GITHUB PAGES
-      # ============================================================
-
-      - name: Generate Allure Report
-        if: always()
-        run: |
-          echo "========================================"
-          echo "GERANDO ALLURE REPORT"
-          echo "========================================"
-
-          if [ -d "./allure-results" ]; then
-            echo "allure-results encontrado."
-
-            npx allure generate ./allure-results \
-              --clean \
-              -o ./allure-report
-
-            echo ""
-            echo "========================================"
-            echo "ALLURE REPORT GERADO"
-            echo "========================================"
-
-            ls -lah ./allure-report
-          else
-            echo "AVISO: allure-results não encontrado."
-
-            mkdir -p ./allure-report
-
-            cat > ./allure-report/index.html <<'EOF'
-            <!DOCTYPE html>
-            <html lang="pt-BR">
-            <head>
-            <meta charset="UTF-8">
-            <title>Allure Report</title>
-            </head>
-            <body>
-            <h1>Allure Report</h1>
-            <p>Nenhum resultado Allure foi gerado nesta execução.</p>
-            </body>
-            </html>
-            EOF
-
-            fi
-
-      - name: Deploy to GitHub Pages
-        if: always() && github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-report
