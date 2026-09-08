@@ -1,61 +1,75 @@
-# Mobile Test Automation — EBAC Shop
+# Automação de Testes Mobile — Android
 
 ![WebdriverIO](https://img.shields.io/badge/WebdriverIO-9.x-EA5906?logo=webdriverio&logoColor=white)
 ![Appium](https://img.shields.io/badge/Appium-3.x-662D91?logo=appium&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-UiAutomator2-3DDC84?logo=android&logoColor=white)
 ![Mocha](https://img.shields.io/badge/Mocha-Test%20Runner-8D6748?logo=mocha&logoColor=white)
 
-> Mobile UI automation project built with WebdriverIO, Appium and Android UiAutomator2, focused on validating critical user journeys in the EBAC Shop application.
+## Sobre o projeto
 
-## About
+Projeto de **automação de testes para aplicações Android** utilizando WebdriverIO, Appium e UiAutomator2.
 
-This repository is part of my QA Automation portfolio and demonstrates how to structure and execute automated tests for Android applications using a modern WebdriverIO + Appium stack.
+A suíte foi estruturada para validar jornadas de usuário em ambiente mobile, com separação entre cenários e Page Objects e configuração de execução através do WebdriverIO.
+
+## Cenários e práticas
+
+- Automação de fluxos de usuário em Android
+- Identificação e interação com elementos nativos
+- Page Object Model
+- Separação entre testes e objetos de página
+- Configuração de dispositivo/emulador
+- Execução com Appium + UiAutomator2
+- Geração de relatórios com Allure
+- Estrutura preparada para integração contínua
 
 ## Stack
 
-- **WebdriverIO 9** — automation framework
-- **Appium 3** — mobile automation server
-- **UiAutomator2** — Android automation driver
-- **Mocha** — test framework
-- **Allure** — test reporting
-- **JavaScript / Node.js** — project implementation
+- WebdriverIO 9
+- Appium 3
+- Android UiAutomator2
+- Mocha
+- Allure
+- JavaScript / Node.js
 
-## Key Practices
-
-- Page Object Model for reusable screen interactions
-- Android-specific selectors
-- Explicit separation between test specifications and page objects
-- Local Appium execution
-- Automated reporting with Allure
-- CI-oriented project structure
-
-## Installation
+## Execução
 
 ```bash
 npm install
-```
-
-## Running the tests
-
-Make sure an Android emulator/device is available and Appium is configured, then run:
-
-```bash
 npm test
 ```
 
-The test command executes the WebdriverIO configuration defined in `wdio.conf.js`.
+É necessário disponibilizar um dispositivo Android ou emulador compatível e configurar o ambiente Appium conforme `wdio.conf.js`.
 
-## Project Goal
+## Arquitetura
 
-The goal is to demonstrate practical mobile QA automation skills, including test organization, Android element identification, driver configuration and maintainable automated user flows.
+```text
+Testes
+  │
+  ├── Cenários E2E
+  │
+  ▼
+Page Objects
+  │
+  ▼
+WebdriverIO
+  │
+  ▼
+Appium
+  │
+  ▼
+UiAutomator2
+  │
+  ▼
+Android
+```
 
-## Author
+## Competências demonstradas
+
+Este projeto reforça minha experiência em **QA Automation para Mobile**, principalmente em arquitetura de testes, automação de interfaces nativas, configuração de drivers e organização de suítes sustentáveis.
+
+## Autor
 
 **Pedro Ricardo**  
-QA Automation | Web | API | Mobile Testing
+QA Automation | Web | API | Mobile | JavaScript
 
-[![GitHub](https://img.shields.io/badge/GitHub-Pedro001979-181717?logo=github)](https://github.com/Pedro001979)
-
----
-
-This project is maintained as part of my software testing portfolio.
+[GitHub](https://github.com/Pedro001979) · [LinkedIn](https://www.linkedin.com/in/pedro-ricardo-6a3b76236/)
